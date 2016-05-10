@@ -46,11 +46,11 @@ def some_check(list1, list2, list3):
 ```
 
 In the particular case of said friend it was even easier. The criterion would just have to be a check that returns `True` if all elements were equal. That's a one-liner in Python. The naive implementation using sets:
-```
+```python
 bool(set(list1).intersection(list2).intersection(list3))
 ```
 Doesn't look pythonic enough? Alright, let's compress it some more:
-```
+```python
 bool(set(list1) & set(list2) & set(list3))
 ```
 
