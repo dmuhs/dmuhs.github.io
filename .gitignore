@@ -1,0 +1,7 @@
+output/
+venv/
+*.pyc
+*.pid
+*.swp
+.sass-cache
+cache/
