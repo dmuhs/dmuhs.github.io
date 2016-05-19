@@ -37,5 +37,8 @@ After the (refreshingly easy) installation I continue to start up the UI with
 ```
 ./anyconnect-3.1.05182/vpn/vpnui
 ```
-and when you try to login you're greeted with the error message: **"AnyConnect Secure Mobility Client Downloader Failed to install AnyConnect VPN Profile because of file move error. A VPN connection cannot be"** - *"A VPN CONNECTION CANNOT BE WHAT??"* - I google'd, duckduckgo'd and even bing'd but there were no solutions in sight. I got fed up and decided that the crappy Linux port is not worth debugging. That's how I ended up with openconnect. To this date I cannot offer any solution to the notorious *file move error* of the Cisco AnyConnect Secure Mobility Client. I can just tell everyone reading this that openconnect is the alternative you should consider.
+and when you try to login you're greeted with the error message
 
+![Dafuq, Cisco?]({filename}/images/anyconnect-error.png)
+
+*"A VPN CONNECTION CANNOT BE WHAT??"* - I google'd, duckduckgo'd and even bing'd but there were no solutions in sight. I got fed up and decided that the crappy Linux port is not worth debugging. That's how I ended up with openconnect. To this date I cannot offer any solution to the notorious *file move error* of the Cisco AnyConnect Secure Mobility Client. I can just tell everyone reading this that openconnect is the alternative you should consider.
