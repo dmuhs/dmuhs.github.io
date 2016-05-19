@@ -21,8 +21,6 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-DISQUS_SITENAME = 'dmuhs'
-
 # Blogroll
 LINKS = (('Github', 'http://github.com/dmuhs'),)
 
