@@ -30,6 +30,8 @@ LINKS = (('Github', 'http://github.com/dmuhs'),)
 
 DEFAULT_PAGINATION = 5
 DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_POST = True
+SINGLE_AUTHOR = True
 THEME = 'chunk'
 
 STATIC_PATHS = ['images', 'extra/CNAME']
