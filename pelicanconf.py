@@ -28,7 +28,7 @@ LINKS = (('Github', 'http://github.com/dmuhs'),)
 # SOCIAL = (('You can add links in your config file', '#'),
 #          ('Another social link', '#'),)
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 5
 DISPLAY_CATEGORIES_ON_MENU = False
 THEME = 'chunk'
 
