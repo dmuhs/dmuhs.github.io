@@ -20,3 +20,7 @@ The next day we headed back to the beach. By that time I already had gained the 
 ![Kayak with friends!]({filename}/images/taboga-kayak.jpg)
 
 All in all Taboga is a really beautiful place to visit and worth every cent. While the ferry (one way, $10), room and kayak (one hour, $10) were quite cheap, the food *can* be quite expensive, depending where you eat. A good tip is to check out the small shops on the street for a quick snack or cold beverages. It's an island that has much more to offer and I will come back for sure to explore some more and relax on the beach (*with plenty of sunscreen*).
+
+
+Baruc, an amazing friend from the trip put together this neat compilation. Thanks for that!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UlRwNBLgqxo" frameborder="0" allowfullscreen></iframe>
