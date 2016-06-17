@@ -1,4 +1,4 @@
-Title: PPP #08 Conquering Volcán Baru
+Title: PPP #08 Conquering Volcán Barú
 Slug: ppp-08-conquering-volcan-baru
 Date: 2016-06-13 22:12:22
 Tags: panama, personal panama papers
