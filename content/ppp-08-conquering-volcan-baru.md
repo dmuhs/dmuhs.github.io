@@ -32,4 +32,6 @@ After *six hours* of hiking, having travelled *13km*, we finally made it to the 
 
 The six hours of hiking down again, were an absolute torture. Arriving in the hostel after 12 hours of pure hiking and more than 26km distance travelled, we all were finished. We did not see a clear sunrise. Also, if the conditions are very well, you can see both the Pacific Ocean and the Caribbean Sea. That did not happen either, however the feeling of success displaces even the smallest doubt that it was not worth it.
 
-<iframe width="1280" height="720" src="https://youtu.be/wvFwTp0Jerc?t=70" frameborder="0" allowfullscreen></iframe>
+Here's another small video with some impressions. Enjoy!
+
+<iframe width="580" height="326" src="https://www.youtube.com/embed/wvFwTp0Jerc?t=70" frameborder="0" allowfullscreen></iframe>
