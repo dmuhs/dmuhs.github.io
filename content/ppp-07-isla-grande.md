@@ -1,4 +1,4 @@
-Title: PPP #06 Isla Grande
+Title: PPP #07 Isla Grande
 Slug: ppp-05-isla-grande
 Date: 2016-06-05 20:02
 Tags: panama, personal panama papers
