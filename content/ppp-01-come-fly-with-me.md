@@ -13,7 +13,7 @@ When I left Dresden yesterday, I threw my last keys to the flat into the mailbox
 
 I woke up at 5:00 in Berlin. The flight leaves at 7:30 from Tegel airport (TXL). Even though there were no strikes in Germany at that time, the plane still was delayed because the French flight controllers were laying down work. Well, I didn't mind. I had a good book: "Coding Freedom" by Gabriella Coleman. It's a really good read on hacker culture and its socio-psychological mechanisms. When I got on the plane I noticed that I completely forgot to eat breakfast because I was so absorbed in the book. With an empty stomach I wished Germany with its ice drizzle and 3°C farewell. and boarded the flight towards Madrid. There I had a 1.5h wait. Of course during the flight I was reading again. Head over the book I left the plane, stayed in the security area for the whole time and boarded the transatlantic flight to Panamá Tocumen airport. Again I forgot to eat. Damn.
 
-![Finally arriving]({filename}/images/panama-flight.gif)
+<img style="display:block; margin-left:auto; margin-right:auto;" src="/images/panama-flight.gif" />
 
 At 15:00 local time (22:00 German time) I arrived in Panama. To at least decrease the effects of jet lag I tried not to sleep for the whole 11h flight. It worked quite well for me. At customs the officer at first did not want to let me into the country. I had to fill out a form about the valuables I was carrying with me. As I did not buy anything and safely hid my million-dollar cash stash in Dresden, I had nothing to fill in. The only piece of information I was not able to give about me was my address in Panamá. My mentor helped me find a flat and all went well, but she did not give me the address in advance. So all I could do was to let the officer know (in my very basic Spanish) that I got an internship at the Universidad Tecnológica de Panamá and that if she needed, I'd report my address to the authorities once I know it. After loads of discussion (and probably some misunderstandings powered by Language Barrier™) she decided to simply write down the university's address, shoot some biometric photos of my face, take **all of my fingerprints** and let me through. What a kind Orwellian first impression!
 
@@ -21,6 +21,6 @@ After getting my luggage I left for the airports main hall. There I saw a smilin
 
 The rest of the day Brigitte showed me parts of the city and gave me some basic orientation. The influence of the US is still visible: There is a great variety of fast food restaurants and you regularly see malls. The inner city is shaped by high-rises with glass façades - mostly owned by banks and insurance companies. Some of them, most notably Trump Tower however, also provide luxury apartments or hotel space. Traffic here is terrible (especially during rush hours) and cannot be compared to Germany. The street system seems to have grown naturally without the influence of strict supervision and planning. But while it is not the most efficient solution, it still works. Kinda.
 
-![I mean, seriously?]({filename}/images/panama-streets.png)
+![I mean, seriously?](/images/panama-streets.png)
 
 I am really looking forward to discovering all the little kinks and quirks of Panamá and its people! Además quería mejorar mi Español aqui.

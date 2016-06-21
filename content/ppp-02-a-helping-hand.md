@@ -13,4 +13,4 @@ Brigitte's mother was very supportive. She prepared really good meals and gave m
 
 So far the weather has been amazing. But rain season is beginning. Yesterday there was a quick rain shower. The others say it wasn't that bad, but I'm sure I've never seen rain this heavy before. The drops were pretty big and when they hit the metal roof of the house in the thousands, it sounded like a battery of drums. Just like the rain sound in Minecraft! With rain like this there's probably no use in buying an umbrella either. If it doesn't break under the force of the rain, the drops hitting the ground will soak you from below.
 
-![Dat rain]({filename}/images/panama-rain.gif)
+<img style="display:block; margin-left:auto; margin-right:auto;" src="/images/panama-rain.gif" />
