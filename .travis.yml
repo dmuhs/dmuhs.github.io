@@ -3,7 +3,7 @@ branches:
   only:
   - source
 install:
-- pip install pelican ghp-import Markdown
+- pip install pelican ghp-import Markdown pillow
 script:
 - make publish github
 env:
