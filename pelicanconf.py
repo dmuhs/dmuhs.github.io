@@ -34,7 +34,15 @@ DISPLAY_CATEGORIES_ON_POST = True
 SINGLE_AUTHOR = True
 THEME = 'chunk'
 
+IMAGE_PATH = 'images/'
+THUMBNAIL_DIR = 'images/'
+THUMBNAIL_SIZES = {
+    'thumb': '580x?'
+}
+
 STATIC_PATHS = ['images', 'extra/CNAME']
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['thumbnailer']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
 
 # Uncomment following line if you want document-relative URLs when developing
