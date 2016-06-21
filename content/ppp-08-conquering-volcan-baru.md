@@ -7,6 +7,7 @@ Author: Dominik Muhs
 Lang: en
 
 This was an extraordinary hiking trip full of firsts. I have never ever before been hiking
+
 - in Panama
 - in tropical weather
 - on an active volcano
