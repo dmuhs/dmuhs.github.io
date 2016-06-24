@@ -290,6 +290,10 @@ a:hover {
 b, strong {
 	color: #000;
 }
+.cat-desc {
+    text-align: left;
+    margin-left: 10px;
+}
 .cat-links,
 .tag-links {
 	display: block;
@@ -430,6 +434,13 @@ ul ul, ol ol, ul ol, ol ul {
 }
 .format-chat .entry-content p:nth-child(odd) {
 	font-weight: bold;
+}
+.cat-title {
+    display: inline;
+    margin-left: 1em;
+}
+.archive-entry {
+    margin-bottom: 1em;
 }
 
 

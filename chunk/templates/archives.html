@@ -13,6 +13,7 @@
 			{% for article in dates %}
 			    <dt>{{ article.locale_date }}</dt>
 			    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+                <dd class="archive-entry">Posted in <a href="{{ article.category.url }}">{{ article.category.name }}</a></dd>
 			{% endfor %}
 			</dl>
 		</div> <!-- /#entry-content -->

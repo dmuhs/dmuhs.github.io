@@ -6,9 +6,9 @@
 </div>
 {% endblock %}
 {% block content %}
-<ul>
 {% for category, articles in categories %}
-    <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+<h2 class="entry-title cat-title">
+    <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+</h2>
 {% endfor %}
-</ul>
 {% endblock %}

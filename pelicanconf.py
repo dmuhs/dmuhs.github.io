@@ -22,7 +22,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Github', 'http://github.com/dmuhs'),)
+LINKS = (('Github', 'http://github.com/dmuhs'), )
 
 # Social widget
 # SOCIAL = (('You can add links in your config file', '#'),
@@ -31,6 +31,8 @@ LINKS = (('Github', 'http://github.com/dmuhs'),)
 DEFAULT_PAGINATION = 5
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_POST = True
+DISPLAY_CATEGORY_OVERVIEW_ON_MENU = False
+DISPLAY_ARCHIVE_ON_MENU = True
 SINGLE_AUTHOR = True
 THEME = 'chunk'
 
