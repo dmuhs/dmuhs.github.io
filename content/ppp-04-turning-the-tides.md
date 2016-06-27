@@ -9,7 +9,7 @@ Summary: Failing. But then winning!
 
 A Monday. Got up early. Bought a Spartan breakfast (water and bread). Off we go to the uni! Work! Get shit done! Meet people! *"Hoy está cerrado!"*. I stand before closed doors, next to me a wildly gesticulating and almost shouting security guard crossing his hands. Yeah, right. Today was a red-letter day! Ah, my forgetfulness followed me all the way to Panama! At least I got up early. So I took the chance to explore the neighbourhood a little as long as the sun was shining.
 
-![View from the apartment entry](/images/panama-apartment_thumb.jpg)
+<a href="/images/panama-apartment.jpg" data-lightbox="panama-apartment">![View from the apartment entry](/images/panama-apartment_thumb.jpg)</a>
 
 When I came back to the flat the keys were not quite fitting the lock. I couldn't open the outside door. Luckily the old lady living next to my room walked by and talked to me *in English* through the bars of the door. Great first impression you left there, Dom. At least we have something to talk about now: My inability to open a simple door. Jokes aside, we had a good talk and turns out her English is pretty well. She lived in the states for some years with her husband and as soon as she got her pension she left for Panama. Some other neighbours also passed by: from Venezuela, Mexico and Chile. Few of them speak English, but my Spanish is at least good enough to share some basic information about myself and ask the same of the others to get to know them a little. They seemed to appreciate me trying to learn their language.
 
