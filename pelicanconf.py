@@ -36,6 +36,8 @@ DISPLAY_ARCHIVE_ON_MENU = True
 SINGLE_AUTHOR = True
 THEME = 'simple'
 
+FOOTER_TEXT = "Made with &lt;3 by Dominik Muhs and Pelican"
+
 IMAGE_PATH = 'images/'
 THUMBNAIL_DIR = 'images/'
 THUMBNAIL_SIZES = {
