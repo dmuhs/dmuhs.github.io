@@ -6,7 +6,7 @@
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/lightbox.css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
     {% endblock head %}
 </head>
 
@@ -17,23 +17,23 @@
     <nav id="menu"><ul>
         {% if LINKS %}
 		    {% for name, url in LINKS %}
-			    <li  class="active" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ url }}">{{ name }}</a></li>
+			    <li class="menu-item"><a href="{{ url }}">{{ name }}</a></li>
 			{% endfor %}
 		{% endif %}
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
         {% endfor %}
         {% if DISPLAY_ARCHIVE_ON_MENU %}
-            <li  class="active" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+            <li class="menu-item"><a href="{{ SITEURL }}/archives.html">Archives</a></li>
         {% endif %}
         {% if DISPLAY_PAGES_ON_MENU %}
             {% for p in pages %}
-                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                <li class="menu-item"><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
             {% endfor %}
         {% else %}
             {% if DISPLAY_CATEGORIES_ON_MENU %}
                 {% for cat, null in categories %}
-                    <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                    <li class="menu-item"><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
                 {% endfor %}
             {% endif %}
         {% endif %}

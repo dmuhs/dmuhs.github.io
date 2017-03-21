@@ -1,5 +1,5 @@
 #banner a {
-    font-family: 'Quicksand', Helvetica;
+    font-family: 'Quicksand', sans-serif;
     text-decoration: none;
     font-weight: bold;
     color: #000;
@@ -8,4 +8,9 @@
 
 #banner a:hover {
     color: #0f0f0f;
+}
+
+.entry-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
 }
