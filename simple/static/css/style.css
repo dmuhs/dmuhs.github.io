@@ -22,17 +22,19 @@ body {
 }
 
 #menu {
-    width: 100%;
+    width: 49%;
+    float: right;
+    margin-top: -2em;
 }
 
 #menu ul {
-    /*float: right;*/
+    width: 100%;
+    padding-left: 0;
     list-style: none;
-    text-align: center;
 }
 
 #menu a {
-    float: right;
+    float: left;
     margin: 1em;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
