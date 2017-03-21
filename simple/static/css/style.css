@@ -1,13 +1,44 @@
+body {
+    width: 800px;
+    margin: 0 auto;
+}
+
+#banner.body {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
 #banner a {
     font-family: 'Quicksand', sans-serif;
     text-decoration: none;
     font-weight: bold;
     color: #000;
-    font-size: 60px;
+    font-size: 80px;
 }
 
 #banner a:hover {
     color: #0f0f0f;
+}
+
+#menu {
+    width: 100%;
+}
+
+#menu ul {
+    /*float: right;*/
+    list-style: none;
+    text-align: center;
+}
+
+#menu a {
+    float: right;
+    margin: 1em;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
 }
 
 .entry-title {
