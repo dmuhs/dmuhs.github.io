@@ -19,12 +19,12 @@ body {
 }
 
 #banner a:hover {
-    color: #0f0f0f;
+    color: #3f3f3f;
 }
 
 #nav-wrapper {
     width: 100%;
-    height: 8em;
+    height: 4em;
 }
 
 #menu {
@@ -49,7 +49,31 @@ body {
     text-transform: uppercase;
 }
 
+#content ol {
+    list-style: none;
+}
+
+.hentry {
+    margin-top: 4em;
+}
+
 .entry-title {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 0;
+}
+
+.entry-title a {
+    color: #000;
+    text-decoration: none;
+}
+
+.post-info {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+}
+
+.entry-content {
+    font-family: 'Raleway', sans-serif;
 }
