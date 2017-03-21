@@ -38,6 +38,9 @@
     {% block content %}
     {% endblock %}
     <footer id="contentinfo" class="body">
+        <address id="about" class="vcard body">
+            {{ FOOTER_TEXT }}
+        </address>
         <p>
             {% if FEED_ALL_ATOM %}
             <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom Feed</a>
@@ -54,10 +57,7 @@
             {% if FEED_ALL_RSS %}
             <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS Feed</a>
             {% endif %}
-        </p>
-        <address id="about" class="vcard body">
-            {{ FOOTER_TEXT }}
-        </address><!-- /#about -->
+        </p><!-- /#about -->
     </footer><!-- /#contentinfo -->
     {% if GOOGLE_ANALYTICS %}
         <script>
