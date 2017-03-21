@@ -62,10 +62,26 @@
     {% block content %}
     {% endblock %}
     <footer id="contentinfo" class="body">
-            <address id="about" class="vcard body">
-            Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-            which takes great advantage of <a href="http://python.org">Python</a>.
-            </address><!-- /#about -->
+        <p>
+            {% if FEED_ALL_ATOM %}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom Feed</a>
+            {% endif %}
+            {% if FEED_ATOM %} &middot; {% endif %}
+            {% if FEED_ATOM %}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">Atom Feed</a>
+            {% endif %}
+            {% if FEED_RSS %} &middot; {% endif %}
+            {% if FEED_RSS %}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">RSS Feed</a>
+            {% endif %}
+            {% if FEED_ALL_RSS %} &middot; {% endif %}
+            {% if FEED_ALL_RSS %}
+            <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS Feed</a>
+            {% endif %}
+        </p>
+        <address id="about" class="vcard body">
+            {{ FOOTER_TEXT }}
+        </address><!-- /#about -->
     </footer><!-- /#contentinfo -->
     {% if GOOGLE_ANALYTICS %}
         <script>
