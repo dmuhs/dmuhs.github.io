@@ -49,7 +49,7 @@ body a.underline:hover, #page-content a:hover, .entry-content a:hover {
     color: #000;
 }
 
-img {
+img:not(.lb-image) {
     display: block;
     margin: 0 auto;
     margin-bottom: 2em;
@@ -60,7 +60,7 @@ img {
     box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.3);
 }
 
-a img:hover {
+a img:not(.lb-image):hover {
     -webkit-box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.4);
     -moz-box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.4);
     box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.4);
