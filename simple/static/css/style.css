@@ -144,3 +144,33 @@ a img:hover {
     margin-bottom: 2em;
     text-align: center;
 }
+
+/*#archive-list {
+    width: 100%;
+}*/
+
+#archive-list dd {
+    width: 60%;
+    float: left;
+    margin-left: 0;
+    font-size: 24px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#archive-list dt {
+    width: 39%;
+    float: right;
+    text-align: right;
+    font-size: 14px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.archive-entry {
+    width: 100%;
+    height: 6em;
+/*    margin-top: 2em;*/
+}
