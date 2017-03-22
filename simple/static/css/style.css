@@ -4,6 +4,15 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+body a {
+    color: #000;
+    text-decoration: none;
+}
+
+body a:hover {
+    color: #3f3f3f;
+}
+
 #banner.body {
     width: 100%;
     padding-top: 2em;
@@ -17,14 +26,8 @@ body {
 
 #banner a {
     font-family: 'Quicksand', sans-serif;
-    text-decoration: none;
     font-weight: bold;
-    color: #000;
     font-size: 90px;
-}
-
-#banner a:hover {
-    color: #3f3f3f;
 }
 
 #nav-wrapper {
@@ -52,15 +55,6 @@ body {
     text-transform: uppercase;
 }
 
-.menu-item a {
-    text-decoration: none;
-    color: #000;
-}
-
-.menu-item a:hover {
-    color: #3f3f3f;
-}
-
 #content ol {
     list-style: none;
 }
@@ -73,15 +67,6 @@ body {
     font-weight: 600;
     font-size: 26px;
     margin-bottom: 0;
-}
-
-.entry-title a {
-    color: #000;
-    text-decoration: none;
-}
-
-.entry-title a:hover {
-    color: #3f3f3f;
 }
 
 .entry-time {
