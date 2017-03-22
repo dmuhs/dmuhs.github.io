@@ -133,8 +133,9 @@ a img:not(.lb-image):hover {
     text-transform: uppercase;
 }
 
-#content ol {
+#post-list {
     list-style: none;
+    padding-left: 0;
 }
 
 .hentry {
