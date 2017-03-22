@@ -24,6 +24,10 @@ body a.underline {
     text-decoration: none;
 }
 
+body a.special {
+    color: #FF5000;
+}
+
 body a.underline:before {
     content: "";
     position: absolute;
@@ -39,6 +43,10 @@ body a.underline:before {
     transition: all 0.3s ease-in-out 0s;
 }
 
+body a.special:before {
+    background-color: #E8310C;
+}
+
 body a.underline:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
@@ -47,6 +55,10 @@ body a.underline:hover:before {
 
 body a.underline:hover {
     color: #000;
+}
+
+body a.special:hover {
+    color: #E8310C;
 }
 
 img:not(.lb-image) {
