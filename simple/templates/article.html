@@ -8,7 +8,6 @@
   {% for tag in article.tags %}
     <meta name="tags" content="{{tag}}" />
   {% endfor %}
-
 {% endblock %}
 
 {% block content %}
@@ -22,9 +21,9 @@
     <time class="entry-time" datetime="{{ article.date.isoformat() }} ">
       {{ article.locale_date }}
     </time>
-  </footer><!-- /.post-info -->
+  </footer>
   <div class="entry-content">
     {{ article.content }}
-  </div><!-- /.entry-content -->
+  </div>
 </section>
 {% endblock %}
