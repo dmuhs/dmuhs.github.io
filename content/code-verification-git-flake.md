@@ -4,8 +4,6 @@ Modified: 2015-05-02 22:10
 Tags: linter, git, flake8, python
 Category: git
 Slug: code-verification-with-git
-Authors: Dominik Muhs
-Summary: Using pre-commit hooks and linters to verify code in git.
 
 We all have that special someone in our life. Someone who dares to commit and push something like this into the master-branch:
 ```python

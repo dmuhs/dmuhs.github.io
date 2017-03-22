@@ -3,9 +3,6 @@ Slug: ppp-12-getting-my-greens-valle-anton
 Date: 2016-08-13 19:13
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: Spending the weekend in Anton Valley, getting lost on the way.
 
 Social Networks are awesome for travelling. By pure accident I met some fellow *viajeros* - two handsome women from Israel and Poland. After a quick chat and meetup we decided to spend our time in Valle de Antón - Anton Valley. From colleagues I already heard a lot about it's natural beauty.
 

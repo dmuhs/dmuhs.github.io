@@ -3,13 +3,10 @@ Slug: ppp-10-gamboa-welcome-to-the-jungle
 Date: 2016-07-09 21:50
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: Hiking in the jungle and enjoying the Panamanian nature
 
-My sister and a colleague of her decided to visit me in Panamà. Still being busy with the investigation, I did not manage to find a lot of time for travels during the week. However on the weekends, we managed to make some small trips. One of them lead us into the jungle near the village of Gamboa. 
+My sister and a colleague of her decided to visit me in Panamà. Still being busy with the investigation, I did not manage to find a lot of time for travels during the week. However on the weekends, we managed to make some small trips. One of them lead us into the jungle near the village of Gamboa.
 
-Gamboa once was one of several canal zone townships built to house employees working at the Panama Canal and their families. Later (due to a shortage in housing in the US military base) there were also soldiers living there. The architecture of Gamboa has been preserved with lots of love and nowadays you can find hotels there. The rise of tourism has not damaged the rural flair the least. 
+Gamboa once was one of several canal zone townships built to house employees working at the Panama Canal and their families. Later (due to a shortage in housing in the US military base) there were also soldiers living there. The architecture of Gamboa has been preserved with lots of love and nowadays you can find hotels there. The rise of tourism has not damaged the rural flair the least.
 
 We arrived at the Gamboa Rainforest Resort - the main hotel in the region. Besides booking a room, you can also sign up for some tours. From wild canopy tours to relaxed fishing trips and guided jungle adventures there's a plethora of things to do - as long as you have the money. A Pierce Brosnan fan might also appreciate the place. In the opening shot of *The Tailor of Panama* Andrew Osnard, played by Pierce Brosnan is staying at the resort. Pop culture references aside, we decided to go on a guideless rain forest hike first and then follow up with a guided tour on the aerial tram through the jungle. What I discovered during my countless trips into the Panamanian interior is my love for ants and the structures they build.
 

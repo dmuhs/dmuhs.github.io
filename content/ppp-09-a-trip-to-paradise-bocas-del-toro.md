@@ -3,8 +3,6 @@ Slug: ppp-09-a-trip-to-paradise-bocas-del-toro
 Date: 2016-06-19 13:45
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
 
 In the travel magazines you always see the same ad pictures. Cristal clear water gently stroking the white-sand beach bordered by palm trees. Deep cyan colours meet intense whites and greens. Amidst this paradisal scenery happily sits a woman drinking from a coconut, enjoying the sun. HARD CUT - company name appears. Guess what - I have been there. Not in the ad spot, in that kind of paradise. Just without the woman. You can't have everything, right?
 

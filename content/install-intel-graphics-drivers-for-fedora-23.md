@@ -3,8 +3,6 @@ Slug: install-intel-graphics-drivers-for-fedora-23
 Date: 2016-06-29 09:08
 Tags: linux, intel
 Category: troubleshooting
-Author: Dominik Muhs
-Lang: en
 
 This is a thing I always forget and have to look up. My Dell XPS 13 (2013) runs on an Intel HD4000 and the drivers are obviously not in the standard repos. This script pulls the (at the time of this writing) most recent driver from the repos of the *Intel Open Source Technology Centre*.
 

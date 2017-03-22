@@ -3,9 +3,6 @@ Slug: ppp-05-taboga-the-island-of-flowers
 Date: 2016-05-15 15:35
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: The first trip to the "countryside" leads me to Taboga.
 
 During a fair on stipends and opportunities to go abroad at the UTP I met some other interns and students of the uni! Amazing people from Portugal, Mexico, Honduras and Poland. We had a coffee together and got to know each other. They are very down to earth and easy-going people. Before we each left for office and studies again, some people invited me to join them on a trip to Taboga. *"Of course! That would be awesome!"* was the instinctive answer, because after all I'm not here to spend the weekends with work. *"Uhh, and what is Taboga exactly?"* was the follow-up question. Now I can answer it! It's a beautiful volcanic island located in the Gulf of Panama. Ferries towards Taboga leave daily from the Amador Causeway and roughly take 40 minutes to reach land again. On the way there we had an amazing view on the giant container ships waiting for passage through the Panama Canal.
 

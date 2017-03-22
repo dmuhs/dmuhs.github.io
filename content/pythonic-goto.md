@@ -4,8 +4,6 @@ Modified: 2015-06-15 19:34
 Tags: goto, exception
 Category: python
 Slug: pythonic-goto
-Authors: Dominik Muhs
-Summary: What does a goto-like structure look like in Python? Does it make sense?
 
 Nope, I'm not going to join the goto war. Even though it's shunned among developers, there are still some situations where it makes sense. A good friend of mine with a background in C recently came to me with a very simple problem that still made him scratch his head when he tried to express it in Python. The problem broke down to comparing three lists to find an element that meets a special criterion. His basic naive concept looked something like this in pseudo-code:
 ```

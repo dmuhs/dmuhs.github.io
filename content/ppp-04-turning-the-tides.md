@@ -3,9 +3,6 @@ Slug: ppp-04-turning-the-tides
 Date: 2016-05-02 21:59
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: Failing. But then winning!
 
 A Monday. Got up early. Bought a Spartan breakfast (water and bread). Off we go to the uni! Work! Get shit done! Meet people! *"Hoy está cerrado!"*. I stand before closed doors, next to me a wildly gesticulating and almost shouting security guard crossing his hands. Yeah, right. Today was a red-letter day! Ah, my forgetfulness followed me all the way to Panama! At least I got up early. So I took the chance to explore the neighbourhood a little as long as the sun was shining.
 

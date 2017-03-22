@@ -4,8 +4,6 @@ Modified: 2015-05-12 18:23
 Tags: hackathon, python
 Category: hackathons
 Slug: some-thoughts-codefest8-dresden
-Authors: Dominik Muhs
-Summary: What Team Zoidberg achieved at CodeFEST8 and what followed.
 
 ![CodeFEST8 Logo]({filename}/images/codefest8.gif)
 

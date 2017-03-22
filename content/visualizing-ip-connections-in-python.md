@@ -3,8 +3,6 @@ Slug: visualizing-ip-connections-in-python
 Date: 2016-06-27 11:18:51
 Tags: python, networking, visualization
 Category: python
-Author: Dominik Muhs
-Lang: en
 
 For some research on botnet host detection in large-scale networks, I found myself in the situation that I had to apply a set of algorithms to a huge packet dump. To comprehend an amazing paper, I started to play around with the dataset and tried to reproduce the results presented in the whitepaper. Quickly I realized that there was something fishy with my own dataset, so I fired up `jupyter-notebook` to gain some more insight in the IP structure of my dataset.
 

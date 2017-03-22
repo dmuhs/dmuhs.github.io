@@ -4,8 +4,6 @@ Modified: 2015-06-18 12:11
 Tags: hackathon, python
 Category: hackathons
 Slug: performing-well-codefest8
-Authors: Dominik Muhs
-Summary: A small recap on CodeFEST8 '15.
 
 When we decided to enter the hackathon, some fellow students and I were in it for the fun. We had worked together before in a mandatory software project and wanted to revive the productive atmosphere of the good old times. Neither did we expect to *win in Dresden* nor did we have in mind that there was a realistic chance of **winning at the CeBIT 2015** against teams from Germany, Austria and Switzerland.
 

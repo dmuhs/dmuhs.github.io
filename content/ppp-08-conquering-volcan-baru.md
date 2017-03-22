@@ -3,8 +3,6 @@ Slug: ppp-08-conquering-volcan-baru
 Date: 2016-06-13 22:12:22
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
 
 This was an extraordinary hiking trip full of firsts. I have never ever before been hiking
 

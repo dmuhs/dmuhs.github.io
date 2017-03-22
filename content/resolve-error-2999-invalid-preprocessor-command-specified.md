@@ -1,17 +1,15 @@
 Title: ERROR 2999: Invalid preprocessor command specified
 Slug: resolve-error-2999-invalid-preprocessor-command-specified
 Date: 2016-06-03 10:18:16
-Tags: amazon, aws, emr, hadoop, pig 
+Tags: amazon, aws, emr, hadoop, pig
 Category: troubleshooting
-Author: Dominik Muhs
-Lang: en
 
 I am quite new to working with [Amazon Elastic MapReduce](https://aws.amazon.com/elasticmapreduce/) clusters. To do some large scale data analysis, I built a Pig script and ran it on a local pig installation to verify its functionality. Works. Neat! Let's push it to the cluster and get some serious results on the large dataset!
 
 Luckily for my bill, it didn't take too long to fail.
 
 ```
-[hadoop@ip-XXX-XXX-XXX-XXX samples]$ pig -x mapreduce -f pig/examples/snort.pig -param pcap=data/sample204.pcap 
+[hadoop@ip-XXX-XXX-XXX-XXX samples]$ pig -x mapreduce -f pig/examples/snort.pig -param pcap=data/sample204.pcap
 16/06/03 14:05:13 INFO pig.ExecTypeProvider: Trying ExecType : LOCAL
 16/06/03 14:05:13 INFO pig.ExecTypeProvider: Trying ExecType : MAPREDUCE
 16/06/03 14:05:13 INFO pig.ExecTypeProvider: Picked MAPREDUCE as the ExecType
@@ -37,7 +35,7 @@ Turns out, there's a [bug](https://issues.apache.org/jira/browse/PIG-4342) in ve
 ```java
          final String declareToken = "%declare";
          final String defaultToken = "%default";
- 
+
 -        if (preprocessorCmd.equals(declareToken)) {
 +        if (preprocessorCmd.toLowerCase().equals(declareToken)) {
              filter.validate(PigCommandFilter.Command.DECLARE);

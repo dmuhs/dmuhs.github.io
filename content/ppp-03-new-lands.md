@@ -3,9 +3,6 @@ Slug: ppp-03-new-lands
 Date: 2016-05-01 19:49
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: On moving into my new home.
 
 So today I moved out of Brigitte's house into the new apartment. Before coming here I had the choice between a single apartment with my own fridge and bathroom or a flat-share with ten other people with a shared bathroom and a community kitchen. I decided for the latter, because I hoped to make some new friends, improve my Spanish and spend some good times with my flatmates. Now that I'm here I have to say that the people seem to be pretty reserved. All doors are closed and no one is in the hallway or kitchen.
 

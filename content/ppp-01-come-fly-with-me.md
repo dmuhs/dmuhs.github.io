@@ -3,9 +3,6 @@ Slug: ppp-01-come-fly-with-me
 Date: 2016-04-28 23:55
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: My flight to Panama and the arrival.
 
 This little series is about my "travel" to Panamá. I applied at IAESTE for an internship in the IT security department of the *UTP (Universidad Tecnológica de Panamá)*. Here, in my *P*ersonal *P*anama *P*apers I'll write down some of my experiences, problems and solutions while I find my way into Panamanian society and hopefully some interesting security-related research.
 

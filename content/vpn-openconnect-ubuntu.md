@@ -4,8 +4,6 @@ Modified: 2015-05-12 20:24
 Tags: ubuntu, openconnect
 Category: troubleshooting
 Slug: vpn-with-openconnect-in-ubuntu-14-10
-Authors: Dominik Muhs
-Summary: How to really connect to the TU Dresden VPN in Ubuntu and deal with the file move error.
 
 Many services that my university offers have one requirement: to be in a trusted network. That is either eduroam or any network where you can connect through a VPN tunnel. As sad as it is, I don't have an eduroam router next to my home. However, I ran into some minor problems when trying to create a VPN connection with network-manager.
 

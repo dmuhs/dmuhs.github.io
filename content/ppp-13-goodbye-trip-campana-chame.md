@@ -3,9 +3,6 @@ Slug: goodbye-trip-campana-chame
 Date: 2016-09-04 22:43
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: My last big trip in Panama has led me to the Altos de Campana National Park and Punta Chame.
 
 As most of my stories in Panama this trip starts with some new friends. At my workplace, the *Universidad Tecnológica de Panamá (UTP)*, I didn't have much contact to students, because I spent most of my time on campus inside an office. The international office of the uni was very engaged however and regularly asked me to speak about my experiences and help respresent campus affairs. In this context I met some of the most amazing people!
 

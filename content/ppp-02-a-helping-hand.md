@@ -3,9 +3,6 @@ Slug: ppp-02-a-helping-hand
 Date: 2016-04-30 16:46
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: How my mentor gave me a great kick-start in Panama.
 
 Brigitte, my mentor, is an amazing person. She does not only give me a place to sleep. She also hooked me up with a SIM card so I have mobile internet connection. That way I can now navigate around the city and cry for help on WhatsApp should I ever get lost. In order for me to get from A to B she also helped me to get a card for public transport. You can charge it with money and insert it when entering the means of your choice so the cost gets withdrawn. $0.25 each ride, no matter how far you go. I wonder whether there's one of these [crackable RFID chips](https://fail0verflow.com/blog/2014/proxmark3-fpga-iir-filter.html) in this card. Of course I will not look further into this matter without permission. :)
 

@@ -3,9 +3,6 @@ Slug: ppp-11-strolling-through-the-park
 Date: 2016-08-06 19:13
 Tags: panama, personal panama papers
 Category: travel
-Author: Dominik Muhs
-Lang: en
-Summary: A small day-trip to the Metropolitan Natural Park in Panama
 
 <a href="/images/metropolitano-1.jpg" data-lightbox="strolling-through-the-park">![Metropolitano Entrance Sign](/images/metropolitano-1_thumb.jpg)</a>
 

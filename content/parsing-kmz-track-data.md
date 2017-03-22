@@ -3,9 +3,6 @@ Slug: parsing-kmz-track-data-python
 Date: 2016-12-27 14:16
 Tags: python, kml
 Category: python
-Author: Dominik Muhs
-Lang: en
-Summary: A quick and (maybe not so dirty) way of extracting track data from a KMZ file
 
 A few days back I stumbled across an interesting problem. I was asked to develop a solution that was doing some analysis work on geolocation data stored in KMZ format. Existing solutions like [fastkml (64KB)](https://pypi.python.org/pypi/fastkml/0.11) and [pykml (42KB)](https://pypi.python.org/pypi/pykml/0.1.3) seemed nice at the first glance, proved to be unnecessary overhead, however. They're mostly meant to manipulate and write data into KML format. I just needed to read the data for my later calculations. So I decided to build a solution using the Python Standard Library.
 
