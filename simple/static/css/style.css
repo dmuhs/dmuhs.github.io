@@ -73,6 +73,10 @@ body a:hover {
     font-size: 12px;
 }
 
+.entry-content {
+    text-align: justify;
+}
+
 .rotate:hover {
     -webkit-transform: rotateZ(-1deg);
     -ms-transform: rotateZ(-1deg);
@@ -86,7 +90,8 @@ body a:hover {
 }
 
 #contentinfo {
-    font-size: 13px;
-    margin-top: 5em;
+    font-size: 11px;
+    margin-top: 4em;
     margin-bottom: 2em;
+    text-align: center;
 }
