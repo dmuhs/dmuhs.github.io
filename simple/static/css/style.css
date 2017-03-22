@@ -13,6 +13,22 @@ body a:hover {
     color: #3f3f3f;
 }
 
+img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+    border-radius: 0.2em;
+    -webkit-box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.3);
+    box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.3);
+}
+
+a img:hover {
+    -webkit-box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.4);
+    -moz-box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.4);
+    box-shadow: 10px 10px 30px -5px rgba(0,0,0,0.4);
+}
+
 #banner.body {
     width: 100%;
     padding-top: 2em;
