@@ -10,6 +10,7 @@ body {
 body a {
     color: #000;
     text-decoration: none;
+    transition: .5s all;
     outline: 0;
 }
 
@@ -26,6 +27,10 @@ body a.underline {
 
 body a.special {
     color: #FF5000;
+}
+
+body a.kinda-special {
+    color: #ff844c;
 }
 
 body a.underline:before {
@@ -47,6 +52,10 @@ body a.special:before {
     background-color: #E8310C;
 }
 
+body a.kinda-special:before {
+    background-color: #ff5000;
+}
+
 body a.underline:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
@@ -59,6 +68,10 @@ body a.underline:hover {
 
 body a.special:hover {
     color: #E8310C;
+}
+
+body a.kinda-special:hover {
+    color: #ff5000;
 }
 
 img:not(.lb-image) {
@@ -140,6 +153,14 @@ a img:not(.lb-image):hover {
 
 .entry-content {
     text-align: justify;
+}
+
+.entry-content a {
+    color: #8C6B5F;;
+}
+
+.entry-content a:hover {
+    color: #ff5000;
 }
 
 .rotate:hover {
