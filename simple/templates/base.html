@@ -31,12 +31,6 @@
             {% for p in pages %}
                 <li class="menu-item"><a class="underline" href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
             {% endfor %}
-        {% else %}
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-                {% for cat, null in categories %}
-                    <li class="menu-item"><a class="underline" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-                {% endfor %}
-            {% endif %}
         {% endif %}
     </ul></nav><!-- /#menu -->
     </div>

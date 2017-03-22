@@ -16,17 +16,11 @@ DEFAULT_DATE_FORMAT = '%d %B %Y'
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 FEED_ALL_RSS = 'feeds/all.rss.xml'
-CATEGORY_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (('Github', 'http://github.com/dmuhs'), )
 
 DEFAULT_PAGINATION = 5
-DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_CATEGORIES_ON_POST = True
-DISPLAY_CATEGORY_OVERVIEW_ON_MENU = False
 DISPLAY_ARCHIVE_ON_MENU = True
 SINGLE_AUTHOR = True
 THEME = 'simple'
