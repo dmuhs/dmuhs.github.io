@@ -1,6 +1,7 @@
 body {
     width: 800px;
     margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
 }
 
 #banner.body {
@@ -47,7 +48,6 @@ body {
 .menu-item {
     float: left;
     margin: 1em;
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
 }
@@ -70,7 +70,6 @@ body {
 }
 
 .entry-title {
-    font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 26px;
     margin-bottom: 0;
@@ -86,16 +85,17 @@ body {
 }
 
 .entry-time {
-    font-family: 'Raleway', sans-serif;
     font-size: 12px;
-}
-
-.entry-content {
-    font-family: 'Raleway', sans-serif;
 }
 
 .rotate:hover {
     -webkit-transform: rotateZ(-1deg);
     -ms-transform: rotateZ(-1deg);
     transform: rotateZ(-1deg);
+}
+
+.paginator {
+    width: 100%;
+    text-align: center;
+    margin-top: 4em;
 }
