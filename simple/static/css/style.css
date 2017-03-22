@@ -190,3 +190,7 @@ a img:not(.lb-image):hover {
     display: block;
     margin: 0 auto;
 }
+
+#love {
+    color: #FF5000;
+}

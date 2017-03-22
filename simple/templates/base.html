@@ -38,7 +38,11 @@
     {% block content %}
     {% endblock %}
     <footer id="contentinfo" class="body">
-        <p>{{ FOOTER_TEXT }}</p>
+        {% if FOOTER_TEXT %}
+            <p>{{ FOOTER_TEXT }}</p>
+        {% else %}
+            <p>Made with <span id="love">♥</span></p>
+        {% endif %}
         {% if FEED_ALL_ATOM %}
         <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate">✓ Atom Feed</a>
         {% endif %}

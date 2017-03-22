@@ -31,7 +31,7 @@ SINGLE_AUTHOR = True
 THEME = 'simple'
 SUMMARY_MAX_LENGTH = 50
 
-FOOTER_TEXT = "Made with ♥"
+FOOTER_TEXT = ""
 
 IMAGE_PATH = 'images/'
 THUMBNAIL_DIR = 'images/'
