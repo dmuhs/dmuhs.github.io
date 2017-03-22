@@ -17,6 +17,9 @@ DEFAULT_DATE_FORMAT = '%d %B %Y'
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
 FEED_ALL_RSS = 'feeds/all.rss.xml'
 
+AUTHORS_SAVE_AS = ''
+TAGS_SAVE_AS = ''
+
 # Blogroll
 LINKS = (('Github', 'http://github.com/dmuhs'), )
 

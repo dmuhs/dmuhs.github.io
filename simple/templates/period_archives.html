@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Archives for {{ period | reverse | join(' ') }}</h1>
 
-<dl>
+<!-- Same as normal archive template. Sorry. -->
+
+<dl id="archive-list">
 {% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+    <div class="archive-entry">
+        <dt>
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </dt>
+        <dd>
+            <p>{{ article.locale_date }}</p>
+            <p><a href="{{ article.category.url }}">{{ article.category.name }}</a></p>
+        </dd>
+    </div>
 {% endfor %}
 </dl>
 {% endblock %}
