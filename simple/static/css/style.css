@@ -18,13 +18,13 @@ body a:hover {
     text-decoration: none;
 }
 
-body a.underline, #page-content a, .entry-content a {
+body a.underline {
     position: relative;
     color: #5f5f5f;
     text-decoration: none;
 }
 
-body a.underline:before, #page-content a:before, .entry-content a:before {
+body a.underline:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -39,13 +39,13 @@ body a.underline:before, #page-content a:before, .entry-content a:before {
     transition: all 0.3s ease-in-out 0s;
 }
 
-body a.underline:hover:before, #page-content a:hover:before, .entry-content a:hover:before {
+body a.underline:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 }
 
-body a.underline:hover, #page-content a:hover, .entry-content a:hover {
+body a.underline:hover {
     color: #000;
 }
 
