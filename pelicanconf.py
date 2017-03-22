@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Dominik Muhs'
 SITENAME = '/dev/log'
-# SITESUBTITLE = ''
 SITEURL = ''
 
 PATH = 'content'
@@ -23,10 +22,6 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (('Github', 'http://github.com/dmuhs'), )
-
-# Social widget
-# SOCIAL = (('You can add links in your config file', '#'),
-#          ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 5
 DISPLAY_CATEGORIES_ON_MENU = False
@@ -48,6 +43,3 @@ STATIC_PATHS = ['images', 'extra/CNAME']
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['thumbnailer']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
-
-# Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
