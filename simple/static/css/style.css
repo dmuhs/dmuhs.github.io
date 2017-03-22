@@ -149,24 +149,23 @@ a img:hover {
     width: 100%;
 }*/
 
-#archive-list dd {
+#archive-list dt {
     width: 60%;
     float: left;
     margin-left: 0;
     font-size: 24px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
-#archive-list dt {
+#archive-list dd {
     width: 39%;
+    margin-left: 0;
     float: right;
     text-align: right;
     font-size: 14px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+}
+
+#archive-list dd p {
+    margin-top: 0;
 }
 
 .archive-entry {
