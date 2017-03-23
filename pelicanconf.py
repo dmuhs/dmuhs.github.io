@@ -29,7 +29,7 @@ LINKS = (('Github', 'http://github.com/dmuhs'), )
 DEFAULT_PAGINATION = 5
 DISPLAY_ARCHIVE_ON_MENU = True
 SINGLE_AUTHOR = True
-THEME = 'simple'
+THEME = 'hebe'
 SUMMARY_MAX_LENGTH = 50
 
 FOOTER_TEXT = ""
