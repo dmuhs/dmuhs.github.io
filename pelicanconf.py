@@ -21,6 +21,7 @@ AUTHORS_SAVE_AS = ''
 AUTHOR_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 TAG_SAVE_AS = ''
+CATEGORIES_SAVE_AS = ''
 
 # Blogroll
 LINKS = (('Github', 'http://github.com/dmuhs'), )
