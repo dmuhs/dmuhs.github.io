@@ -10,7 +10,7 @@ After the exams I had some free hours so I decided to show my blog some more lov
 
 I had a thorough look at [Flex](https://github.com/alexandrevicenzi/Flex), [Elegant](https://github.com/talha131/pelican-elegant) and many other popular themes but none of them struck me as *really minimalist*. So even though I'm more of a backend-dev I decided to dust off my questionable CSS skills and give it a shot. Turns out a lot has changed since I last developed websites. Animations without JS? Magic! The whole thing turned out pretty neat and I even [published the code on Github](https://github.com/dmuhs/hebe). Feel free to leave feedback!
 
-In this post I'll explain some of my ideas about *Hebe*, a "truly" minimalist Pelican blog theme.
+In this post I'll explain some of my ideas about *Hebe*, a "truly" minimalist [Pelican](https://getpelican.com) blog theme.
 
 #### Cleaning Up
 
