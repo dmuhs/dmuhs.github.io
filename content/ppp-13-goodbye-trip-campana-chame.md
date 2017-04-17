@@ -1,4 +1,4 @@
-Title: Goodbye Trip: Campana & Punta Chame
+Title: PPP #13 Goodbye Trip: Campana & Punta Chame
 Slug: goodbye-trip-campana-chame
 Date: 2016-09-04 22:43
 Tags: panama, personal panama papers
