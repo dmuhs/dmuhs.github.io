@@ -26,11 +26,11 @@ conn = pymysql.connect(
 graph = nx.DiGraph()
 
 cursor = conn.cursor()
-cursor.execute('SELECT * FROM flows')
+cursor.execute('SELECT src_ip, dst_ip FROM flows')
 for i, row in enumerate(cursor):
     sys.stdout.write("\rReading line %s" % i)
     sys.stdout.flush()
-    graph.add_edge(row[1], row[2])
+    graph.add_edge(row[0], row[1])
 
 nx.write_graphml(graph, "trente-flowgraph.graphml")
 ```
