@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8" />
+    <title>/dev/log</title>
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="networking" />
+    <meta name="tags" content="visualization" />
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="http://dmuhs.com/">/dev/log</a></h1>
+    </header><!-- /#banner -->
+    <div id="nav-wrapper">
+    <nav id="menu"><ul>
+			    <li class="menu-item"><a class="underline" target="_blank" href="http://github.com/dmuhs">Github</a></li>
+            <li class="menu-item"><a class="underline" href="http://dmuhs.com/archives.html">Archives</a></li>
+                <li class="menu-item"><a class="underline  special " href="http://dmuhs.com/pages/about-me.html">About Me</a></li>
+    </ul></nav><!-- /#menu -->
+    </div>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://dmuhs.com/visualizing-ip-connections-in-python.html" rel="bookmark"
+         title="Permalink to Visualizing IP Connections in Python">Visualizing IP Connections in Python</a></h2>
+  </header>
+  <footer class="post-info">
+    <time class="entry-time" datetime="2016-06-27T11:18:51+02:00 ">
+      27 June 2016
+    </time>
+  </footer>
+  <div class="entry-content">
+    <p>For some research on botnet host detection in large-scale networks, I found myself in the situation that I had to apply a set of algorithms to a huge packet dump. To comprehend an amazing paper, I started to play around with the dataset and tried to reproduce the results presented in the whitepaper. Quickly I realized that there was something fishy with my own dataset, so I fired up <code>jupyter-notebook</code> to gain some more insight in the IP structure of my dataset.</p>
+<p>My standard tool when dealing with packet analysis in Python is <a href="http://www.secdev.org/projects/scapy/">scapy</a>. For visualization the quasi-standard is <a href="http://matplotlib.org/">matplotlib</a>. When dealing with graphs, I found <a href="https://networkx.github.io">NetworkX</a> to be very reliable and performant on bigger datasets. So let's get started. First the usual dance:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="kn">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scapy.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+
+
+<p>When fiddling around, I noticed that a large-scale directed graph tends to get confusing very quickly as the arrowheads on long edges get distorted. An undirected graph is just as fine for me, because I just want to get a general impression of the datasets IP connection structure.</p>
+<div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">connections</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">nodes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Don't forget to use sets to automatically filter out duplicate IP addresses. Now we will go through the dump packet by packet, extract the IP header data and add the relevant data to our sets. <code>connections</code> holds tuples containing source and destination, while <code>nodes</code> is a set of all existing IP addresses contained in the set.</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">PcapReader</span><span class="p">(</span><span class="s1">&#39;/datasets/pcaps/internal-clean.pcap&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pcap_reader</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pcap_reader</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">IP</span> <span class="ow">in</span> <span class="n">p</span><span class="p">:</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">IP</span><span class="p">]</span><span class="o">.</span><span class="n">src</span><span class="p">)</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">IP</span><span class="p">]</span><span class="o">.</span><span class="n">dst</span><span class="p">)</span>
+            <span class="n">connections</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">p</span><span class="p">[</span><span class="n">IP</span><span class="p">]</span><span class="o">.</span><span class="n">src</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="n">IP</span><span class="p">]</span><span class="o">.</span><span class="n">dst</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Notice that I don't use <code>rdpcap</code> as this would try to load the whole pcap into RAM. Even with my dataset of roughly 550MB, the scapy datastructures took in more of 3GB RAM and filled my swap of 4GB completely. Analyzing the data with my machine took approximately five minutes. I am aware that it would have been more efficient to throw away the payloads of the pcap or even convert it into NetFlow format. However that would have been out of the scope of this quick and dirty hack. :)</p>
+<p>Now let's add the data to our graph and prepare the figure size of matplotlib. The graph will get pretty big and the above <code>figsize</code> results in an image with 7250×5793 pixels. As there is a lot of data to look at, it's always good to be able to zoom in and have a closer look at some hosts.</p>
+<div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">connections</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">120</span>
+</pre></div>
+
+
+<p>Now all we need to do is apply a layout to the graph and draw it using the NetworkX method that uses matplotlib by default. I found the Fruchterman-Reingold force-directed algorithm at &gt;50 iterations to be the most visually pleasing and ordered. If you want to try your luck, a random layout might also yield good results.</p>
+<div class="highlight"><pre><span></span><span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The above code results in the following image (here scaled to 1920px):</p>
+<p><a href="/images/networkx-network-1920.png" data-lightbox="networkx-network"><img alt="" src="/images/networkx-network_thumb.png"></a></p>
+<p>You can also find the full-size image (7250×5793px) <a href="/images/networkx-network.png">here</a>.</p>
+  </div>
+</section>
+    <footer id="contentinfo" class="body">
+            <p>Made with <span id="love">♥</span></p>
+        <a href="http://dmuhs.com/feeds/all.atom.xml" rel="alternate">✓ Atom Feed</a>
+        <!---->
+        <!---->
+        <!-- &middot; -->
+        <a href="http://dmuhs.com/feeds/all.rss.xml" rel="alternate">✓ RSS Feed</a>
+    </footer><!-- /#contentinfo -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-78009222-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script src="http://dmuhs.com/theme/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>

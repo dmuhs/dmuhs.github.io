@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8" />
+    <title>/dev/log</title>
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="kml" />
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="http://dmuhs.com/">/dev/log</a></h1>
+    </header><!-- /#banner -->
+    <div id="nav-wrapper">
+    <nav id="menu"><ul>
+			    <li class="menu-item"><a class="underline" target="_blank" href="http://github.com/dmuhs">Github</a></li>
+            <li class="menu-item"><a class="underline" href="http://dmuhs.com/archives.html">Archives</a></li>
+                <li class="menu-item"><a class="underline  special " href="http://dmuhs.com/pages/about-me.html">About Me</a></li>
+    </ul></nav><!-- /#menu -->
+    </div>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://dmuhs.com/parsing-kmz-track-data-python.html" rel="bookmark"
+         title="Permalink to Parsing KMZ Track Data in Python">Parsing KMZ Track Data in Python</a></h2>
+  </header>
+  <footer class="post-info">
+    <time class="entry-time" datetime="2016-12-27T14:16:00+01:00 ">
+      27 December 2016
+    </time>
+  </footer>
+  <div class="entry-content">
+    <p>A few days back I stumbled across an interesting problem. I was asked to develop a solution that was doing some analysis work on geolocation data stored in KMZ format. Existing solutions like <a href="https://pypi.python.org/pypi/fastkml/0.11">fastkml (64KB)</a> and <a href="https://pypi.python.org/pypi/pykml/0.1.3">pykml (42KB)</a> seemed nice at the first glance, proved to be unnecessary overhead, however. They're mostly meant to manipulate and write data into KML format. I just needed to read the data for my later calculations. So I decided to build a solution using the Python Standard Library.</p>
+<p>The first trick is that a KMZ file is nothing else but a zip-compressed KML file. Inside you'll find a file called <code>doc.kml</code>. So let's open and extract:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zipfile</span> <span class="kn">import</span> <span class="n">ZipFile</span>
+
+<span class="n">kmz</span> <span class="o">=</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">kml</span> <span class="o">=</span> <span class="n">kmz</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;doc.kml&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+
+
+<p>The KML data's juicy part looks something like this:</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;Folder&gt;</span>
+    <span class="nt">&lt;name&gt;</span>11112222-XXYYZ-TESTTRACK<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;Document&gt;</span>
+        <span class="nt">&lt;name&gt;</span>11112222XXYYZTESTTRACK-track-20161214T105653+0100.kmz<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;Placemark&gt;</span>
+            <span class="nt">&lt;name&gt;</span>1111XXYYZ-track-20161214T105653+0100<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;gx:Track&gt;</span>
+                <span class="nt">&lt;when&gt;</span>2016-12-13T13:16:01.709+02:00<span class="nt">&lt;/when&gt;</span>
+                <span class="nt">&lt;when&gt;</span>2016-12-13T13:18:02.709+02:00<span class="nt">&lt;/when&gt;</span>
+                <span class="nt">&lt;when&gt;</span>2016-12-13T13:23:21.709+02:00<span class="nt">&lt;/when&gt;</span>
+                <span class="nt">&lt;when&gt;</span>2016-12-13T13:24:23.709+02:00<span class="nt">&lt;/when&gt;</span>
+                <span class="c">&lt;!-- more timestamps --&gt;</span>
+                <span class="nt">&lt;gx:coord&gt;</span>13.7111482XXXXXXX 51.0335960XXXXXXX 0<span class="nt">&lt;/gx:coord&gt;</span>
+                <span class="nt">&lt;gx:coord&gt;</span>13.7111577XXXXXXX 51.0337028XXXXXXX 0<span class="nt">&lt;/gx:coord&gt;</span>
+                <span class="nt">&lt;gx:coord&gt;</span>13.7113847XXXXXXX 51.0339241XXXXXXX 0<span class="nt">&lt;/gx:coord&gt;</span>
+                <span class="nt">&lt;gx:coord&gt;</span>13.7115764XXXXXXX 51.0341949XXXXXXX 0<span class="nt">&lt;/gx:coord&gt;</span>
+                <span class="c">&lt;!-- more coordinates --&gt;</span>
+                <span class="nt">&lt;ExtendedData&gt;</span>
+                <span class="nt">&lt;/ExtendedData&gt;</span>
+            <span class="nt">&lt;/gx:Track&gt;</span>
+        <span class="nt">&lt;/Placemark&gt;</span>
+        <span class="nt">&lt;Placemark&gt;</span>
+            <span class="nt">&lt;name&gt;</span>Reference Point #1<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;Point&gt;</span>
+                <span class="nt">&lt;coordinates&gt;</span>13.72467XXXXXXXXX,51.07873XXXXXXXXX,0<span class="nt">&lt;/coordinates&gt;</span>
+            <span class="nt">&lt;/Point&gt;</span>
+        <span class="nt">&lt;/Placemark&gt;</span>
+        <span class="c">&lt;!-- more Placemarks --&gt;</span>
+    <span class="nt">&lt;/Document&gt;</span>
+<span class="nt">&lt;/Folder&gt;</span>
+</pre></div>
+
+
+<p>Now we can parse the resulting string using <code>lxml</code>.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">html</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">kml</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">pm</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">cssselect</span><span class="p">(</span><span class="s1">&#39;Folder Document Placemark&#39;</span><span class="p">):</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">cssselect</span><span class="p">(</span><span class="s1">&#39;track&#39;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">cssselect</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text_content</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">):</span>
+        <span class="c1"># Track Placemark</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># always one element by definition</span>
+        <span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">tmp</span><span class="o">.</span><span class="n">iterdescendants</span><span class="p">():</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">text_content</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">desc</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;when&#39;</span><span class="p">:</span>
+                <span class="n">do_timestamp_stuff</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">desc</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s1">&#39;coord&#39;</span><span class="p">:</span>
+                <span class="n">do_coordinate_stuff</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Skipping empty tag </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">desc</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Reference point Placemark</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">cssselect</span><span class="p">(</span><span class="s1">&#39;Point coordinates&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text_content</span><span class="p">()</span>
+        <span class="n">do_reference_stuff</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Alright. Let's see what's going on here: First we regard the document as HTML and parse it using <code>lxml.html</code>. Then we iterate over all Placemarks in <code>Folder &gt; Document &gt; Placemark</code>. If a Placemark has a child <code>track</code>, it's holding our timestamps and coordinate data. Otherwise it's considered a reference point just holding some location data. With <code>cssselect</code> we can get the respective data and do stuff with it. Just keep in mind it returns a list, so you always have to access the first element. Then we call <code>text_content()</code>l to convert the tag content to a string for further manipulation and logging.</p>
+<p>It's also worth mentioning that <code>lxml</code> and by extension <code>cssselect</code> <strong>do not support the necessary pseudo elements for KML</strong>. So you won't be able to address anything like <code>gx:Track</code>. It's not a big deal here if you know that you can still address the element with <code>cssselect('track')</code>. For more info <a href="http://lxml.de/2.3/cssselect.html">look it up in the docs</a>.</p>
+<p>I'm lazy, so I use <code>cssselect</code>. You might have to install this as a dependency with <code>pip3 install cssselect</code>. You can also use the selecting mechanism lxml provides, but previous experience has shown that it's very tedious and hard to debug for such a quick and dirty hack.</p>
+<p>The rest is just string magic, really. Just split the content you get, convert it to a float and insert it into your data structure of choice to continue working with it later.</p>
+<p>Some info that helped me get a grip on the KML format:</p>
+<ul>
+<li><a href="https://developers.google.com/kml/documentation/kmzarchives">KMZ Documentation by Google</a></li>
+<li><a href="https://developers.google.com/kml/documentation/kml_tut#placemarks">KML Placemark Reference and Samples by Google</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Keyhole_Markup_Language">KML on Wikipedia</a></li>
+</ul>
+  </div>
+</section>
+    <footer id="contentinfo" class="body">
+            <p>Made with <span id="love">♥</span></p>
+        <a href="http://dmuhs.com/feeds/all.atom.xml" rel="alternate">✓ Atom Feed</a>
+        <!---->
+        <!---->
+        <!-- &middot; -->
+        <a href="http://dmuhs.com/feeds/all.rss.xml" rel="alternate">✓ RSS Feed</a>
+    </footer><!-- /#contentinfo -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-78009222-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script src="http://dmuhs.com/theme/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>

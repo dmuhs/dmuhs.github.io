@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8" />
+    <title>/dev/log</title>
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <meta name="tags" content="amazon" />
+    <meta name="tags" content="aws" />
+    <meta name="tags" content="emr" />
+    <meta name="tags" content="hadoop" />
+    <meta name="tags" content="pig" />
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="http://dmuhs.com/">/dev/log</a></h1>
+    </header><!-- /#banner -->
+    <div id="nav-wrapper">
+    <nav id="menu"><ul>
+			    <li class="menu-item"><a class="underline" target="_blank" href="http://github.com/dmuhs">Github</a></li>
+            <li class="menu-item"><a class="underline" href="http://dmuhs.com/archives.html">Archives</a></li>
+                <li class="menu-item"><a class="underline  special " href="http://dmuhs.com/pages/about-me.html">About Me</a></li>
+    </ul></nav><!-- /#menu -->
+    </div>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://dmuhs.com/resolve-error-2999-invalid-preprocessor-command-specified.html" rel="bookmark"
+         title="Permalink to ERROR 2999: Invalid preprocessor command specified">ERROR 2999: Invalid preprocessor command specified</a></h2>
+  </header>
+  <footer class="post-info">
+    <time class="entry-time" datetime="2016-06-03T10:18:16+02:00 ">
+      03 June 2016
+    </time>
+  </footer>
+  <div class="entry-content">
+    <p>I am quite new to working with <a href="https://aws.amazon.com/elasticmapreduce/">Amazon Elastic MapReduce</a> clusters. To do some large scale data analysis, I built a Pig script and ran it on a local pig installation to verify its functionality. Works. Neat! Let's push it to the cluster and get some serious results on the large dataset!</p>
+<p>Luckily for my bill, it didn't take too long to fail.</p>
+<div class="highlight"><pre><span></span>[hadoop@ip-XXX-XXX-XXX-XXX samples]$ pig -x mapreduce -f pig/examples/snort.pig -param pcap=data/sample204.pcap
+16/06/03 14:05:13 INFO pig.ExecTypeProvider: Trying ExecType : LOCAL
+16/06/03 14:05:13 INFO pig.ExecTypeProvider: Trying ExecType : MAPREDUCE
+16/06/03 14:05:13 INFO pig.ExecTypeProvider: Picked MAPREDUCE as the ExecType
+94   [main] INFO  org.apache.pig.Main  - Apache Pig version 0.14.0-amzn-0 (r: unknown) compiled Apr 06 2016, 22:40:48
+16/06/03 14:05:13 INFO pig.Main: Apache Pig version 0.14.0-amzn-0 (r: unknown) compiled Apr 06 2016, 22:40:48
+98   [main] INFO  org.apache.pig.Main  - Logging error messages to: /mnt/var/log/pig/pig_1464962713368.log
+16/06/03 14:05:13 INFO pig.Main: Logging error messages to: /mnt/var/log/pig/pig_1464962713368.log
+2542 [main] INFO  org.apache.pig.Main  - Final script path: /home/hadoop/packetpig/pig/examples/snort.pig
+16/06/03 14:05:15 INFO pig.Main: Final script path: /home/hadoop/packetpig/pig/examples/snort.pig
+2563 [main] INFO  org.apache.pig.impl.util.Utils  - Default bootup file /home/hadoop/.pigbootup not found
+16/06/03 14:05:15 INFO util.Utils: Default bootup file /home/hadoop/.pigbootup not found
+2698 [main] ERROR org.apache.pig.Main  - ERROR 2999: Unexpected internal error. Pig Internal Error. Invalid preprocessor command specified : %DEFAULT
+16/06/03 14:05:15 ERROR pig.Main: ERROR 2999: Unexpected internal error. Pig Internal Error. Invalid preprocessor command specified : %DEFAULT
+Details at logfile: /mnt/var/log/pig/pig_1464962713368.log
+2740 [main] INFO  org.apache.pig.Main  - Pig script completed in 2 seconds and 915 milliseconds (2915 ms)
+16/06/03 14:05:16 INFO pig.Main: Pig script completed in 2 seconds and 915 milliseconds (2915 ms)
+</pre></div>
+
+
+<p>Wait, what? How can this fail? Setting %DEFAULT values for script parameters is a pretty standard thing! Well, turns out, all Amazon EMR components <a href="https://docs.aws.amazon.com/ElasticMapReduce/latest/ReleaseGuide/emr-release-components.html">are running on Pig 0.14.0</a>. A pig version <a href="https://pig.apache.org/releases.html">released in November 2014</a>. The latest version (0.15.0) was released in June 2015! Isn't that enough time to at least provide a newer version to non-legacy customers?</p>
+<p>Turns out, there's a <a href="https://issues.apache.org/jira/browse/PIG-4342">bug</a> in version 0.14.0 that affects the preprocessor parsing. Let's look at the <a href="https://issues.apache.org/jira/secure/attachment/12683376/PIG-4342-1.patch">patch diff</a>:</p>
+<div class="highlight"><pre><span></span>         <span class="kd">final</span> <span class="n">String</span> <span class="n">declareToken</span> <span class="o">=</span> <span class="s">&quot;%declare&quot;</span><span class="o">;</span>
+         <span class="kd">final</span> <span class="n">String</span> <span class="n">defaultToken</span> <span class="o">=</span> <span class="s">&quot;%default&quot;</span><span class="o">;</span>
+
+<span class="o">-</span>        <span class="k">if</span> <span class="o">(</span><span class="n">preprocessorCmd</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">declareToken</span><span class="o">))</span> <span class="o">{</span>
+<span class="o">+</span>        <span class="k">if</span> <span class="o">(</span><span class="n">preprocessorCmd</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">declareToken</span><span class="o">))</span> <span class="o">{</span>
+             <span class="n">filter</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">PigCommandFilter</span><span class="o">.</span><span class="na">Command</span><span class="o">.</span><span class="na">DECLARE</span><span class="o">);</span>
+<span class="o">-</span>        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">preprocessorCmd</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">defaultToken</span><span class="o">))</span> <span class="o">{</span>
+<span class="o">+</span>        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">preprocessorCmd</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">defaultToken</span><span class="o">))</span> <span class="o">{</span>
+             <span class="n">filter</span><span class="o">.</span><span class="na">validate</span><span class="o">(</span><span class="n">PigCommandFilter</span><span class="o">.</span><span class="na">Command</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">);</span>
+         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+             <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;Pig Internal Error. Invalid preprocessor command specified : &quot;</span>
+</pre></div>
+
+
+<p>Awesome! So there's just a problem with parsing all-uppercase <code>DEFAULT</code> and <code>DECLARE</code> instructions. This means we don't actually have to fight with the source code and manually implement the patch. Just change all affected instructions to lowercase and Bob's your uncle!</p>
+  </div>
+</section>
+    <footer id="contentinfo" class="body">
+            <p>Made with <span id="love">♥</span></p>
+        <a href="http://dmuhs.com/feeds/all.atom.xml" rel="alternate">✓ Atom Feed</a>
+        <!---->
+        <!---->
+        <!-- &middot; -->
+        <a href="http://dmuhs.com/feeds/all.rss.xml" rel="alternate">✓ RSS Feed</a>
+    </footer><!-- /#contentinfo -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-78009222-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script src="http://dmuhs.com/theme/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>

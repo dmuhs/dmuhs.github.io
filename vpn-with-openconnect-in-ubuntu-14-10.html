@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8" />
+    <title>/dev/log</title>
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <meta name="tags" content="ubuntu" />
+    <meta name="tags" content="openconnect" />
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="http://dmuhs.com/">/dev/log</a></h1>
+    </header><!-- /#banner -->
+    <div id="nav-wrapper">
+    <nav id="menu"><ul>
+			    <li class="menu-item"><a class="underline" target="_blank" href="http://github.com/dmuhs">Github</a></li>
+            <li class="menu-item"><a class="underline" href="http://dmuhs.com/archives.html">Archives</a></li>
+                <li class="menu-item"><a class="underline  special " href="http://dmuhs.com/pages/about-me.html">About Me</a></li>
+    </ul></nav><!-- /#menu -->
+    </div>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://dmuhs.com/vpn-with-openconnect-in-ubuntu-14-10.html" rel="bookmark"
+         title="Permalink to VPN with openconnect in Ubuntu 14.10">VPN with openconnect in Ubuntu 14.10</a></h2>
+  </header>
+  <footer class="post-info">
+    <time class="entry-time" datetime="2015-05-12T20:24:00+02:00 ">
+      12 May 2015
+    </time>
+  </footer>
+  <div class="entry-content">
+    <p>Many services that my university offers have one requirement: to be in a trusted network. That is either eduroam or any network where you can connect through a VPN tunnel. As sad as it is, I don't have an eduroam router next to my home. However, I ran into some minor problems when trying to create a VPN connection with network-manager.</p>
+<h2>The Good</h2>
+<p>After installing the necessary dependencies <code>network-manager-openconnect</code> and <code>network-manager-openconnect-gnome</code> there was a rather visual problem: When trying to create a VPN connection, network-manager would just present me with the option to <em>Import from File...</em>. Not a glimpse of my beloved <em>Cisco AnyConnect Compatible VPN (openconnect)</em> option. So what do?</p>
+<p>The fix is very easy. There seems to be a minor rights issue where only superusers can create openconnect VPNs. So simply fire up a shell and enter</p>
+<div class="highlight"><pre><span></span>gksudo nm-connection-editor
+</pre></div>
+
+
+<p>After entering your sudo password you'll be rewarded with a dialog listing all your network connections. Press <strong>Add</strong> to the right and there you'll find the option for an openconnect VPN connection. Enter your credentials and link the CA cert. Don't forget to enable <em>All users may connect to this network</em> in the "General" tab. That way you'll be able to use the connection as a non-superuser.</p>
+<p>If you're from the TU Dresden, use the following data:</p>
+<p><strong>Gateway:</strong> vpn2.zih.tu-dresden.de
+<strong>CA Certificate:</strong> Download <a href="https://pki.pca.dfn.de/tu-dresden-ca/pub/cacert/chain.txt">here</a> (<em>Right click - Save link as&lt;</em> tud-cacert.pem)</p>
+<p>Leave the rest as it is and connect through your network manager as usual. Enter your ZIH login and password and you're in! Speaking of, the ZIH also has <a href="https://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/dienste/datennetz_dienste/vpn/">a page on openconnect</a>. But it's only available in German and doesn't consider the above problem with network-manager in Ubuntu 14.10.</p>
+<h2>The Bad</h2>
+<p><em>Why not use OpenVPN?</em> - Well, Cisco AnyConnect servers are not OpenVPN servers. Incompatible.
+<em>What about vpnc?</em> - Also incompatible. That's something different. Either openconnect or ...</p>
+<h2>The Ugly</h2>
+<p>Cisco AnyConnect! I mean, the TU recommends it so what could possibly go wrong? There is even a Linux version!</p>
+<p>After the (refreshingly easy) installation I continue to start up the UI with</p>
+<div class="highlight"><pre><span></span>./anyconnect-3.1.05182/vpn/vpnui
+</pre></div>
+
+
+<p>and when you try to login you're greeted with the error message</p>
+<p><img alt="Dafuq, Cisco?" src="http://dmuhs.com/images/anyconnect-error.png"></p>
+<p><em>"A VPN CONNECTION CANNOT BE WHAT??"</em> - I google'd, duckduckgo'd and even bing'd but there were no solutions in sight. I got fed up and decided that the crappy Linux port is not worth debugging. That's how I ended up with openconnect. To this date I cannot offer any solution to the notorious <em>file move error</em> of the Cisco AnyConnect Secure Mobility Client. I can just tell everyone reading this that openconnect is the alternative you should consider.</p>
+  </div>
+</section>
+    <footer id="contentinfo" class="body">
+            <p>Made with <span id="love">♥</span></p>
+        <a href="http://dmuhs.com/feeds/all.atom.xml" rel="alternate">✓ Atom Feed</a>
+        <!---->
+        <!---->
+        <!-- &middot; -->
+        <a href="http://dmuhs.com/feeds/all.rss.xml" rel="alternate">✓ RSS Feed</a>
+    </footer><!-- /#contentinfo -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-78009222-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script src="http://dmuhs.com/theme/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>

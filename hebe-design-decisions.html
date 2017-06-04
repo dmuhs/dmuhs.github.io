@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8" />
+    <title>/dev/log</title>
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <meta name="tags" content="pelican" />
+    <meta name="tags" content="design" />
+    <meta name="tags" content="web development" />
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="http://dmuhs.com/">/dev/log</a></h1>
+    </header><!-- /#banner -->
+    <div id="nav-wrapper">
+    <nav id="menu"><ul>
+			    <li class="menu-item"><a class="underline" target="_blank" href="http://github.com/dmuhs">Github</a></li>
+            <li class="menu-item"><a class="underline" href="http://dmuhs.com/archives.html">Archives</a></li>
+                <li class="menu-item"><a class="underline  special " href="http://dmuhs.com/pages/about-me.html">About Me</a></li>
+    </ul></nav><!-- /#menu -->
+    </div>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://dmuhs.com/hebe-design-decisions.html" rel="bookmark"
+         title="Permalink to Hebe Design Decisions">Hebe Design Decisions</a></h2>
+  </header>
+  <footer class="post-info">
+    <time class="entry-time" datetime="2017-03-25T23:34:00+01:00 ">
+      25 March 2017
+    </time>
+  </footer>
+  <div class="entry-content">
+    <p>After the exams I had some free hours so I decided to show my blog some more love and look for a new theme. The old one, a customized version of <a href="https://github.com/onlyhavecans/pelican-chunk">Chunk</a> was little more than a hack to have a theme at all. Here's a quick reminder of how this site used to look:</p>
+<p><a href="/images/chunk.png" data-lightbox="hebe-design-decisions"><img alt="" src="/images/chunk_thumb.png"></a></p>
+<p>I had a thorough look at <a href="https://github.com/alexandrevicenzi/Flex">Flex</a>, <a href="https://github.com/talha131/pelican-elegant">Elegant</a> and many other popular themes but none of them struck me as <em>really minimalist</em>. So even though I'm more of a backend-dev I decided to dust off my questionable CSS skills and give it a shot. Turns out a lot has changed since I last developed websites. Animations without JS? Magic! The whole thing turned out pretty neat and I even <a href="https://github.com/dmuhs/hebe">published the code on Github</a>. Feel free to leave feedback!</p>
+<p>In this post I'll explain some of my ideas about <em>Hebe</em>, a "truly" minimalist <a href="https://getpelican.com">Pelican</a> blog theme.</p>
+<h4>Cleaning Up</h4>
+<p>First I started playing around with the old theme. I removed all things I thought were unnecessary and too distracting:</p>
+<ul>
+<li>Tags</li>
+<li>Author</li>
+<li>Category (probably the most radical change)</li>
+<li>Comments</li>
+</ul>
+<p>If I had a search field, I also would have removed it. Whenever I look at a blog I easily get distracted by these elements. I usually stumble across interesting articles through <a href="http://news.ycombinator.com/">Hackernews</a> or simple Google searches. I look at articles because of their content. I don't care for other related posts, I would never ever do a tag search, I usually don't comment and why would I browse a category as generic as <em>programming</em>? Altough if they're too specific they lose their purpose of grouping content. So their relevance is secondary at most. That's why I removed them from the article view.</p>
+<p>Another point that is worth mentioning is the menu length. I decided to go for a maximum of three links. I never visited a blog where I thought <em>"Wow, I should immediately follow them on LinkedIn, Twitter, Facebook, check out their Tumblr blog, like all their YT videos and donate them some Bitcoin"</em>. I think I'm not alone in this. However when I read an interesting article on a certain programming problem or similar I regularly find myself looking people up on Github to find out whether they have other interesting projects I could learn something from. That's why I also included mine in the menu above.</p>
+<h4>Typography</h4>
+<p>So in my minimalist rage I needed another way to structure and separate my content than horizontal and vertical rules. My first idea was to use different versions of at most three fonts. On this blog you will find:</p>
+<ul>
+<li><a href="https://www.fontsquirrel.com/fonts/quicksand">Quicksand</a> in the title</li>
+<li><a href="https://www.fontsquirrel.com/fonts/raleway">Raleway</a> for the main content</li>
+<li><a href="https://www.fontsquirrel.com/fonts/source-code-pro">Source Code Pro</a> for monospace code sections</li>
+</ul>
+<p>All of these fonts convinced me with their smooth curvatures and rounded edges. They manage to maintain a tidy look while not looking as dead and boring as the old Helvetica. Okay, that was mean. Helvetica is a beautiful font. But it's so overused by now that I'm sick of seeing it everywhere. There are so many <a href="https://www.typewolf.com/top-10-helvetica-alternatives">beautiful alternatives</a>!</p>
+<p>A thing I tried to keep in mind during the design process was to keep generous <a href="https://www.sitepoint.com/a-solid-understanding-of-negative-space/">negative space</a> and guide the reader's attention indirectly  through proximity rather than throwing a UI element at them. After that (plus taking the following thoughts into account) I already ended up with the following black and white theme:</p>
+<p><a href="/images/hebe-beta.png" data-lightbox="hebe-design-decisions"><img alt="" src="/images/hebe-beta_thumb.png"></a></p>
+<h4>Hidden Functionality</h4>
+<p>I already wrote about the numerous things that bother me with modern blogs. But removing categories might seem a little radical, right? And the subscription box for a newsletter? What if a user wants to follow my content, explore more or follow the blog?</p>
+<p>I tried to solve most of these problems by combining different functionalities. For example personally I liked the archive view (as long as it's separated from the rest of the blog). So I decided to merge archive and categories. When you look at the archive overview you'll be able to see the respective categories and you can easily explore by clicking on one of them. It's not too obvious, I know. On the other side a user who really wants to use this functionality will quickly find their way around it. Even if they don't - it's a sacrifice I'm willing to make for a minimalist blogging experience.</p>
+<p><a href="/images/hebe-archive.png" data-lightbox="hebe-design-decisions"><img alt="" src="/images/hebe-archive_thumb.png"></a></p>
+<p>For possible followers there's links to Atom and RSS feeds at the bottom. If the reader has read all the content I assume that it interested them and that's the right point where I want them to see the feed options. When I added colour later I made sure to highlight it a bit more.</p>
+<p><a href="/images/hebe-footer.png" data-lightbox="hebe-design-decisions"><img alt="" src="/images/hebe-footer_thumb.png"></a></p>
+<h4>Minimalist Colouring</h4>
+<p>This is a simple one. I presented the first black/ white draft to some of my friends and their main point of critique was that it lacked colour. I quickly went for an orange tone because I liked the contrast that still kept the theme happy and bright. To keep the clean style I just added some accents here and there, though - most importantly highlighting the <em>About Me</em> link in the menu. To still keep the attention on the content in the main view I tried to just add colour at the top and bottom, wrapping the content section in the middle.</p>
+<p>When a reader clicks on an article I wanted to allow for more colour. This is mainly because I often share code and syntax highlighting is a must for readability. To <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS</a> I went for a monochromatic scheme. Because I couldn't find a fitting <a href="http://pygments.org/docs/styles/">Pygments style</a> I simply invented my own. Here's the palette:</p>
+<p><a href="/images/hebe-colours.png" data-lightbox="hebe-design-decisions"><img alt="" src="/images/hebe-colours_thumb.png"></a></p>
+<p>If you want to have a look at the complete Pygments style just check out the complete CSS file <a href="https://github.com/dmuhs/hebe/blob/master/static/css/pygment.css">here</a>.</p>
+<h4>Few Effects</h4>
+<p>I admit that most effects weren't necessary. But I never used animations in CSS3 and this was a good chance to tinker around with them. It all boils down to a limited set of animated elements. The most obvious ones are the slight rotation of the blog title and the colour transitions of the links when hovered. I later found <a href="http://tobiasahlin.com/blog/css-trick-animating-link-underlines/">this interesting article</a> by Tobias Ahlin and used the code on my menu bar.</p>
+<p>For the content area I thought that syntax highlighting and font styles were more than enough "noise". The images looked a little out of place, though. That's why I added some round corners and slight shadow drop to give them a clean and tidy look - like high-quality photos lying on a polished table.</p>
+<h4>Further Development</h4>
+<p>For sure I'll tweak things here and there. Maybe I'll also add support for more features to keep up with the more popular and professional themes. For now it's getting the job done very well for me. <strong>Pull Requests are welcome, of course!</strong>.</p>
+  </div>
+</section>
+    <footer id="contentinfo" class="body">
+            <p>Made with <span id="love">♥</span></p>
+        <a href="http://dmuhs.com/feeds/all.atom.xml" rel="alternate">✓ Atom Feed</a>
+        <!---->
+        <!---->
+        <!-- &middot; -->
+        <a href="http://dmuhs.com/feeds/all.rss.xml" rel="alternate">✓ RSS Feed</a>
+    </footer><!-- /#contentinfo -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-78009222-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script src="http://dmuhs.com/theme/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>

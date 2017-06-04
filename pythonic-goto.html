@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8" />
+    <title>/dev/log</title>
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <meta name="tags" content="goto" />
+    <meta name="tags" content="exception" />
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="http://dmuhs.com/">/dev/log</a></h1>
+    </header><!-- /#banner -->
+    <div id="nav-wrapper">
+    <nav id="menu"><ul>
+			    <li class="menu-item"><a class="underline" target="_blank" href="http://github.com/dmuhs">Github</a></li>
+            <li class="menu-item"><a class="underline" href="http://dmuhs.com/archives.html">Archives</a></li>
+                <li class="menu-item"><a class="underline  special " href="http://dmuhs.com/pages/about-me.html">About Me</a></li>
+    </ul></nav><!-- /#menu -->
+    </div>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://dmuhs.com/pythonic-goto.html" rel="bookmark"
+         title="Permalink to The "Pythonic" GOTO">The "Pythonic" GOTO</a></h2>
+  </header>
+  <footer class="post-info">
+    <time class="entry-time" datetime="2015-06-15T19:34:00+02:00 ">
+      15 June 2015
+    </time>
+  </footer>
+  <div class="entry-content">
+    <p>Nope, I'm not going to join the goto war. Even though it's shunned among developers, there are still some situations where it makes sense. A good friend of mine with a background in C recently came to me with a very simple problem that still made him scratch his head when he tried to express it in Python. The problem broke down to comparing three lists to find an element that meets a special criterion. His basic naive concept looked something like this in pseudo-code:</p>
+<div class="highlight"><pre><span></span>match = False
+for elem1 in list1 do {
+    for elem2 in list2 do {
+        for elem3 in list3 do {
+            if condition(elem1, elem2, elem3) then {
+                match = True
+                break
+            }
+        }
+        if match then {
+            break
+        }
+    }
+    if match then {
+        break
+    }
+}
+</pre></div>
+
+
+<p>Of course with his programming background he immediately made the remark that this problem is a good example for using goto in low-level code. You save some comparisons when breaking out of several nested loops. I probably don't have the knowledge to join the debate on this - especially when it comes to embedded programming! But what I know are high-level languages and how to deal with this kind of problem there. It's pretty easy as most languages offer a construct that acts like goto, but just in a certain frame and without the risk of writing spaghetti code. I'm talking about <strong>exceptions</strong>. I think they're highly underrated, because they're not only tools for error-handling and increasing the fault-tolerance of your software. You can also use them to easily modify your regular control flow. A sample implementation of the above pseudo-code in Python using exceptions and sets (to remove duplicates) would look as follows:</p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MatchFound</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">some_check</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="n">list3</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">elem1</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">list1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">elem2</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">list2</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">elem3</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">list3</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">elem1</span><span class="p">,</span> <span class="n">elem2</span><span class="p">,</span> <span class="n">elem3</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="n">MatchFound</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">MatchFound</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>  <span class="c1"># Found something!</span>
+    <span class="k">return</span> <span class="bp">False</span>  <span class="c1"># Nothing here</span>
+</pre></div>
+
+
+<p>In the particular case of said friend it was even easier. The criterion would just have to be a check that returns <code>True</code> if all elements were equal. That's a one-liner in Python. The naive implementation using sets:</p>
+<div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">list3</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Doesn't look pythonic enough? Alright, let's compress it some more:</p>
+<div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">list2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">list3</span><span class="p">))</span>
+</pre></div>
+  </div>
+</section>
+    <footer id="contentinfo" class="body">
+            <p>Made with <span id="love">♥</span></p>
+        <a href="http://dmuhs.com/feeds/all.atom.xml" rel="alternate">✓ Atom Feed</a>
+        <!---->
+        <!---->
+        <!-- &middot; -->
+        <a href="http://dmuhs.com/feeds/all.rss.xml" rel="alternate">✓ RSS Feed</a>
+    </footer><!-- /#contentinfo -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-78009222-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script src="http://dmuhs.com/theme/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>
