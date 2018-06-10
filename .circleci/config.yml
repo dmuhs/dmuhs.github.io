@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run:
           name: install dependencies
-          command: pip install pelican ghp-import Markdown pillow
+          command: pip install --user pelican ghp-import Markdown pillow
       - run:
           name: deploy on Github pages
           command: make publish github
