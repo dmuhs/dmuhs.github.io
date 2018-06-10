@@ -23,6 +23,9 @@ jobs:
     steps:
       - checkout
       - run:
+          - name: Checkout submodules
+          - command: git submodule update --init --recursive
+      - run:
           name: Fix PATH
           command: |
             echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
