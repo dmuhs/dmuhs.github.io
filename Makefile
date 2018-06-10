@@ -58,6 +58,6 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 github: publish
-	cd $(OUTPUTDIR) && git push origin $(GITHUB_PAGES_BRANCH)
+	cd $(OUTPUTDIR) && git commit -am "Refresh static files" && git push origin $(GITHUB_PAGES_BRANCH)
 
 .PHONY: html help clean regenerate devserver publish github
