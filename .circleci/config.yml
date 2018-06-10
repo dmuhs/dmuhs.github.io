@@ -26,5 +26,8 @@ jobs:
           name: install dependencies
           command: pip install --user pelican ghp-import Markdown pillow
       - run:
+          name: Fix PATH
+          command: export PATH=$PATH:~/.local/bin
+      - run:
           name: deploy on Github pages
           command: make publish github
