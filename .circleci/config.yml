@@ -24,7 +24,9 @@ jobs:
       - checkout
       - run:
           name: Fix PATH
-          command: export PATH=$PATH:~/.local/bin
+          command: |
+            echo 'export PATH=~/.local/bin:$PATH' >> $BASH_ENV
+            source $BASH_ENV
       - run:
           name: install dependencies
           command: pip install --user pelican ghp-import Markdown pillow
