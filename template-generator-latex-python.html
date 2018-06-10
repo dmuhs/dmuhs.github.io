@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8" />
+    <title>/dev/log</title>
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="http://dmuhs.com/theme/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+
+    <meta name="tags" content="python" />
+    <meta name="tags" content="latex" />
+    <meta name="tags" content="template" />
+</head>
+
+<body id="index" class="home">
+    <header id="banner" class="body">
+        <h1><a href="http://dmuhs.com/">/dev/log</a></h1>
+    </header><!-- /#banner -->
+    <div id="nav-wrapper">
+    <nav id="menu"><ul>
+			    <li class="menu-item"><a class="underline" target="_blank" href="http://github.com/dmuhs">Github</a></li>
+            <li class="menu-item"><a class="underline" href="http://dmuhs.com/archives.html">Archives</a></li>
+                <li class="menu-item"><a class="underline  special " href="http://dmuhs.com/pages/about-me.html">About Me</a></li>
+    </ul></nav><!-- /#menu -->
+    </div>
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://dmuhs.com/template-generator-latex-python.html" rel="bookmark"
+         title="Permalink to Quick Hack: Generating PDFs with Python and XeTeX">Quick Hack: Generating PDFs with Python and XeTeX</a></h2>
+  </header>
+  <footer class="post-info">
+    <time class="entry-time" datetime="2018-01-10T12:50:00+01:00 ">
+      10 January 2018
+    </time>
+  </footer>
+  <div class="entry-content">
+    <p>A friend of mine is following a PhD in a non-technical field. And his boss is a bully. Work mainly happens with high-level statistical analysis tools. No one knows anything about programming and most problems are solved by hand. While on a positive note this means good chances to get a student job, it also means that progress moves slowly, especially when it comes to working with large datasets.</p>
+<p>Due to some kind of disorder related to social dominance, his boss regularly gives him harassing tasks. The ones that would take two students a month to complete - with a deadline set for the day after tomorrow. Obviously, this is impossible to complete if you don't know how to automate the task. That's where I come in - and boy was it satisfying to own his boss.</p>
+<p>To maintain his anonymity, I will not show direct samples of the dataset or mention the use-case of it. Just be assured that it took a fuckton of sanitization work to bring it into a decent format that can easily be processed. The main idea here is that we parse the relevant data, render it onto a XeTeX template and save the rendered file on the disk to later render it into a PDF using <code>xelatex</code>.</p>
+<p>First of all the template:</p>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[a4paper]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[margin=0.5in]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[utf8]</span><span class="nb">{</span>inputenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[justification=centering]</span><span class="nb">{</span>caption<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>longtable<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>tabu<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>microtype<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>pdflscape<span class="nb">}</span>
+
+<span class="k">\pagenumbering</span><span class="nb">{</span>gobble<span class="nb">}</span>
+<span class="k">\tabulinesep</span>=3pt
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>landscape<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[h]
+<span class="k">\centering</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>|c|c|c|<span class="nb">}</span>
+<span class="k">\hline</span>
+<span class="k">\textbf</span><span class="nb">{</span>Column 1<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\textbf</span><span class="nb">{</span>Column 2<span class="nb">}</span> <span class="nb">&amp;</span> <span class="k">\textbf</span><span class="nb">{</span>Column 3<span class="nb">}</span> <span class="k">\\</span> <span class="k">\hline</span>
+<span class="s">$</span><span class="nb">table</span><span class="m">1</span><span class="nb"></span>
+<span class="nv">\end</span><span class="nb">{tabular}</span>
+<span class="nv">\end</span><span class="nb">{table}</span>
+
+<span class="nv">\section</span><span class="nb">{Table </span><span class="m">2</span><span class="nb">}</span>
+<span class="nv">\begin</span><span class="nb">{table}</span><span class="o">[</span><span class="nb">h</span><span class="o">]</span><span class="nb"></span>
+<span class="nv">\centering</span><span class="nb"></span>
+<span class="nv">\begin</span><span class="nb">{tabular}{|c|c|c|c|c|}</span>
+<span class="nv">\hline</span><span class="nb"></span>
+<span class="nv">\textbf</span><span class="nb">{Column </span><span class="m">1</span><span class="nb">} &amp; </span><span class="nv">\textbf</span><span class="nb">{Column </span><span class="m">2</span><span class="nb">} &amp; </span><span class="nv">\textbf</span><span class="nb">{Column </span><span class="m">3</span><span class="nb">} &amp; </span><span class="nv">\textbf</span><span class="nb">{Column </span><span class="m">4</span><span class="nb">} &amp; </span><span class="nv">\textbf</span><span class="nb">{Column </span><span class="m">5</span><span class="nb">} </span><span class="nv">\\</span><span class="nb"> </span><span class="nv">\hline</span><span class="nb"></span>
+<span class="m">1</span><span class="nb"> &amp; </span><span class="s">$</span>t2<span class="nb">_</span>row1 <span class="k">\\</span> <span class="k">\hline</span>
+2 <span class="nb">&amp;</span> <span class="s">$</span><span class="nb">t</span><span class="m">2</span><span class="nb">_row</span><span class="m">2</span><span class="nb"> </span><span class="nv">\\</span><span class="nb"> </span><span class="nv">\hline</span><span class="nb"></span>
+<span class="m">3</span><span class="nb"> &amp; </span><span class="s">$</span>t2<span class="nb">_</span>row3 <span class="k">\\</span> <span class="k">\hline</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\caption</span><span class="nb">{</span>Table 2 caption<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+
+<span class="k">\section</span><span class="nb">{</span>Table 3<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>longtabu<span class="nb">}</span> to <span class="k">\textwidth</span> <span class="nb">{</span>|X[1,c]|X[5,c]|X[1,c]|X[1,c]|X[1,c]|X[1,c]|<span class="nb">}</span> <span class="k">\hline</span>
+<span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 1<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 2<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 3<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 4<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 5<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 6<span class="nb">}}</span> <span class="k">\\</span> <span class="k">\hline</span>
+<span class="k">\endfirsthead</span>
+
+<span class="k">\multicolumn</span><span class="nb">{</span>6<span class="nb">}{</span>c<span class="nb">}</span><span class="c">%</span>
+<span class="nb">{{</span><span class="k">\bfseries</span> <span class="k">\tablename\ \thetable</span><span class="nb">{}</span> -- continued<span class="nb">}}</span> <span class="k">\\</span>
+<span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 1<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 2<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 3<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 4<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 5<span class="nb">}}</span> <span class="nb">&amp;</span> <span class="k">\multicolumn</span><span class="nb">{</span>1<span class="nb">}{</span>|c|<span class="nb">}{</span><span class="k">\textbf</span><span class="nb">{</span>Column 6<span class="nb">}}</span> <span class="k">\\</span> <span class="k">\hline</span>
+<span class="k">\endhead</span>
+
+<span class="k">\hline</span> <span class="k">\multicolumn</span><span class="nb">{</span>6<span class="nb">}{</span>|r|<span class="nb">}{{</span>Continue on the next page<span class="nb">}}</span> <span class="k">\\</span> <span class="k">\hline</span>
+<span class="k">\endfoot</span>
+
+<span class="k">\endlastfoot</span>
+
+<span class="s">$</span><span class="nb">table</span><span class="m">3</span><span class="nb"></span>
+
+<span class="nv">\caption</span><span class="nb">{Table </span><span class="m">3</span><span class="nb"> caption}</span>
+<span class="nv">\end</span><span class="nb">{longtabu}</span>
+<span class="nv">\end</span><span class="nb">{landscape}</span>
+</pre></div>
+
+
+<p>So we will render our data on a landscape A4 page in three tables. With the help of the <code>longtabu</code> package we can break tables on page break and continue them on the next page. You will notice some uncommon variables such as <code>$table1</code> or <code>$t2_row1</code>. These are placeholders for Python's <code>string.Template</code> object, which allows you to do simple substitutions in strings. Example:</p>
+<div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s2">&quot;This is a $tmpl_type template&quot;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">t</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">tmpl_type</span><span class="o">=</span><span class="s2">&quot;sample&quot;</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="s1">&#39;This is a sample template&#39;</span>
+</pre></div>
+
+
+<p>With our substitution variables set, we just have to parse the dataset, sanitize all format fuckups, and bring it into the XeTeX table line format. For that we can easily provide line templates for each of the three tables</p>
+<div class="highlight"><pre><span></span><span class="n">T1_LINE</span> <span class="o">=</span> <span class="s2">&quot;{col_1} &amp; {col2} &amp; {col_3} </span><span class="se">\\\\</span><span class="s2"> </span><span class="se">\\</span><span class="s2">hline&quot;</span>
+<span class="n">T2_LINE</span> <span class="o">=</span> <span class="s2">&quot;{col_1} &amp; {col_2} &amp; {col_3} &amp; {col_4}&quot;</span>
+<span class="n">T3_LINE</span> <span class="o">=</span> <span class="s2">&quot;{col_1} &amp; {col_2} &amp; {col_3} &amp; {col_4} &amp; {col_5} &amp; {col_6} </span><span class="se">\\\\</span><span class="s2"> </span><span class="se">\\</span><span class="s2">hline&quot;</span>
+</pre></div>
+
+
+<p>Don't forget to escape the backslashes. Ugly, I know, but XeTeX needs double backslashes for manual line breaks. Now after sanitization, we replace some special table characters, and simply generate our table rows like this:</p>
+<div class="highlight"><pre><span></span><span class="n">t3_rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">cat</span><span class="p">,</span> <span class="n">cat_data</span> <span class="ow">in</span> <span class="n">part</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">content</span><span class="p">[</span><span class="n">cat</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&amp;&#39;</span><span class="p">)</span>
+    <span class="n">t3_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T3_LINE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">col_1</span><span class="o">=</span><span class="n">cat</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
+        <span class="n">col_2</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+        <span class="n">col_3</span><span class="o">=</span><span class="n">cat_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">col_4</span><span class="o">=</span><span class="n">cat_data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">col_5</span><span class="o">=</span><span class="n">cat_data</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="n">col_6</span><span class="o">=</span><span class="n">cat_data</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+    <span class="p">))</span>
+</pre></div>
+
+
+<p>All that's left now is to do the substitution on the template file and save it to the output directory:</p>
+<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">p_template</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span>
+        <span class="n">table1</span><span class="o">=</span><span class="n">table1</span><span class="p">,</span>
+        <span class="n">t2_row1</span><span class="o">=</span><span class="n">t2_data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">t2_row2</span><span class="o">=</span><span class="n">t2_data</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">t2_row3</span><span class="o">=</span><span class="n">t2_data</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="n">table3</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">t3_rows</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In my case this resulted in 146 <code>.tex</code> files. In the output directory I just had to call <code>xelatex *.tex</code>, wait 5 minutes, and done! Due to the dataset's size, this resulted in roughly 500 pages or output. Impossible to do by hand. Said friend went to the office, printed all of the tables (using recycling paper, of course!) and put the stack on the professor's table. Owned. And boy, do those tables look pretty!</p>
+<p>A little extra: The shell command I used to determine how many PDF pages were generated in the output directory:</p>
+<div class="highlight"><pre><span></span><span class="k">for</span> file in results/*.pdf<span class="p">;</span> <span class="k">do</span> pdfinfo <span class="nv">$file</span> <span class="p">|</span> grep Pages <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span><span class="p">;</span> <span class="k">done</span> <span class="p">|</span> awk <span class="s1">&#39;{s+=$1} END {print s}&#39;</span>
+</pre></div>
+  </div>
+</section>
+    <footer id="contentinfo" class="body">
+            <p>Made with <span id="love">♥</span></p>
+        <a href="http://dmuhs.com/feeds/all.atom.xml" rel="alternate">✓ Atom Feed</a>
+        <!---->
+        <!---->
+        <!-- &middot; -->
+        <a href="http://dmuhs.com/feeds/all.rss.xml" rel="alternate">✓ RSS Feed</a>
+    </footer><!-- /#contentinfo -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-78009222-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <script src="http://dmuhs.com/theme/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>
