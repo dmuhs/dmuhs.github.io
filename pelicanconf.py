@@ -41,6 +41,6 @@ THUMBNAIL_SIZES = {
 }
 
 STATIC_PATHS = ['images', 'extra/CNAME']
-PLUGIN_PATHS = ['plugins']
+PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['thumbnailer']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
