@@ -1,2 +1,2 @@
 pelican[markdown]
-pelican-image-process
+minchin.pelican.plugins.optimize_images

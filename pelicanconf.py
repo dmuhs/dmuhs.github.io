@@ -45,17 +45,3 @@ EXTRA_PATH_METADATA = {
     # 'extra/favicon.ico': {'path': 'favicon.ico'},
     "extra/CNAME": {"path": "CNAME"},
 }
-LIQUID_TAGS = ["img", "literal", "video", "youtube", "vimeo", "include_code"]
-
-IMAGE_PROCESS_FORCE = False
-IMAGE_PROCESS = {
-    "article-image": {
-        "type": "responsive-image",
-        "srcset": [
-            ("1x", ["scale_in 800 600 True"]),
-            ("2x", ["scale_in 1600 1200 True"]),
-            ("4x", ["scale_in 3200 2400 True"]),
-        ],
-        "default": "1x",
-    },
-}
