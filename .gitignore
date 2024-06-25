@@ -1,0 +1,10 @@
+__pycache__/
+output/
+venv/
+*.pyc
+*.pid
+*.swp
+.sass-cache
+cache/
+ideas.md
+tags
