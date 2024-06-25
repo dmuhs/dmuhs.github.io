@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
-    uses: "getpelican/pelican/.github/workflows/github_pages.yml@master"
+    uses: "getpelican/pelican/.github/workflows/github_pages.yml@main"
     permissions:
       contents: "read"
       pages: "write"
