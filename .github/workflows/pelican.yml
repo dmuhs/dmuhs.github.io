@@ -20,7 +20,7 @@ jobs:
       - name: Set up image optimization deps
         run: |
           sudo apt-get update
-          sudo apt-get install jpegtran optipng
+          sudo apt-get install libjpeg-progs optipng
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Install requirements
