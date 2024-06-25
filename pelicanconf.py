@@ -7,10 +7,8 @@ THEME = "hebe"
 TIMEZONE = "Europe/Berlin"
 
 # Feed generation is usually not desired when developing
-# FEED_ALL_ATOM = "feeds/all.atom.xml"
-# CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
-# FEED_ALL_RSS = "feeds/all.rss.xml"
-# CATEGORY_FEED_RSS = "feeds/{slug}.rss.xml"
+FEED_ALL_RSS = "feeds/all.rss.xml"
+CATEGORY_FEED_RSS = "feeds/{slug}.rss.xml"
 
 USE_FOLDER_AS_CATEGORY = False
 
@@ -38,7 +36,7 @@ STATIC_PATHS = [
     "images",
     "extra",
 ]
-
+OPTIMIZE_IMAGES_DEV_MODE = True
 EXTRA_PATH_METADATA = {
     # 'extra/custom.css': {'path': 'custom.css'},
     "extra/robots.txt": {"path": "robots.txt"},
