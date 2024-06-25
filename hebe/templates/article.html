@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+
+{% block title %}{{ SITENAME|striptags }} - {{ article.title|striptags  }}{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+  <article>
+    <header>
+      <h2>{{ article.title }}</h2>
+      <time datetime="{{ article.date.isoformat() }}">
+        {{ article.locale_date }}
+      </time>
+    </header>
+    {{ article.content }}
+    <footer>
+      {% if article.category %}
+        <p>
+          I have published this article in the <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a> category.
+        </p>
+      {% endif %}
+      {% if article.tags %}
+        <p>
+          Tags:
+          {% for tag in article.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+          {% endfor %}
+        </p>
+      {% endif %}
+    </footer>
+  </article>
+{% endblock %}
