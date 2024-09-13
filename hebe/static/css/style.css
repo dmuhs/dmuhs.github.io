@@ -6,8 +6,7 @@
   --code-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   --heading-color: #f0f0f0;
   --text-color: #f0f0f0;
-  --link-color: #f0f0f0;
-  --visited-color: #f0f0f0;
+  --link-color: #9b3f3f;
   --code-color: #f0f0f0;
   --blockquote-color: #f0f0f0;
   --logo-text-color: #f0f0f0;
@@ -17,7 +16,7 @@
 }
 
 body {
-  background-color: #202020;
+  background-color: #1f1f1f;
   font-family: var(--base-font);
   font-size: var(--font-scale);
   margin: auto;
@@ -95,7 +94,7 @@ img {
 }
 
 blockquote {
-  font-family: var(--code-font);
+  font-family: var(--base-font);
   border-left: 0.3rem solid var(--code-color);
   color: var(--code-color);
   padding-left: 1rem;
@@ -134,8 +133,8 @@ body > main > ul > li > time {
   color: var(--index-time-color);
 }
 
-body > main > ul > li > a:visited {
-  color: var(--visited-color);
+body > main > ul > li > a {
+  color: var(--text-color);
 }
 
 body > main > article > header > time {
