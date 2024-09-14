@@ -1,6 +1,6 @@
 ---
 Title: Field Guide Tryhard
-Date: 2024-09-13
+Date: 2024-09-01
 Category: Security
 Status: published
 ---
