@@ -40,6 +40,7 @@ OPTIMIZE_IMAGES_DEV_MODE = True
 EXTRA_PATH_METADATA = {
     # 'extra/custom.css': {'path': 'custom.css'},
     "extra/robots.txt": {"path": "robots.txt"},
+    "extra/keybase.txt": {"path": ".well-known/keybase.txt"},
     # 'extra/favicon.ico': {'path': 'favicon.ico'},
     "extra/CNAME": {"path": "CNAME"},
 }

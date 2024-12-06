@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/dmuhs
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://spoons.fyi
+  * I am dmuhs (https://keybase.io/dmuhs) on keybase.
+  * I have a public key ASBpbjJoV1bakCwB79KmLL_p5Pe2hMoK-Z-G3eDETuT6zwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120696e32685756da902c01efd2a62cbfe9e4f7b684ca0af99f86dde0c44ee4facf0a",
+      "host": "keybase.io",
+      "kid": "0120696e32685756da902c01efd2a62cbfe9e4f7b684ca0af99f86dde0c44ee4facf0a",
+      "uid": "61bcd6e2283450e913c9008057f52619",
+      "username": "dmuhs"
+    },
+    "merkle_root": {
+      "ctime": 1733482568,
+      "hash": "9d267d83b5a19ea5b8b2fb5b2eecb4ac41fad95733dbc65e3b462baa550ed4af07e46b5d7511737ba498a14d9e23a1fd57ebc13f4c1a87cf683aff0e118d1059",
+      "hash_meta": "425e89ba0c786bd6d913b920ba61606a223351162b31f37f5b413e38842396df",
+      "seqno": 26355952
+    },
+    "service": {
+      "entropy": "gLvJIgwXwsOS2dt1kQ34MAxH",
+      "hostname": "spoons.fyi",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.4.0"
+  },
+  "ctime": 1733482584,
+  "expire_in": 504576000,
+  "prev": "70173ea3212a1daccd461562b44ab837f0cd472695b1eda70a637e5a2141257c",
+  "seqno": 22,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgaW4yaFdW2pAsAe/Spiy/6eT3toTKCvmfht3gxE7k+s8Kp3BheWxvYWTESpcCFsQgcBc+oyEqHazNRhVitEq4N/DNRyaVse2nCmN+WiFBJXzEIFKR4TqzAICdZQkNmSIZOgBxx4AotDwpXQqAyq744h5KAgHCo3NpZ8RArBmkSxmcacHGUzC4O/cRO1kpDCFwQwjGHXWYa5jio0utSmuZcBC9coR9cK371C112le/jjIMmRfjTUNFpaKSDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIAqWTrWbin5n563m8xXJ4hhkla2MkcSsMO0AOzG4wbEOo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dmuhs
+
+==================================================================
