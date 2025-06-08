@@ -18,7 +18,7 @@ LINKS = (
     # ("Bluesky", "https://bsky.app/profile/lethalspoons.bsky.social"),
 )
 
-DEFAULT_PAGINATION = 25
+DEFAULT_PAGINATION = 10_000
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
