@@ -3,16 +3,16 @@
 .pswp {
   --pswp-bg: #000;
   --pswp-placeholder-bg: #222;
-  
+
 
   --pswp-root-z-index: 100000;
-  
+
   --pswp-preloader-color: rgba(79, 79, 79, 0.4);
   --pswp-preloader-color-secondary: rgba(255, 255, 255, 0.9);
-  
+
   /* defined via js:
   --pswp-transition-duration: 333ms; */
-  
+
   --pswp-icon-color: #fff;
   --pswp-icon-color-secondary: #4f4f4f;
   --pswp-icon-stroke-color: #4f4f4f;
