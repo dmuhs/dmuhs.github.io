@@ -44,3 +44,7 @@ EXTRA_PATH_METADATA = {
     # 'extra/favicon.ico': {'path': 'favicon.ico'},
     "extra/CNAME": {"path": "CNAME"},
 }
+
+# Plugin configuration
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['photoswipe_unified']
