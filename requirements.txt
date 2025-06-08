@@ -1,2 +1,2 @@
 pelican[markdown]
-minchin.pelican.plugins.optimize_images
+Pillow

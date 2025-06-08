@@ -32,6 +32,8 @@
     {% endblock head %}
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygments.css" />
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/photoswipe.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/photoswipe-extra.css" />
   </head>
 
   <body>
@@ -60,5 +62,7 @@
     <footer>
         You can also subscribe via <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" rel="alternate">RSS</a>.
     </footer>
+    
+    <script type="module" src="{{ SITEURL }}/theme/js/photoswipe-init.js"></script>
   </body>
 </html>
