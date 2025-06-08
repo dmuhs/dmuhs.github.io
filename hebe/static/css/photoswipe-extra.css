@@ -1,8 +1,34 @@
+/* PhotoSwipe Extra Styles */
+
+/* Make article images clickable and give them a hover effect */
 article img {
     cursor: pointer;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 article img:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Gallery grid layout for multiple images */
+.pswp-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+    grid-template-rows: masonry;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.pswp-gallery a {
+    overflow: hidden;
+}
+
+/* Single image galleries (for individual images in articles) */
+.pswp-gallery.single-image {
+    display: block;
+    margin: 1rem 0;
 }
