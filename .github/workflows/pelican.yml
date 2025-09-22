@@ -28,7 +28,7 @@ jobs:
       - name: Build Pelican site
         run: pelican --settings publishconf.py
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: output/
   deploy:
