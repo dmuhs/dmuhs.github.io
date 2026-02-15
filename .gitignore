@@ -8,3 +8,4 @@ venv/
 cache/
 ideas.md
 tags
+.vscode/
