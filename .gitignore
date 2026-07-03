@@ -1,11 +1,11 @@
-__pycache__/
-output/
-venv/
-*.pyc
-*.pid
+# Hugo build output & caches
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Editor / OS
 *.swp
-.sass-cache
-cache/
-ideas.md
-tags
+*.pid
 .vscode/
+tags
+ideas.md

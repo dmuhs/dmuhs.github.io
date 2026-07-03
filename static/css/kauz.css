@@ -1,0 +1,847 @@
+/* =============================================================
+   Kauz Design System: kauz.css
+   -------------------------------------------------------------
+   The whole design system in one file:
+     1. Tokens: color ramp, accent, type scale, spacing, borders.
+     2. Light-mode mirror (opt-in via [data-theme="light"]).
+     3. Semantic HTML: base type styles for the elements you'd
+        write in raw HTML (h1–h6, p, a, code, pre, blockquote, hr…).
+     4. Classless base: page chrome, lists, media, tables, forms,
+        details, nav, footer. Drop a vanilla HTML doc against this
+        sheet and it reads correctly without a single class.
+     5. Compact component overrides: the brand prefers tighter,
+        console-density chrome than the classless base ships.
+     6. Specialized controls: checkbox/radio, range slider, output.
+
+   Link once, no dependencies:
+
+     <link rel="stylesheet" href="kauz.css">
+   ============================================================= */
+
+:root {
+  /* -----------------------------------------------------------
+     COLOR primitives
+     -----------------------------------------------------------
+     A 7-stop neutral ramp from soot (#0A) to bone (#EC), one
+     accent ("ember"), and a single semantic muted. That is the
+     entire palette. Do not invent new hues.
+     ----------------------------------------------------------- */
+
+  --soot-0:   #0A0A0A; /* page background */
+  --soot-1:   #1A1A1A; /* elevated surface, code blocks, drop-zone */
+  --soot-2:   #2A2A2A; /* hover surface, dividers on dark */
+  --soot-3:   #4A4A4A; /* heavier dividers, disabled-on-dark */
+  --soot-4:   #7A7A7A; /* muted text, captions, secondary */
+  --soot-5:   #C8C8C8; /* light dividers, secondary on dark */
+  --soot-6:   #ECECEC; /* primary text, primary border */
+
+  --ember:    #C85A3A; /* the only accent: links, focus, marks */
+  --ember-2:  #E07050; /* hover-on-ember (used sparingly) */
+
+  /* -----------------------------------------------------------
+     SIGNAL COLORS (rarely used; ember is still #1 by far)
+     -----------------------------------------------------------
+     Tuned to share luminance + saturation with ember so they feel
+     like family, not a generic Bootstrap palette. Use ONLY for:
+       - critical: destructive confirmation, error toasts, validation
+       - warning: pre-destructive warnings, expiring states
+       - success: post-action confirmation toasts, "saved" badges
+       - info:    neutral notice, hint, "did you know" callout
+     Do not use as decoration. Do not pair multiple at once. If you
+     find yourself reaching for one, ask whether plain text would do.
+     ----------------------------------------------------------- */
+  --critical: #C8332E; /* redder, hotter; used for danger only */
+  --warning:  #C8902E; /* amber, same family, hue shifted to ~40° */
+  --success:  #5C9C72; /* muted green, low-saturation, brutalist */
+  --info:     #5C84A5; /* steel: cool counterpoint for neutral notices */
+
+  /* Translucent neutrals (for borders on dark/light alike) */
+  --border-light:  rgba(236, 236, 236, 0.10);
+  --border-lighter:rgba(236, 236, 236, 0.04);
+
+  /* -----------------------------------------------------------
+     COLOR semantic
+     -----------------------------------------------------------
+     Use these names in product CSS. They map to the primitives.
+     ----------------------------------------------------------- */
+
+  --color-bg:        var(--soot-0);
+  --color-bg-elev:   var(--soot-1);   /* code, cards, drop-zone */
+  --color-bg-hover:  var(--soot-2);
+  --color-fg:        var(--soot-6);   /* primary text */
+  --color-fg-muted:  var(--soot-4);   /* secondary text */
+  --color-fg-dim:    var(--soot-3);   /* tertiary, captions */
+  --color-accent:    var(--ember);
+  --color-accent-2:  var(--ember-2);
+  --color-critical:  var(--critical);
+  --color-warning:   var(--warning);
+  --color-success:   var(--success);
+  --color-info:      var(--info);
+  --color-border:    var(--soot-6);   /* heavy/structural borders */
+  --color-border-soft: var(--border-light);
+  --color-mark-bg:   var(--ember);
+  --color-mark-fg:   var(--soot-0);
+
+  /* Optional light-mode mirror: apply with [data-theme="light"] */
+
+  /* -----------------------------------------------------------
+     TYPE primitives
+     -----------------------------------------------------------
+     No webfonts. Kauz ships system stacks on purpose: instant
+     load, native to the user's OS, hard to make ugly. If you
+     ever need a display face, reach for a heavy condensed grotesk
+     (Inter Display, Helvetica Neue Bold Condensed), but the
+     default is to set type at scale, not in a different family.
+     ----------------------------------------------------------- */
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Cascadia Code",
+               "Roboto Mono", "Courier New", monospace;
+
+  /* Sizes: a fluid base from 14→15px, scale by ratio 1.25 */
+  --fs-base:   clamp(0.875rem, 1vw + 0.75rem, 0.9375rem);
+  --fs-sm:     0.8125rem;
+  --fs-xs:     0.75rem;
+  --fs-h1:     clamp(1.75rem, 3.5vw + 0.5rem, 2.75rem);
+  --fs-h2:     clamp(1.375rem, 2vw + 0.5rem, 1.875rem);
+  --fs-h3:     1.25rem;
+  --fs-h4:     1.0625rem;
+
+  --lh-base:    1.6;
+  --lh-relaxed: 1.7;
+  --lh-tight:   1.2;
+
+  --tracking-loose:  0.04em;  /* uppercase labels, captions */
+  --tracking-normal: 0;
+  --tracking-tight:  -0.01em; /* large display */
+
+  /* -----------------------------------------------------------
+     SPACING + BORDER
+     ----------------------------------------------------------- */
+  --space-unit: 0.5rem;
+  --space-1:    calc(var(--space-unit) * 1);   /*  8px */
+  --space-2:    calc(var(--space-unit) * 2);   /* 16px */
+  --space-3:    calc(var(--space-unit) * 3);   /* 24px */
+  --space-4:    calc(var(--space-unit) * 4);   /* 32px */
+  --space-6:    calc(var(--space-unit) * 6);   /* 48px */
+  --space-8:    calc(var(--space-unit) * 8);   /* 64px */
+
+  --border-thin:   1px solid var(--color-border-soft);
+  --border-normal: 2px solid var(--color-border-soft);
+  --border-heavy:  4px solid var(--color-border);
+  --border-radius: 0;  /* always. brutalism = sharp corners. */
+
+  --max-content-width: 960px;
+}
+
+/* =============================================================
+   Light-mode mirror (optional, opt-in via [data-theme="light"])
+   ============================================================= */
+:root[data-theme="light"] {
+  --color-bg:        #ECECEC;
+  --color-bg-elev:   #FFFFFF;
+  --color-bg-hover:  #D8D8D8;
+  --color-fg:        #0A0A0A;
+  --color-fg-muted:  #4A4A4A;
+  --color-fg-dim:    #7A7A7A;
+  --color-border:    #0A0A0A;
+  --color-border-soft: rgba(10, 10, 10, 0.12);
+  --color-mark-bg:   var(--ember);
+  --color-mark-fg:   #ECECEC;
+}
+
+/* =============================================================
+   SEMANTIC HTML: base type styles
+   -------------------------------------------------------------
+   These mirror soot.css's classless defaults so you can rely on
+   the same look whether you import soot or just this file.
+   ============================================================= */
+
+html {
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  background: var(--color-bg);
+  color: var(--color-fg);
+
+  /* Font rendering polish.
+     - antialiased keeps text light on dark (the default brand surface)
+     - optimizeLegibility turns on kerning + ligatures
+     - feature-settings: kern (kerning), liga (common ligatures),
+       calt (contextual alternates), tnum (tabular numbers in tables)
+     - optical sizing where the font supports it (system stack: yes on Mac) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "calt";
+  font-optical-sizing: auto;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: var(--space-4) 0 var(--space-2);
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p, ul, ol, dl, blockquote, pre, table, figure {
+  margin: var(--space-2) 0;
+}
+p {
+  line-height: var(--lh-relaxed);
+  /* Avoid orphan single-word last lines in flowing copy. */
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 + p { text-wrap: pretty; }
+h1, h2, h3, h4 {
+  /* Keep multi-line headings from breaking awkwardly. */
+  text-wrap: balance;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration-thickness: 0.125rem;
+  text-underline-offset: 0.15em;
+}
+a:hover { color: var(--color-accent-2); }
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  background: var(--color-bg-elev);
+  padding: 0.15em 0.4em;
+  border: var(--border-thin);
+}
+kbd {
+  /* keyboard keys read like physical caps */
+  font-weight: 600;
+  padding: 0.05em 0.4em;
+}
+
+pre {
+  font-family: var(--font-mono);
+  padding: var(--space-2);
+  background: var(--color-bg-elev);
+  border: var(--border-normal);
+  border-left: var(--border-heavy);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+pre > code { display: block; padding: 0; border: 0; background: transparent; }
+
+mark {
+  background: var(--color-mark-bg);
+  color: var(--color-mark-fg);
+  /* Tight inline highlight: no vertical bleed from paragraph line-height.
+     Uses ~1px block padding + horizontal breathing room. box-decoration-break
+     keeps the highlight tidy if it wraps across two lines. */
+  padding: 1px 0.35rem 2px;
+  border: var(--border-thin);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-loose);
+  font-weight: 600;
+  /* slightly smaller so it sits on the baseline instead of stretching it */
+  font-size: 0.85em;
+  vertical-align: 0.05em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+blockquote {
+  border-left: var(--border-heavy);
+  padding-left: var(--space-2);
+  margin: var(--space-2) 0;
+  font-style: italic;
+  color: var(--color-fg-muted);
+}
+
+small, figcaption, caption {
+  color: var(--color-fg-muted);
+  font-size: var(--fs-sm);
+}
+caption {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-loose);
+}
+
+hr {
+  border: 0;
+  border-top: var(--border-normal);
+  margin: var(--space-4) 0;
+}
+
+/* Convenience utility: opt-in only, not classless */
+.eyebrow {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-loose);
+  color: var(--color-fg-muted);
+  font-weight: 600;
+}
+
+/* =============================================================
+   CLASSLESS BASE
+   -------------------------------------------------------------
+   Layout, lists, media, tables, forms, details, nav, footer.
+   These are the rules that make a vanilla HTML document (no
+   classes, no wrappers) read correctly against the brand. Drop
+   <body><main><h1>…<table>…</table></main></body> on the page and
+   you get sharp borders, the right neutrals, and a centered content
+   column without writing a line of layout CSS.
+
+   This is the "generous" baseline; the COMPACT COMPONENT OVERRIDES
+   below tighten padding and density to match the brand's preferred
+   console feel. The base layer here was originally a separate sheet
+   (soot.css). Absorbed in 2026 once it became clear we never ship
+   one without the other.
+   ============================================================= */
+
+body {
+  margin: 0;
+  padding: calc(var(--space-unit) * 4);
+}
+
+/* Centered content column. Opt out with <body data-full-bleed> when a
+   page needs the full viewport (dashboards, canvases, demos). */
+body:not([data-full-bleed]) > header,
+body:not([data-full-bleed]) > main,
+body:not([data-full-bleed]) > footer,
+body:not([data-full-bleed]) > aside {
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body > header {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-normal);
+}
+
+main section + section {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: var(--border-normal);
+}
+
+/* Drop the UA focus ring when keyboard focus isn't in play. :focus-visible
+   already handles the keyboard case above, with the ember outline. */
+:focus:not(:focus-visible) { outline: none; }
+
+ul {
+  padding-left: var(--space-4);
+  list-style: square;
+}
+ol { padding-left: var(--space-4); }
+li {
+  margin: var(--space-1) 0;
+  line-height: var(--lh-base);
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: var(--space-1);
+  margin-bottom: 0;
+  padding-left: var(--space-3);
+}
+
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2) var(--space-4);
+  line-height: var(--lh-base);
+}
+dt { font-weight: 700; }
+dd { margin: 0; }
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+svg { max-width: 100%; height: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-3) 0;
+  line-height: var(--lh-base);
+  background: var(--color-bg);
+  /* display:block + overflow-x:auto so wide tables scroll inside their
+     content column instead of breaking the page layout on narrow viewports. */
+  display: block;
+  overflow-x: auto;
+}
+th, td {
+  padding: calc(var(--space-unit) * 1.5) var(--space-2);
+  vertical-align: top;
+  border-bottom: var(--border-normal);
+}
+th { text-align: start; font-weight: 700; }
+tbody tr:last-child td,
+tbody tr:last-child th { border-bottom: none; }
+tfoot td, tfoot th {
+  padding-top: var(--space-2);
+  border-top: 2px solid var(--color-border);
+  border-bottom: none;
+  font-weight: 600;
+  background: var(--color-bg-elev);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Button family: sharp 2 px border, ember-on-bone inversion on hover,
+   dashed border on disabled. The classless default density is generous;
+   the compact-overrides section below tightens it for production chrome. */
+:is(button, input[type="button"], input[type="submit"], input[type="reset"]) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-unit);
+  padding: calc(var(--space-unit) * 1.5) var(--space-3);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg);
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+:is(button, input[type="button"], input[type="submit"], input[type="reset"]):hover {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+:is(button, input[type="button"], input[type="submit"], input[type="reset"]):disabled {
+  border-style: dashed;
+  cursor: not-allowed;
+  color: var(--color-fg-muted);
+  background: transparent;
+}
+:is(button, input[type="button"], input[type="submit"], input[type="reset"]):disabled:hover {
+  background: transparent;
+  color: var(--color-fg-muted);
+}
+:is(button, input[type="button"], input[type="submit"], input[type="reset"]) + :is(button, input[type="button"], input[type="submit"], input[type="reset"]) {
+  margin-left: var(--space-2);
+}
+
+/* Text inputs / selects / textareas */
+:is(input[type="text"], input[type="email"], input[type="password"],
+   input[type="search"], input[type="url"], input[type="tel"],
+   input[type="number"], input[type="date"], input[type="time"],
+   input[type="month"], input[type="week"], input[type="datetime-local"],
+   textarea, select) {
+  width: 100%;
+  padding: var(--space-2);
+  border: 2px solid var(--color-border-soft);
+  background: var(--color-bg);
+  appearance: none;
+}
+:is(input[type="text"], input[type="email"], input[type="password"],
+   input[type="search"], input[type="url"], input[type="tel"],
+   input[type="number"], input[type="date"], input[type="time"],
+   input[type="month"], input[type="week"], input[type="datetime-local"],
+   textarea, select):focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+select, input[list] { padding-right: calc(var(--space-unit) * 5); }
+select option, select optgroup,
+datalist, datalist option {
+  color: var(--color-fg);
+  background: var(--color-bg);
+}
+
+input::placeholder, textarea::placeholder {
+  font-style: italic;
+  opacity: 0.6;
+  color: var(--color-fg-muted);
+}
+
+fieldset {
+  border: var(--border-normal);
+  padding: var(--space-3);
+  margin: 0 0 var(--space-3);
+}
+legend {
+  padding: 0 var(--space-2);
+  font-weight: 700;
+  margin-bottom: calc(var(--space-unit) * 1.5);
+}
+label {
+  display: block;
+  margin-top: var(--space-3);
+  margin-bottom: calc(var(--space-unit) * 1.5);
+  font-weight: 600;
+  line-height: 1.5;
+}
+label:first-child,
+legend + label { margin-top: 0; }
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]) {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  margin-top: calc(var(--space-unit) * 1.5);
+}
+fieldset fieldset { margin-top: var(--space-3); }
+:is(input, select, textarea) + label,
+:is(input, select, textarea) + :is(button, input[type="button"], input[type="submit"], input[type="reset"]) {
+  margin-top: var(--space-3);
+}
+
+details {
+  border: var(--border-normal);
+  padding: 0;
+  margin: var(--space-2) 0;
+}
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: var(--space-2);
+  background: var(--color-bg-elev);
+}
+details[open] summary { border-bottom: var(--border-normal); }
+details[open] > *:not(summary) {
+  padding: var(--space-2);
+  padding-top: calc(var(--space-unit) * 1.5);
+}
+
+nav { margin: var(--space-3) 0; }
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+aside, footer {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: var(--border-normal);
+}
+footer { color: var(--color-fg-muted); }
+
+
+/* =============================================================
+   COMPACT COMPONENT OVERRIDES
+   -------------------------------------------------------------
+   The classless base above ships generous padding by default. The
+   brand prefers a tighter, closer-to-default-web-density feel:
+   small, honest controls that don't waste space. These overrides
+   tighten buttons, inputs, labels, fieldsets, and body padding so
+   the system reads more like a brutalist console than a marketing
+   landing page. Anything not overridden inherits from the base.
+   ============================================================= */
+
+body {
+  /* 32px → 20px page padding */
+  padding: calc(var(--space-unit) * 2.5);
+}
+
+/* Section rhythm: 64px between → 40px */
+main section + section {
+  margin-top: calc(var(--space-unit) * 5);
+  padding-top: calc(var(--space-unit) * 2.5);
+}
+
+/* Buttons & submit inputs: was 12px 24px → 4px 12px */
+:is(button, input[type="button"], input[type="submit"], input[type="reset"]) {
+  padding: 4px 12px;
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+  gap: calc(var(--space-unit) * 0.75);
+}
+:is(button, input[type="button"], input[type="submit"], input[type="reset"]) + :is(button, input[type="button"], input[type="submit"], input[type="reset"]) {
+  margin-left: calc(var(--space-unit) * 1.25);
+}
+
+/* Text inputs, selects, textareas: was 16px all sides → 6px 8px */
+:is(input[type="text"], input[type="email"], input[type="password"],
+   input[type="search"], input[type="url"], input[type="tel"],
+   input[type="number"], input[type="date"], input[type="time"],
+   input[type="month"], input[type="week"], input[type="datetime-local"],
+   textarea, select) {
+  padding: 6px 8px;
+  font-size: var(--fs-sm);
+}
+
+/* Labels: was 24px top, 12px bottom → 12px top, 4px bottom */
+label {
+  margin-top: calc(var(--space-unit) * 1.5);
+  margin-bottom: calc(var(--space-unit) * 0.5);
+  font-size: var(--fs-sm);
+}
+:is(input, select, textarea) + label {
+  margin-top: calc(var(--space-unit) * 1.5);
+}
+
+/* Fieldsets: was 24px padding → 14px */
+fieldset {
+  padding: 14px 16px 16px;
+}
+legend {
+  padding: 0 6px;
+  font-size: var(--fs-sm);
+  margin-bottom: calc(var(--space-unit) * 0.75);
+}
+
+/* Table cells: was 12px 16px → 6px 10px */
+th, td {
+  padding: 6px 10px;
+}
+
+/* Block elements: closer rhythm overall */
+p, ul, ol, dl, blockquote, pre, table, figure {
+  margin: calc(var(--space-unit) * 1.5) 0;
+}
+
+/* Inline mark: tighter still */
+mark {
+  font-size: 0.78em;
+  padding: 1px 0.35em 2px;
+  vertical-align: 0.08em;
+  letter-spacing: 0.06em;
+}
+
+/* Nav: tighten gap from 24px → 14px */
+nav ul {
+  gap: calc(var(--space-unit) * 1.75);
+}
+
+/* Header underneath: tighten section dividers */
+body > header {
+  margin-bottom: calc(var(--space-unit) * 2.5);
+  padding-bottom: calc(var(--space-unit) * 2.5);
+}
+
+/* Pre / code: slightly tighter inline padding */
+code, kbd, samp {
+  padding: 0.1em 0.35em;
+}
+pre {
+  padding: 10px 12px;
+}
+
+/* Details / summary: tighter chrome, matches button/input density */
+details {
+  margin: calc(var(--space-unit) * 1.5) 0;
+}
+summary {
+  padding: 6px 10px;
+  font-size: var(--fs-sm);
+}
+details[open] > *:not(summary) {
+  padding-block: 4px;
+  padding-inline: 10px;
+}
+details[open] > *:not(summary):last-child {
+  padding-bottom: 8px;
+}
+/* Lists need room on the left for their bullets/numbers; keep the soot
+   default indent and add the spoiler chrome's left inset on top of it,
+   otherwise bullets clip off the left edge. */
+details[open] > :is(ul, ol) {
+  padding-inline-start: calc(var(--space-unit) * 4 + 10px);
+}
+/* Collapse the first/last child's own margins so the wrapper padding
+   isn't doubled up. Keeps the open spoiler from feeling roomy inside. */
+details[open] > *:not(summary) > :first-child { margin-top: 0; }
+details[open] > *:not(summary) > :last-child  { margin-bottom: 0; }
+details[open] > p:first-of-type { margin-top: 0; }
+details[open] > p:last-of-type  { margin-bottom: 0; }
+
+/* Checkboxes & radios: square, sharp, ember on check.
+   Brutalism doesn't bow to the radio-is-round convention; both
+   render as 16px sharp squares with a hand-built indicator. The
+   semantic difference (exclusive vs multiple) lives in HTML, not
+   in the visual. */
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-border-soft);
+  background: var(--color-bg-elev);
+  margin: 0 8px 0 0;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: -3px;
+  position: relative;
+  flex: none;
+}
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+  border-color: var(--color-fg-muted);
+}
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+input[type="checkbox"]:checked::after {
+  /* Hand-built checkmark: rotated bottom-right border on a tiny box.
+     Centered with translate so it lands optically in the middle of the 16px box. */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 8px;
+  border: solid var(--color-bg);
+  border-width: 0 2px 2px 0;
+  /* -60% Y compensates for the V being heavier at the bottom (optical centering). */
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+input[type="radio"]:checked::after {
+  /* Filled center square: sharp, not a dot. */
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--color-bg);
+}
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+input[type="checkbox"]:disabled,
+input[type="radio"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+/* Indeterminate checkbox state (JS-set: el.indeterminate = true) */
+input[type="checkbox"]:indeterminate {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+input[type="checkbox"]:indeterminate::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 5px;
+  height: 2px;
+  background: var(--color-bg);
+  transform: none;
+  border: 0;
+  width: auto;
+}
+
+/* Range slider: sharp ember thumb on a bordered soot-1 track.
+   The fill (filled portion up to thumb position) is rendered via a
+   linear-gradient driven by --_pct, which is set by js/kauz.js
+   per slider on input. Without JS, Firefox still shows fill via
+   ::-moz-range-progress; other browsers get an accent-color fallback. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+  --_pct: 0%;
+}
+input[type="range"]:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+input[type="range"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Webkit track + thumb */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  border: 1px solid var(--soot-3);
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 0,
+    var(--color-accent) var(--_pct),
+    var(--soot-2) var(--_pct),
+    var(--soot-2) 100%
+  );
+  border-radius: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -7px;
+  width: 14px;
+  height: 22px;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--color-fg);
+}
+
+/* Firefox track + thumb + native progress (the filled portion). */
+input[type="range"]::-moz-range-track {
+  height: 10px;
+  border: 1px solid var(--soot-3);
+  background: var(--soot-2);
+  border-radius: 0;
+}
+input[type="range"]::-moz-range-progress {
+  height: 10px;
+  background: var(--color-accent);
+  border-radius: 0;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 22px;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb:hover {
+  background: var(--color-fg);
+}
+
+/* Output element: companion numeric readout for a range or any input. */
+output {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-fg);
+  min-width: 2.5ch;
+  text-align: right;
+  padding: 0 4px;
+  /* When sitting next to a range slider, a soft border makes the value
+     read like its own atom. Use <output class="bare"> to opt out. */
+}
+output:not(.bare) {
+  border: var(--border-thin);
+  background: var(--color-bg-elev);
+  padding: 1px 6px;
+}

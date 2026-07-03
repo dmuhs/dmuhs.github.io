@@ -1,0 +1,176 @@
+/* =============================================================
+   blog.css — the only blog-specific layer on top of kauz.css.
+   Everything composes design-system tokens: no invented hues, no
+   new type scale, no rounded corners, no shadows. It covers what
+   kauz doesn't ship (post archive, image figures, lightbox) plus a
+   short, deliberate set of deviations — all flagged in the block
+   below so the departures from the system are explicit.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   DELIBERATE DEVIATIONS (each is one knob, trivially reverted)
+   -------------------------------------------------------------
+   1. Narrower measure. kauz ships --max-content-width: 960px for
+      app/doc layouts; long-form prose reads better tighter, so we
+      override the single token. Header, article and footer all
+      follow it — they key off the same variable.
+   2. Calmer chrome. kauz links are ember by default; in the header
+      nav and the post byline we mute them to secondary text so the
+      accent is reserved for in-content links. The site header is
+      also laid out as one row (wordmark left, nav right).
+   ------------------------------------------------------------- */
+:root { --max-content-width: 720px; }
+
+/* --- Site header: wordmark left, muted nav right, one line --- */
+body > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+  flex-wrap: wrap;
+}
+.wordmark {
+  margin: 0;
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+.wordmark a { color: var(--color-fg); text-decoration: none; }
+.wordmark a:hover { color: var(--color-accent); }
+body > header nav { margin: 0; }
+body > header nav a { color: var(--color-fg-muted); }
+body > header nav a:hover,
+body > header nav a[aria-current] { color: var(--color-fg); }
+
+/* --- Post archive: one flat list ----------------------------- */
+.post-list { list-style: none; padding: 0; margin: var(--space-3) 0 0; }
+.post-list li {
+  display: flex;
+  gap: var(--space-2);
+  align-items: baseline;
+  padding: var(--space-1) 0;
+  margin: 0;
+  border-bottom: var(--border-thin);
+}
+.post-list time {
+  flex: none;
+  min-width: 6.5em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.post-list a { text-decoration: none; }
+.post-list a:hover { text-decoration: underline; }
+
+/* --- Article header: title, then muted date + category ------- */
+.article-header { margin-bottom: var(--space-4); }
+.article-header h1 { margin: 0; }
+.post-meta {
+  margin: 6px 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-fg-muted);
+}
+.post-meta a { color: var(--color-fg-muted); }
+.post-meta a:hover { color: var(--color-fg); }
+
+/* --- Clickable image figures (gallery items) ----------------- */
+/* Images are deliberately small — click to open full-size in the
+   lightbox. inline-block lets consecutive images flow side by side
+   and wrap, so a run reads as a group with no extra markup; a lone
+   image just sits small and left-aligned. */
+figure.gallery-item {
+  display: inline-block;
+  vertical-align: top;
+  width: min(18rem, 100%);
+  margin: var(--space-1) var(--space-2) var(--space-2) 0;
+}
+a.lightbox {
+  display: block;
+  border: var(--border-thin);
+  cursor: zoom-in;
+  line-height: 0;
+}
+a.lightbox:hover { border-color: var(--color-accent); }
+figure.gallery-item img { width: 100%; height: auto; display: block; }
+figure.gallery-item figcaption {
+  padding: 6px 10px;
+  border: var(--border-thin);
+  border-top: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+
+/* --- Lightbox (native <dialog>, built by lightbox.js) -------- */
+.lightbox-modal {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  max-width: 100vw;
+  max-height: 100dvh;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: var(--color-fg);
+  overflow: hidden;
+}
+.lightbox-modal::backdrop {
+  background: color-mix(in srgb, var(--soot-0) 92%, transparent);
+}
+.lb-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+}
+.lb-img {
+  max-width: min(96vw, 1400px);
+  max-height: 84dvh;
+  width: auto;
+  height: auto;
+  display: block;
+  border: var(--border-normal);
+  background: var(--color-bg);
+}
+/* Controls are real <button>s, so they inherit kauz's button chrome
+   (2px border, ember-invert hover). We only place and size them, and
+   lift the fill to soot-1 so they read against the dark backdrop. */
+.lb-stage button {
+  position: absolute;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: var(--color-bg-elev);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+}
+.lb-close { top: var(--space-3); right: var(--space-3); }
+.lb-prev  { left: var(--space-3);  top: 50%; transform: translateY(-50%); }
+.lb-next  { right: var(--space-3); top: 50%; transform: translateY(-50%); }
+.lb-caption {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90vw;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--color-fg-muted);
+  background: var(--color-bg-elev);
+  border: var(--border-thin);
+  padding: 4px 10px;
+}
+.lb-count { color: var(--color-fg-dim); }
+/* Single-image posts: hide the nav arrows. */
+.lightbox-modal[data-single="true"] .lb-prev,
+.lightbox-modal[data-single="true"] .lb-next { display: none; }
+
+@media (max-width: 640px) {
+  .lb-prev { left: 4px; }
+  .lb-next { right: 4px; }
+}

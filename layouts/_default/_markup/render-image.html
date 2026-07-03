@@ -1,0 +1,23 @@
+{{- /* Image render hook: emit a design-system <figure> whose image opens in
+       the custom lightbox (see static/js/lightbox.js). All <a class="lightbox">
+       on the page form one navigable set = every image in the post.
+       Publishes the full-size original for the lightbox and a downscaled inline
+       thumbnail for large, non-animated images (native Hugo image processing). */ -}}
+{{- $img := .Page.Resources.GetMatch .Destination -}}
+{{- with $img -}}
+  {{- /* small inline thumbnail (crisp on retina); lightbox opens the original */ -}}
+  {{- $thumb := . -}}
+  {{- if and (gt .Width 800) (ne .MediaType.SubType "gif") -}}
+    {{- $thumb = .Resize "800x q80" -}}
+  {{- end -}}
+  {{- $alt := $.Text -}}
+  {{- $caption := "" -}}
+  {{- if and $alt (ne (lower $alt) "image") -}}{{- $caption = $alt -}}{{- end -}}
+  <figure class="gallery-item">
+    <a class="lightbox" href="{{ .RelPermalink }}"{{ with $caption }} data-caption="{{ . }}"{{ end }}><img src="{{ $thumb.RelPermalink }}" alt="{{ $alt }}" loading="lazy" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" /></a>
+    {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+  </figure>
+{{- else -}}
+  {{- /* external or unresolved image: pass through untouched */ -}}
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
+{{- end -}}
