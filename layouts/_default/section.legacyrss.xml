@@ -1,0 +1,19 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.Title | plainify }}</title>
+    <link>{{ site.BaseURL }}</link>
+    <description>Recent content on {{ site.Title | plainify }}</description>
+    <language>{{ site.LanguageCode }}</language>
+    <atom:link href="{{ "/feeds/all.rss.xml" | absURL }}" rel="self" type="application/rss+xml" />
+    {{- range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
+    </item>
+    {{- end }}
+  </channel>
+</rss>

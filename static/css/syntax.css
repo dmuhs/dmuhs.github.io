@@ -1,0 +1,52 @@
+/* =============================================================
+   syntax.css — Chroma (Hugo) token colors mapped to Kauz tokens.
+   -------------------------------------------------------------
+   Colors ONLY. Block chrome (soot-1 bg, heavy ember left border,
+   mono font, padding, overflow) comes from kauz.css's `pre` rule.
+   Restrained palette: ember + the signal family + the soot ramp,
+   so highlighted code reads as part of the brand, not a rainbow.
+   ============================================================= */
+
+.chroma { color: var(--color-fg); background: transparent; }
+
+/* Comments — muted, italic */
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .cp, .chroma .cpf,
+.chroma .c1, .chroma .cs { color: var(--soot-4); font-style: italic; }
+
+/* Keywords & operators — the accent */
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp,
+.chroma .kr, .chroma .o, .chroma .ow { color: var(--ember); }
+
+/* Types & class/namespace names — amber */
+.chroma .kt, .chroma .nc, .chroma .nn, .chroma .nd,
+.chroma .na { color: var(--warning); }
+
+/* Function/method names — steel */
+.chroma .nf, .chroma .fm, .chroma .nb, .chroma .bp { color: var(--info); }
+
+/* Strings — muted green */
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl,
+.chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si,
+.chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: var(--success); }
+
+/* Numbers & constants — steel */
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi,
+.chroma .il, .chroma .mo, .chroma .no { color: var(--info); }
+
+/* HTML/XML tags — accent */
+.chroma .nt { color: var(--ember); }
+
+/* Errors — critical */
+.chroma .err { color: var(--critical); }
+
+/* Diff / generic output */
+.chroma .gi { color: var(--success); }
+.chroma .gd { color: var(--critical); }
+.chroma .gp, .chroma .go { color: var(--soot-4); }
+.chroma .gh, .chroma .gu { color: var(--ember); font-weight: 700; }
+.chroma .ge { font-style: italic; }
+.chroma .gs { font-weight: 700; }
+
+/* Highlighted lines (line-anchor emphasis, if ever used) */
+.chroma .hl { background: var(--soot-2); }
+.chroma .ln, .chroma .lnt { color: var(--soot-3); }

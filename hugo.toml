@@ -1,0 +1,39 @@
+baseURL = "https://spoons.fyi/"
+languageCode = "en-us"
+title = "plaintext"
+timeZone = "Europe/Berlin"       # match the old Pelican TIMEZONE (dates in feeds / <time>)
+enableInlineShortcodes = true
+
+# Pelican emitted ".html" URLs everywhere. Each post/page pins its exact path
+# via the `url` front-matter key; uglyURLs keeps list/taxonomy pages as .html too.
+uglyURLs = true
+
+# List every post on the home page, like the old Pelican index (pagination 10_000).
+[pagination]
+  pagerSize = 10000
+
+[permalinks]
+  posts = "/:year/:month/:day/:slug/"
+  categories = "/category/:slug/"   # preserves Pelican's /category/<name>.html
+
+[taxonomies]
+  category = "categories"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true                    # allow raw HTML (YouTube <iframe>, stray <img>)
+  [markup.goldmark.parser]
+    # Don't wrap a standalone image in <p>, so the render hook's block-level
+    # <figure> is valid HTML (no empty paragraphs around each image).
+    wrapStandAloneImageWithinParagraph = false
+  [markup.highlight]
+    noClasses = false                # emit CSS classes -> style via syntax.css
+
+# Legacy RSS feed at the exact old path /feeds/all.rss.xml (footer subscribe link).
+[mediaTypes."application/rss+xml"]
+  suffixes = ["xml"]
+[outputFormats.legacyrss]
+  mediaType = "application/rss+xml"
+  baseName = "all.rss"
+  rel = "alternate"
+  isPlainText = false

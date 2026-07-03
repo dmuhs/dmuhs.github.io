@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ if .IsHome }}{{ site.Title | plainify }}{{ else }}{{ site.Title | plainify }} - {{ .Title | plainify }}{{ end }}</title>
+    {{ with .Description }}<meta name="description" content="{{ . }}" />{{ end }}
+    <link href="/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="{{ site.Title | plainify }} Full RSS Feed" />
+    <link rel="stylesheet" href="/css/kauz.css" />
+    <link rel="stylesheet" href="/css/syntax.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+  </head>
+  <body>
+    <header>
+      {{ if .IsHome }}
+        <h1 class="wordmark"><a href="/">{{ site.Title }}</a></h1>
+      {{ else }}
+        <p class="wordmark"><a href="/">{{ site.Title }}</a></p>
+      {{ end }}
+      <nav>
+        <ul>
+          {{ with site.GetPage "/about" }}<li><a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a></li>{{ end }}
+          {{ range site.Taxonomies.categories.Alphabetical }}
+            <li><a href="{{ .Page.RelPermalink }}"{{ if eq $.RelPermalink .Page.RelPermalink }} aria-current="page"{{ end }}>{{ .Page.Title }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer>
+      <p>You can also subscribe via <a href="/feeds/all.rss.xml" rel="alternate">RSS</a>.</p>
+    </footer>
+    <script src="/js/lightbox.js" defer></script>
+  </body>
+</html>
