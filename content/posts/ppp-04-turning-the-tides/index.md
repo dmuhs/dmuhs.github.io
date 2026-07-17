@@ -2,7 +2,8 @@
 title: "PPP #04 Turning the Tides"
 date: 2016-05-02
 categories: ["Personal"]
-url: "/2016/05/02/ppp-04-turning-the-tides.html"
+url: "/2016/05/02/ppp-04-turning-the-tides/"
+aliases: ["/2016/05/02/ppp-04-turning-the-tides.html"]
 ---
 
 A Monday. Got up early. Bought a Spartan breakfast (water and bread). Off we go to the uni! Work! Get shit done! Meet people! *"Hoy está cerrado!"*. I stand before closed doors, next to me a wildly gesticulating and almost shouting security guard crossing his hands. Yeah, right. Today was a red-letter day! Ah, my forgetfulness followed me all the way to Panama! At least I got up early. So I took the chance to explore the neighbourhood a little as long as the sun was shining.

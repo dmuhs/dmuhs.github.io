@@ -2,7 +2,8 @@
 title: "HackTheBox Fuzzy"
 date: 2020-09-23
 categories: ["Challenges"]
-url: "/2020/09/23/hackthebox-fuzzy.html"
+url: "/2020/09/23/hackthebox-fuzzy/"
+aliases: ["/2020/09/23/hackthebox-fuzzy.html"]
 ---
 
 Fuzzy is a fun and short challenge on a docker container. It is especially good for teaching beginners the basics of using a fuzzer to discover new endpoints on a webserver.Spawning the container and probing around a bit, we don't have too much success. Using dirbuster and a standard wordlist, we find the endpoint `/api/action.php`. With `wfuzz` we can now see whether passing any specific parameter to the endpoint significantly changes our response payload:

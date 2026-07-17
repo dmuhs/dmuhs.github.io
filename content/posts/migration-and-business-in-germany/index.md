@@ -2,7 +2,8 @@
 title: "Migration and Business in Germany"
 date: 2024-09-14
 categories: ["Personal"]
-url: "/2024/09/14/migration-and-business-in-germany.html"
+url: "/2024/09/14/migration-and-business-in-germany/"
+aliases: ["/2024/09/14/migration-and-business-in-germany.html"]
 ---
 
 In recent weeks, Germany has been on the international news. In the state elections in Thuringia and Saxony (where I live), the extreme right-wing AfD and left-wing BSW have gotten huge voter support. Their focus on immigration, border security, and crime, as well as skilled harping on East-West differences in Germany, seems to have had a significant impact.

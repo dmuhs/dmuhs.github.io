@@ -2,7 +2,8 @@
 title: "Geth and Prysm in Docker Compose"
 date: 2024-10-06
 categories: ["Software"]
-url: "/2024/10/06/geth-and-prysm-in-docker-compose.html"
+url: "/2024/10/06/geth-and-prysm-in-docker-compose/"
+aliases: ["/2024/10/06/geth-and-prysm-in-docker-compose.html"]
 ---
 
 I'm getting back into hacking on Ethereum nodes. Some of my tests are RPC-heavy, so a local setup is required. This will also speed up development since requests remain in my local network. However, I haven't found an easy Docker Compose setup for running Geth and Prysm together.

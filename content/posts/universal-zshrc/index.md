@@ -2,7 +2,8 @@
 title: "A Universal .zshrc File"
 date: 2026-02-15
 categories: ["Software"]
-url: "/2026/02/15/a-universal-zshrc-file.html"
+url: "/2026/02/15/a-universal-zshrc-file/"
+aliases: ["/2026/02/15/a-universal-zshrc-file.html"]
 ---
 
 Since forver ago, I have been using [oh-my-zsh](https://ohmyz.sh/) with a fairly standard configuration. Plugins for commands I often use, utility functions, and all the clutter you accumulate after years of building and breaking software. That included fuzzing configuration, an unreal amount of version managers, and custom configurations, including those recklessly appended by automatic installers. Since my day-to-day work is fairly intense, it's safe to say that for the last five years, not just my `.zshrc` but also various other files connected to it were left unattended. Today, this changed.

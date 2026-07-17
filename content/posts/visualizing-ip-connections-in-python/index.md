@@ -2,7 +2,8 @@
 title: "Visualizing IP Connections in Python"
 date: 2016-06-27
 categories: ["Software"]
-url: "/2016/06/27/visualizing-ip-connections-in-python.html"
+url: "/2016/06/27/visualizing-ip-connections-in-python/"
+aliases: ["/2016/06/27/visualizing-ip-connections-in-python.html"]
 ---
 
 For some research on botnet host detection in large-scale networks, I found myself in the situation that I had to apply a set of algorithms to a huge packet dump. To comprehend an amazing paper, I started to play around with the dataset and tried to reproduce the results presented in the whitepaper. Quickly I realized that there was something fishy with my own dataset, so I fired up `jupyter-notebook` to gain some more insight in the IP structure of my dataset.

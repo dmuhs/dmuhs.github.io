@@ -2,7 +2,8 @@
 title: "The Web3 API has come to Python!"
 date: 2020-03-15
 categories: ["Software"]
-url: "/2020/03/15/the-web3-api-has-come-to-python.html"
+url: "/2020/03/15/the-web3-api-has-come-to-python/"
+aliases: ["/2020/03/15/the-web3-api-has-come-to-python.html"]
 ---
 
 Last week I received an email in my inbox about a hackathon hosted by the awesome folks over at [Amberdata](http://amberdata.io/). They are a provider for on-chain data and cover a large variety of blockchains - including Ethereum, Bitcoin, and Stellar. I have met the developers in the team in late 2018 when I was looking for my next gig in the Ethereum ecosystem and long before that I was stunned by the large variety and volume of data they are handling.

@@ -15,7 +15,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.140.2
+      # >= 0.158.0 required: `locale` (hugo.toml) and `.Site.Language.Locale`
+      # (legacyrss template) don't exist in earlier versions and fail the build.
+      HUGO_VERSION: 0.164.0
     steps:
       - name: Install Hugo CLI (extended, for image processing)
         run: |

@@ -2,7 +2,8 @@
 title: "Excessive Growth and Corporate Parties"
 date: 2023-07-20
 categories: ["Personal"]
-url: "/2023/07/20/excessive-growth-and-corporate-parties.html"
+url: "/2023/07/20/excessive-growth-and-corporate-parties/"
+aliases: ["/2023/07/20/excessive-growth-and-corporate-parties.html"]
 ---
 
 Corporate parties - essentially designed to celebrate company triumphs, whether hitting revenue targets or instilling the company's mission and vision into the employees - can often devolve into nothing more than an extravagant distraction. This illusion of harmony, of success, of the 'perfect' work environment is essentially the art of corporate virtue signaling. It's a façade masking the underbelly of what could potentially be inefficiency, misalignment, and, frankly, disarray.

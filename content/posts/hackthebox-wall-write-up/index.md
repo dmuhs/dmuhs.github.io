@@ -2,7 +2,8 @@
 title: "HackTheBox Wall"
 date: 2019-12-07
 categories: ["Challenges"]
-url: "/2019/12/07/hackthebox-wall.html"
+url: "/2019/12/07/hackthebox-wall/"
+aliases: ["/2019/12/07/hackthebox-wall.html"]
 ---
 
 Wall was as much a fun and educational box as it was frustrating and stretching my patience. It felt like the system was updated by the creator to have some features in place meant to annoy people trying to break in. Nevertheless, there are some nice WAF evasion techniques to consider here, as well as the lesson to never give up on enumeration Starting with a SYN scan, executing scripts where possible:

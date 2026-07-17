@@ -2,7 +2,8 @@
 title: "HackTheBox Postman"
 date: 2020-03-21
 categories: ["Challenges"]
-url: "/2020/03/21/hackthebox-postman.html"
+url: "/2020/03/21/hackthebox-postman/"
+aliases: ["/2020/03/21/hackthebox-postman.html"]
 ---
 
 Postman was an easy-going box. It required careful enumeration and beyond that did not have too much resistance in privilege escalation. This makes it a prime example for real-world M&M security where the initial foothold is hard, but there is few resistance on the inside. Let's start out by scanning the machine:

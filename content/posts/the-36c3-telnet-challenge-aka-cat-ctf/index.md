@@ -2,7 +2,8 @@
 title: "36C3 Telnet Challenge (Cat CTF)"
 date: 2020-01-18
 categories: ["Challenges"]
-url: "/2020/01/18/36c3-telnet-challenge-cat-ctf.html"
+url: "/2020/01/18/36c3-telnet-challenge-cat-ctf/"
+aliases: ["/2020/01/18/36c3-telnet-challenge-cat-ctf.html"]
 ---
 
 This is a write-up from the 36th Chaos Communication Congress, 2019. It has been my fourth Congress. Timed shortly after Christmas, it feels like meeting a second kind of family after the holidays. Hackers from all over the world gather in Leipzig to celebrate the weirdness of our community, break technology, learn new things, and have caffeine-fuelled fun.On my initial recon walk with friends we stumbled across the following poster.

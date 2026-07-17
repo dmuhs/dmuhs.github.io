@@ -4,14 +4,18 @@
     <title>{{ site.Title | plainify }}</title>
     <link>{{ site.BaseURL }}</link>
     <description>Recent content on {{ site.Title | plainify }}</description>
-    <language>{{ site.LanguageCode }}</language>
+    <language>{{ site.Language.Locale }}</language>
     <atom:link href="{{ "/feeds/all.rss.xml" | absURL }}" rel="self" type="application/rss+xml" />
     {{- range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      <guid>{{ .Permalink }}</guid>
+      {{/* Keep the pre-.html-migration URL as the identity key so existing
+           subscribers don't see every post resurface as unread. Posts written
+           after that migration have no alias and use their own permalink.
+           `if` rather than `with`: `with` would rebind `.` and break .Permalink. */}}
+      <guid>{{ if .Params.aliases }}{{ index .Params.aliases 0 | absURL }}{{ else }}{{ .Permalink }}{{ end }}</guid>
       <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
     </item>
     {{- end }}

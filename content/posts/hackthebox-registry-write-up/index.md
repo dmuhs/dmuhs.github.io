@@ -2,7 +2,8 @@
 title: "HackTheBox Registry"
 date: 2021-02-13
 categories: ["Challenges"]
-url: "/2021/02/13/hackthebox-registry.html"
+url: "/2021/02/13/hackthebox-registry/"
+aliases: ["/2021/02/13/hackthebox-registry.html"]
 ---
 
 Registry is a box rated at hard difficulty. There are quite a few steps involved, but with a bit of persistence and little experience with Docker internals ([hint hint]({{< ref "/posts/low-level-debugging-of-stubborn-docker-containers" >}})), it looks more daunting than it actually is. Let's go through the process of breaking in step by step! Out initial nmap scan is as unexciting as it can be:

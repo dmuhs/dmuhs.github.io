@@ -2,7 +2,8 @@
 title: "Performing Well at CodeFEST8"
 date: 2015-05-22
 categories: ["Challenges"]
-url: "/2015/05/22/performing-well-at-codefest8.html"
+url: "/2015/05/22/performing-well-at-codefest8/"
+aliases: ["/2015/05/22/performing-well-at-codefest8.html"]
 ---
 
 When we decided to enter the hackathon, some fellow students and I were in it for the fun. We had worked together before in a mandatory software project and wanted to revive the productive atmosphere of the good old times. Neither did we expect to *win in Dresden* nor did we have in mind that there was a realistic chance of **winning at the CeBIT 2015** against teams from Germany, Austria and Switzerland.

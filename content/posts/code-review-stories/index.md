@@ -2,7 +2,8 @@
 title: "A Code Review Story"
 date: 2019-07-28
 categories: ["Software"]
-url: "/2019/07/28/a-code-review-story.html"
+url: "/2019/07/28/a-code-review-story/"
+aliases: ["/2019/07/28/a-code-review-story.html"]
 ---
 
 This is the first post of a sporadic series where we will dive into the weeds of more complex Python code review samples. I will take (slightly modified) real-world code samples, explain some common mistakes that have been made, and how we can improve things. Let’s jump right in!

@@ -2,7 +2,8 @@
 title: "Remembering my Dad"
 date: 2022-03-16
 categories: ["Personal"]
-url: "/2022/03/16/remembering-my-dad.html"
+url: "/2022/03/16/remembering-my-dad/"
+aliases: ["/2022/03/16/remembering-my-dad.html"]
 ---
 
 On March 11, 18:11, my dad passed away. After about a year with lung cancer and two weeks with COVID-19, he finally does not have to struggle anymore.

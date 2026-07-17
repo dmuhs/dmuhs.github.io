@@ -2,7 +2,8 @@
 title: "Dear Medium,"
 date: 2019-11-11
 categories: ["Personal"]
-url: "/2019/11/11/dear-medium.html"
+url: "/2019/11/11/dear-medium/"
+aliases: ["/2019/11/11/dear-medium.html"]
 ---
 
 My blogging journey has taken me far. I started writing articles about six years ago. Things got serious after I started studying Computer Science. Among the students of my class there was a lot of chatter. The tendency was that who was unable to communicate would soon start failing exams and eventually quit. In this setting, I started writing technical articles, first on an intranet website. Later GitHub gists. Finally I made the step to host my own blog.

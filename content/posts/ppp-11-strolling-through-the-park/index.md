@@ -2,7 +2,8 @@
 title: "PPP #11 Strolling through the Park"
 date: 2016-08-06
 categories: ["Personal"]
-url: "/2016/08/06/ppp-11-strolling-through-the-park.html"
+url: "/2016/08/06/ppp-11-strolling-through-the-park/"
+aliases: ["/2016/08/06/ppp-11-strolling-through-the-park.html"]
 ---
 
 ![Metropolitano Entrance Sign](metropolitano-1.jpg)

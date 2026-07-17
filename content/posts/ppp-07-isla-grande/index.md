@@ -2,7 +2,8 @@
 title: "PPP #07 Isla Grande"
 date: 2016-06-05
 categories: ["Personal"]
-url: "/2016/06/05/ppp-07-isla-grande.html"
+url: "/2016/06/05/ppp-07-isla-grande/"
+aliases: ["/2016/06/05/ppp-07-isla-grande.html"]
 ---
 
 A sunny day, 30°C and air humidity so high that breathing feels like waterboarding. Perfect conditions to go to the beach! Just some hours by car in the province of Colón north of Panamá City, you can find *Isla Grande*. This island is your typical small Caribbean island with clear waters and palm trees. From *Muelle de La Guaira* the crossing by boat just takes some minutes with the speedboat and costs less than $2.

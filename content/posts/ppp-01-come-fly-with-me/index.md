@@ -2,7 +2,8 @@
 title: "PPP #01 Come Fly With Me"
 date: 2016-04-28
 categories: ["Personal"]
-url: "/2016/04/28/ppp-01-come-fly-with-me.html"
+url: "/2016/04/28/ppp-01-come-fly-with-me/"
+aliases: ["/2016/04/28/ppp-01-come-fly-with-me.html"]
 ---
 
 This little series is about my "travel" to Panamá. I applied at IAESTE for an internship in the IT security department of the *UTP (Universidad Tecnológica de Panamá)*. Here, in my *P*ersonal *P*anama *P*apers I'll write down some of my experiences, problems and solutions while I find my way into Panamanian society and hopefully some interesting security-related research.

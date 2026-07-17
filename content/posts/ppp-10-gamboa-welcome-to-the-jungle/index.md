@@ -2,7 +2,8 @@
 title: "PPP #10 Gamboa: Welcome to the Jungle"
 date: 2016-07-09
 categories: ["Personal"]
-url: "/2016/07/09/ppp-10-gamboa-welcome-to-the-jungle.html"
+url: "/2016/07/09/ppp-10-gamboa-welcome-to-the-jungle/"
+aliases: ["/2016/07/09/ppp-10-gamboa-welcome-to-the-jungle.html"]
 ---
 
 My sister and a colleague of her decided to visit me in Panamà. Still being busy with the investigation, I did not manage to find a lot of time for travels during the week. However on the weekends, we managed to make some small trips. One of them lead us into the jungle near the village of Gamboa.

@@ -1,12 +1,14 @@
 baseURL = "https://spoons.fyi/"
-languageCode = "en-us"
+locale = "en-us"
 title = "plaintext"
 timeZone = "Europe/Berlin"       # match the old Pelican TIMEZONE (dates in feeds / <time>)
 enableInlineShortcodes = true
 
-# Pelican emitted ".html" URLs everywhere. Each post/page pins its exact path
-# via the `url` front-matter key; uglyURLs keeps list/taxonomy pages as .html too.
-uglyURLs = true
+# Each post/page pins its exact path via the `url` front-matter key, because the
+# slug rarely matches the bundle directory name (a Pelican-migration artifact).
+# The old Pelican ".html" paths are preserved as `aliases`, which Hugo renders as
+# redirect stubs -- GitHub Pages serves no server-side redirects, so the stub file
+# at the old path is what keeps those URLs alive.
 
 # List every post on the home page, like the old Pelican index (pagination 10_000).
 [pagination]

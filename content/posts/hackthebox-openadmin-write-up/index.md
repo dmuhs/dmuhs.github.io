@@ -2,7 +2,8 @@
 title: "HackTheBox OpenAdmin"
 date: 2020-01-09
 categories: ["Challenges"]
-url: "/2020/01/09/hackthebox-openadmin.html"
+url: "/2020/01/09/hackthebox-openadmin/"
+aliases: ["/2020/01/09/hackthebox-openadmin.html"]
 ---
 
 OpenAdmin is yet another medium-difficulty machine, which was a blast to hack on! It involved dealing with various stack components, such as interacting directly with a MySQL database. Furthermore, hopping across multiple users through different escalation vectors was very satisfying. Let's see how it is done!Our first nmap scan does not yield any exciting results:

@@ -2,7 +2,8 @@
 title: "PPP #03 New Lands"
 date: 2016-05-01
 categories: ["Personal"]
-url: "/2016/05/01/ppp-03-new-lands.html"
+url: "/2016/05/01/ppp-03-new-lands/"
+aliases: ["/2016/05/01/ppp-03-new-lands.html"]
 ---
 
 So today I moved out of Brigitte's house into the new apartment. Before coming here I had the choice between a single apartment with my own fridge and bathroom or a flat-share with ten other people with a shared bathroom and a community kitchen. I decided for the latter, because I hoped to make some new friends, improve my Spanish and spend some good times with my flatmates. Now that I'm here I have to say that the people seem to be pretty reserved. All doors are closed and no one is in the hallway or kitchen.

@@ -2,7 +2,8 @@
 title: "HackTheBox Sense"
 date: 2018-03-01
 categories: ["Challenges"]
-url: "/2018/03/01/hackthebox-sense.html"
+url: "/2018/03/01/hackthebox-sense/"
+aliases: ["/2018/03/01/hackthebox-sense.html"]
 ---
 
 Sense was a HackTheBox machine that really tested my patience during the enumeration phase. It is a box designed around the popular [pfSense](https://www.pfsense.org/) firewall. Let's dive in! Firstly, we start our usual standard nmap scan:

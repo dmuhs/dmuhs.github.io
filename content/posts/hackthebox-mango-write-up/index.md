@@ -2,7 +2,8 @@
 title: "HackTheBox Mango"
 date: 2020-08-08
 categories: ["Challenges"]
-url: "/2020/08/08/hackthebox-mango.html"
+url: "/2020/08/08/hackthebox-mango/"
+aliases: ["/2020/08/08/hackthebox-mango.html"]
 ---
 
 Mango was an interesting box when it comes to enumeration. It taught me to look more closely and not brush off anything just because I have seen it before. The box is also a prime lesson to aggregate your recon info in a structured manner so it's easier to apply it at other points when you hit a dead end somewhere. There were also some nice opportunities for small, specialised attack scripts, which I particularly enjoyed! When we start out by scanning the box, we get the following report:

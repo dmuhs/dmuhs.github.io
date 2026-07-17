@@ -2,7 +2,8 @@
 title: "HackTheBox fs0sciety"
 date: 2018-10-20
 categories: ["Challenges"]
-url: "/2018/10/20/hackthebox-fs0sciety.html"
+url: "/2018/10/20/hackthebox-fs0sciety/"
+aliases: ["/2018/10/20/hackthebox-fs0sciety.html"]
 ---
 
 fs0ciety is yet another low-hanging fruit among the HackTheBox challenges. It's great for beginners who want to test their process for cracking password-protected zip files and recognition of various encodings.For that, we will use `fcrackzip `- simply for the reason that it has been around for ages and ships with Kali by default. I have sourced my wordlist from [here](https://github.com/berzerk0/Probable-Wordlists). Let's fire up the program:
