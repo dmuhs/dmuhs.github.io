@@ -2,7 +2,8 @@
 title: "Hebe Design Decisions"
 date: 2017-03-25
 categories: ["Software"]
-url: "/2017/03/25/hebe-design-decisions.html"
+url: "/2017/03/25/hebe-design-decisions/"
+aliases: ["/2017/03/25/hebe-design-decisions.html"]
 ---
 
 After the exams I had some free hours so I decided to show my blog some more love and look for a new theme. The old one, a customized version of [Chunk](https://github.com/onlyhavecans/pelican-chunk) was little more than a hack to have a theme at all. Here's a quick reminder of how this site used to look:

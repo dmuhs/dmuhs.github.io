@@ -2,7 +2,8 @@
 title: "PPP #13 Goodbye Trip: Campana & Punta Chame"
 date: 2016-09-04
 categories: ["Personal"]
-url: "/2016/09/04/ppp-13-goodbye-trip-campana-punta-chame.html"
+url: "/2016/09/04/ppp-13-goodbye-trip-campana-punta-chame/"
+aliases: ["/2016/09/04/ppp-13-goodbye-trip-campana-punta-chame.html"]
 ---
 
 As most of my stories in Panama this trip starts with some new friends. At my workplace, the *Universidad Tecnológica de Panamá (UTP)*, I didn't have much contact to students, because I spent most of my time on campus inside an office. The international office of the uni was very engaged however and regularly asked me to speak about my experiences and help respresent campus affairs. In this context I met some of the most amazing people!

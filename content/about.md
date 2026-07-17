@@ -1,7 +1,8 @@
 ---
 title: "About Me"
 date: 2019-11-11
-url: "/pages/about-me.html"
+url: "/pages/about-me/"
+aliases: ["/pages/about-me.html"]
 ---
 
 I'm Dominik. Currently, I am

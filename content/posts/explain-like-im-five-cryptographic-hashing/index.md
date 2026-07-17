@@ -2,7 +2,8 @@
 title: "Explain like I'm five: Cryptographic Hashing"
 date: 2018-10-15
 categories: ["Security"]
-url: "/2018/10/15/explain-like-im-five-cryptographic-hashing.html"
+url: "/2018/10/15/explain-like-im-five-cryptographic-hashing/"
+aliases: ["/2018/10/15/explain-like-im-five-cryptographic-hashing.html"]
 ---
 
 **tl;dr** Just check out the image and read the details below it if you want to know even more. :)

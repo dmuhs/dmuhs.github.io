@@ -2,7 +2,8 @@
 title: "PPP #12 Getting my Greens in Valle de Antón"
 date: 2016-08-13
 categories: ["Personal"]
-url: "/2016/08/13/ppp-12-getting-my-greens-in-valle-de-anton.html"
+url: "/2016/08/13/ppp-12-getting-my-greens-in-valle-de-anton/"
+aliases: ["/2016/08/13/ppp-12-getting-my-greens-in-valle-de-anton.html"]
 ---
 
 Social Networks are awesome for travelling. By pure accident I met some fellow *viajeros* - two handsome women from Israel and Poland. After a quick chat and meetup we decided to spend our time in Valle de Antón - Anton Valley. From colleagues I already heard a lot about it's natural beauty.

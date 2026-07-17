@@ -2,7 +2,8 @@
 title: "The Thing about Mutable Default Arguments in Python"
 date: 2018-10-10
 categories: ["Software"]
-url: "/2018/10/10/the-thing-about-mutable-default-arguments-in-python.html"
+url: "/2018/10/10/the-thing-about-mutable-default-arguments-in-python/"
+aliases: ["/2018/10/10/the-thing-about-mutable-default-arguments-in-python.html"]
 ---
 
 Yesterday I stumbled across some code like this...

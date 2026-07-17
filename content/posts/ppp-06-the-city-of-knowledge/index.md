@@ -2,7 +2,8 @@
 title: "PPP #06 The City of Knowledge"
 date: 2016-05-19
 categories: ["Personal"]
-url: "/2016/05/19/ppp-06-the-city-of-knowledge.html"
+url: "/2016/05/19/ppp-06-the-city-of-knowledge/"
+aliases: ["/2016/05/19/ppp-06-the-city-of-knowledge.html"]
 ---
 
 Located about 20 minutes away from the Technological University of Panama - assuming you don't run into a traffic jam - lies the *Ciudad del Saber*, the City of Knowledge. When Panama was occupied by the United States, this base directly in front of the Miraflores locks was called Fort Clayton and the US Army headquarters here in Panama City. After the US departure the government founded a non-profit organization with the mission to turn the vacated facilities at Clayton into a center for knowledge exchange. Amidst the green beauty you can see the buildings showing logos of the Red Cross, the United Nations, the World Food Program, Plan International and plenty more.

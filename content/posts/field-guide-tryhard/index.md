@@ -2,7 +2,8 @@
 title: "Field Guide Tryhard"
 date: 2024-09-01
 categories: ["Security"]
-url: "/2024/09/01/field-guide-tryhard.html"
+url: "/2024/09/01/field-guide-tryhard/"
+aliases: ["/2024/09/01/field-guide-tryhard.html"]
 ---
 
 Long story short, I got disillusioned with my previous work and its context. I started my project, the [Smart Contract Security Field Guide (SCSFG)](https://scsfg.io/) to cope with it. Here are some nice features:

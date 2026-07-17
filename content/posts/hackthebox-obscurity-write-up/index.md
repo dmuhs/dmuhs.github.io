@@ -2,7 +2,8 @@
 title: "HackTheBox Obscurity"
 date: 2020-01-12
 categories: ["Challenges"]
-url: "/2020/01/12/hackthebox-obscurity.html"
+url: "/2020/01/12/hackthebox-obscurity/"
+aliases: ["/2020/01/12/hackthebox-obscurity.html"]
 ---
 
 Obscurity is a medium-difficulty box. It was super fun to solve because it involved great excuses for me to write some neat little helper scripts and find a vulnerability in Python code. Something you don't do too often in these challenges. Let's dive right in with a nmap scan:

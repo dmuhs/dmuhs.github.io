@@ -2,7 +2,8 @@
 title: "PPP #08 Conquering Volcán Barú"
 date: 2016-06-13
 categories: ["Personal"]
-url: "/2016/06/13/ppp-08-conquering-volcan-baru.html"
+url: "/2016/06/13/ppp-08-conquering-volcan-baru/"
+aliases: ["/2016/06/13/ppp-08-conquering-volcan-baru.html"]
 ---
 
 This was an extraordinary hiking trip full of firsts. I have never ever before been hiking

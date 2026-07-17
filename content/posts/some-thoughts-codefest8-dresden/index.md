@@ -2,7 +2,8 @@
 title: "Some thoughts on the CodeFEST8 in Dresden"
 date: 2015-05-12
 categories: ["Challenges"]
-url: "/2015/05/12/some-thoughts-on-the-codefest8-in-dresden.html"
+url: "/2015/05/12/some-thoughts-on-the-codefest8-in-dresden/"
+aliases: ["/2015/05/12/some-thoughts-on-the-codefest8-in-dresden.html"]
 ---
 
 ![CodeFEST8 Logo](codefest8.gif)

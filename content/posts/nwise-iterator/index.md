@@ -2,7 +2,8 @@
 title: "N-wise Iteration in Python"
 date: 2017-04-17
 categories: ["Software"]
-url: "/2017/04/17/n-wise-iteration-in-python.html"
+url: "/2017/04/17/n-wise-iteration-in-python/"
+aliases: ["/2017/04/17/n-wise-iteration-in-python.html"]
 ---
 
 A few hours back I stumbled into a problem where I had to perform a lookahead of n elements in a list to do some calculations. The first thought: Just take the current index and get all elements until i+n. I started writing..

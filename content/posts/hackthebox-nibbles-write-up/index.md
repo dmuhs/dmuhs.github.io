@@ -2,7 +2,8 @@
 title: "HackTheBox Nibbles"
 date: 2018-02-26
 categories: ["Challenges"]
-url: "/2018/02/26/hackthebox-nibbles.html"
+url: "/2018/02/26/hackthebox-nibbles/"
+aliases: ["/2018/02/26/hackthebox-nibbles.html"]
 ---
 
 Nibbles was one of the first machines I broke on HTB. It is a relatively simple machine that requires a little bit of reconnaissance and leads you to a (hopefully) easy win by letting you poke around the website. Let's dive in!First, we run a quick port scan: `nmap -sS 10.10.10.75 -oX htb-nibbles.xml`, which gives us the following result:

@@ -2,7 +2,8 @@
 title: "Honest Attempts to Secure an Ecosystem"
 date: 2022-06-29
 categories: ["Security"]
-url: "/2022/06/29/honest-attempts-to-secure-an-ecosystem.html"
+url: "/2022/06/29/honest-attempts-to-secure-an-ecosystem/"
+aliases: ["/2022/06/29/honest-attempts-to-secure-an-ecosystem.html"]
 ---
 
 I have used my off-time from audits in the past months to write more about security. Especially in a nascent ecosystem like Ethereum still is, the most considerable impact can be delivered by educating people. Education has to happen in different modes of complexity, depending on the target audience:

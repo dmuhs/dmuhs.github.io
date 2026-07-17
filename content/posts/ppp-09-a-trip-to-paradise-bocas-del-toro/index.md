@@ -2,7 +2,8 @@
 title: "PPP #09 A Trip to Paradise - Bocas del Toro"
 date: 2016-06-19
 categories: ["Personal"]
-url: "/2016/06/19/ppp-09-a-trip-to-paradise-bocas-del-toro.html"
+url: "/2016/06/19/ppp-09-a-trip-to-paradise-bocas-del-toro/"
+aliases: ["/2016/06/19/ppp-09-a-trip-to-paradise-bocas-del-toro.html"]
 ---
 
 In the travel magazines you always see the same ad pictures. Cristal clear water gently stroking the white-sand beach bordered by palm trees. Deep cyan colours meet intense whites and greens. Amidst this paradisal scenery happily sits a woman drinking from a coconut, enjoying the sun. HARD CUT - company name appears. Guess what - I have been there. Not in the ad spot, in that kind of paradise. Just without the woman. You can't have everything, right?

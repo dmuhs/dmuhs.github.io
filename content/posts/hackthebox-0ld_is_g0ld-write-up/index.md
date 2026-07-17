@@ -2,7 +2,8 @@
 title: "HackTheBox 0ld_is_g0ld"
 date: 2018-10-13
 categories: ["Challenges"]
-url: "/2018/10/13/hackthebox-0ld_is_g0ld.html"
+url: "/2018/10/13/hackthebox-0ld_is_g0ld/"
+aliases: ["/2018/10/13/hackthebox-0ld_is_g0ld.html"]
 ---
 
 0ld_is_g0ld is a HackTheBox challenge and a great way for beginners to familiarize themselves with PDF password cracking. If you have used Hashcat before, it's an easy win. Verifying we indeed are targeting the correct file format:

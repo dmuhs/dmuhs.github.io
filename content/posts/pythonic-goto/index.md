@@ -2,7 +2,8 @@
 title: "The \"Pythonic\" GOTO"
 date: 2015-06-15
 categories: ["Software"]
-url: "/2015/06/15/the-pythonic-goto.html"
+url: "/2015/06/15/the-pythonic-goto/"
+aliases: ["/2015/06/15/the-pythonic-goto.html"]
 ---
 
 Nope, I'm not going to join the goto war. Even though it's shunned among developers, there are still some situations where it makes sense. A good friend of mine with a background in C recently came to me with a very simple problem that still made him scratch his head when he tried to express it in Python. The problem broke down to comparing three lists to find an element that meets a special criterion. His basic naive concept looked something like this in pseudo-code:

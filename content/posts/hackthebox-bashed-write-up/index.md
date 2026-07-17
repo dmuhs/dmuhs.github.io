@@ -2,7 +2,8 @@
 title: "HackTheBox Bashed"
 date: 2018-02-27
 categories: ["Challenges"]
-url: "/2018/02/27/hackthebox-bashed.html"
+url: "/2018/02/27/hackthebox-bashed/"
+aliases: ["/2018/02/27/hackthebox-bashed.html"]
 ---
 
 Bashed is a great entry-level box for people who are just getting started with HackTheBox. If you are just getting started with penetration testing, the value of this box is less in its technical content but rather in giving you the chance to exercise through your processes once. A bit like jumping into the water for the first time after doing dry-swimming. Let's jump in!

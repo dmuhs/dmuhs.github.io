@@ -2,7 +2,8 @@
 title: "HackTheBox Traverxec"
 date: 2020-01-04
 categories: ["Challenges"]
-url: "/2020/01/04/hackthebox-traverxec.html"
+url: "/2020/01/04/hackthebox-traverxec/"
+aliases: ["/2020/01/04/hackthebox-traverxec.html"]
 ---
 
 Traverxec is an interesting box, mainly because the HackTheBox team rated it as easy while the community disagreed and voted it to medium difficulty. It involved a funky privilege escalation that I had not seen before. Let's see how it's done! Our first nmap scan does not return exciting results:

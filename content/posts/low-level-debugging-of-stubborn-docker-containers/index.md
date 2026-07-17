@@ -2,7 +2,8 @@
 title: "Low-level Debugging of Stubborn Docker Containers"
 date: 2018-09-16
 categories: ["Software"]
-url: "/2018/09/16/low-level-debugging-of-stubborn-docker-containers.html"
+url: "/2018/09/16/low-level-debugging-of-stubborn-docker-containers/"
+aliases: ["/2018/09/16/low-level-debugging-of-stubborn-docker-containers.html"]
 ---
 
 A few weeks back I have started contributing to the awesome [Mythril](https://github.com/ConsenSys/mythril) project. Mythril is a security scanner for smart contracts that allows everyone to look for vulnerabilities on- and off-chain by being able to analyze raw smart contract code, as well as the actual Solidity code file. To make setting it up more easy, the devs provide a Docker container for easy deployment and use via `docker run` .

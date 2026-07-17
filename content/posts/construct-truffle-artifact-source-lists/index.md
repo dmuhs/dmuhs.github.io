@@ -2,7 +2,8 @@
 title: "Construct Truffle Artifact Source Lists"
 date: 2020-05-12
 categories: ["Software"]
-url: "/2020/05/12/construct-truffle-artifact-source-lists.html"
+url: "/2020/05/12/construct-truffle-artifact-source-lists/"
+aliases: ["/2020/05/12/construct-truffle-artifact-source-lists.html"]
 ---
 
 ![Image](photo-of-truffles-on-the-plate-783153.jpg)

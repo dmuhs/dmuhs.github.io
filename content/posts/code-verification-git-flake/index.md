@@ -2,7 +2,8 @@
 title: "Code Verification with Git Hooks and Flake8"
 date: 2015-05-02
 categories: ["Software"]
-url: "/2015/05/02/code-verification-with-git-hooks-and-flake8.html"
+url: "/2015/05/02/code-verification-with-git-hooks-and-flake8/"
+aliases: ["/2015/05/02/code-verification-with-git-hooks-and-flake8.html"]
 ---
 
 We all have that special someone in our life. Someone who dares to commit and push something like this into the master-branch:

@@ -2,7 +2,8 @@
 title: "Quick Hack: Generating PDFs with Python and XeTeX"
 date: 2018-01-10
 categories: ["Software"]
-url: "/2018/01/10/quick-hack-generating-pdfs-with-python-and-xetex.html"
+url: "/2018/01/10/quick-hack-generating-pdfs-with-python-and-xetex/"
+aliases: ["/2018/01/10/quick-hack-generating-pdfs-with-python-and-xetex.html"]
 ---
 
 A friend of mine is following a PhD in a non-technical field. And his boss is a bully. Work mainly happens with high-level statistical analysis tools. No one knows anything about programming and most problems are solved by hand. While on a positive note this means good chances to get a student job, it also means that progress moves slowly, especially when it comes to working with large datasets.

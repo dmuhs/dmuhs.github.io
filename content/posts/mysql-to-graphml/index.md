@@ -2,7 +2,8 @@
 title: "Converting MySQL Table Data to a Graphml File"
 date: 2017-06-03
 categories: ["Software"]
-url: "/2017/06/03/converting-mysql-table-data-to-a-graphml-file.html"
+url: "/2017/06/03/converting-mysql-table-data-to-a-graphml-file/"
+aliases: ["/2017/06/03/converting-mysql-table-data-to-a-graphml-file.html"]
 ---
 
 I recently found myself in the situation where I was given access to a huge MySQL database that contained network traffic flows and IDS signature match data. As I work a lot with graph-based approaches, I needed to convert the table's flow data into a graphml file for later visualization and analysis with scripts I have already written. Now without further ado here's the code:

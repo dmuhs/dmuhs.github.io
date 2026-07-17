@@ -2,7 +2,8 @@
 title: "The DEFCON 27 Packet Hacking Village Honeypot Challenge"
 date: 2019-08-15
 categories: ["Challenges"]
-url: "/2019/08/15/the-defcon-27-packet-hacking-village-honeypot-challenge.html"
+url: "/2019/08/15/the-defcon-27-packet-hacking-village-honeypot-challenge/"
+aliases: ["/2019/08/15/the-defcon-27-packet-hacking-village-honeypot-challenge.html"]
 ---
 
 This year marks the first time I got to attend DEFCON Las Vegas — one of the largest hacker conferences in the world. There are a plethora of things to discover and try out. The talks can be streamed later, but the workshops and spontaneous gatherings? A challenge that caught my eye was the honeypot challenge in the packet hacking village. The setting is simple: You gain access to an SSH honeypot. In there you find challenges to solve and gather the credentials to the next one. The goal was to escalate through five machines and gain the secret passphrase.

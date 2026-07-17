@@ -2,7 +2,8 @@
 title: "Vacation Traditions"
 date: 2023-01-13
 categories: ["Personal"]
-url: "/2023/01/13/vacation-traditions.html"
+url: "/2023/01/13/vacation-traditions/"
+aliases: ["/2023/01/13/vacation-traditions.html"]
 ---
 
 I enjoy getting lost in work. I mean, *really* enjoy it. I forget to eat and sleep, especially when developing software. There is something addicting about building an MVP as fast as possible, finding the perfect architecture, refactoring your previous hacks, and eventually making your code observable and running smoothly. Whenever I take a vacation, I find myself not really taking time off, however. I'll hack on other projects, "be around," and I already find myself working before the holiday ends.

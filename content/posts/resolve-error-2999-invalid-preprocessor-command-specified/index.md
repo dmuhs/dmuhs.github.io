@@ -2,7 +2,8 @@
 title: "ERROR 2999: Invalid preprocessor command specified"
 date: 2016-06-03
 categories: ["Software"]
-url: "/2016/06/03/error-2999-invalid-preprocessor-command-specified.html"
+url: "/2016/06/03/error-2999-invalid-preprocessor-command-specified/"
+aliases: ["/2016/06/03/error-2999-invalid-preprocessor-command-specified.html"]
 ---
 
 I am quite new to working with [Amazon Elastic MapReduce](https://aws.amazon.com/elasticmapreduce/) clusters. To do some large scale data analysis, I built a Pig script and ran it on a local pig installation to verify its functionality. Works. Neat! Let's push it to the cluster and get some serious results on the large dataset!
