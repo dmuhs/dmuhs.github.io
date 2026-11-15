@@ -20,9 +20,6 @@
       <nav>
         <ul>
           {{ with site.GetPage "/about" }}<li><a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a></li>{{ end }}
-          {{ range site.Taxonomies.categories.Alphabetical }}
-            <li><a href="{{ .Page.RelPermalink }}"{{ if eq $.RelPermalink .Page.RelPermalink }} aria-current="page"{{ end }}>{{ .Page.Title }}</a></li>
-          {{ end }}
         </ul>
       </nav>
     </header>
