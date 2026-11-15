@@ -1,6 +1,6 @@
 baseURL = "https://spoons.fyi/"
 locale = "en-us"
-title = "plaintext"
+title = "spoons.fyi"
 timeZone = "Europe/Berlin"       # match the old Pelican TIMEZONE (dates in feeds / <time>)
 enableInlineShortcodes = true
 
