@@ -5,17 +5,9 @@
 {{- $label := printf "Code example %d" (add .Ordinal 1) -}}
 {{- with .Type }}{{ $label = printf "%s, %s" $label (index $names . | default .) }}{{ end -}}
 {{- with .Attributes.label }}{{ $label = . }}{{ end -}}
-{{- $classes := slice -}}
-{{- with .Attributes.class -}}
-  {{- range split . " " }}{{ if in (slice "terminal" "wide") . }}{{ $classes = $classes | append . }}{{ end }}{{ end -}}
-{{- end -}}
-{{- if not $classes -}}
-  {{- $longest := 0 -}}
-  {{- range split (replace .Inner "\t" "    ") "\n" }}{{ $longest = math.Max $longest (strings.RuneCount .) }}{{ end -}}
-  {{- if gt $longest 71 }}{{ $classes = slice "wide" }}{{ end -}}
-{{- end -}}
+{{- $terminal := in (split (.Attributes.class | default "") " ") "terminal" -}}
 {{- $code := .Inner -}}
-{{- if and .Type (ne .Type "sh") (not (in $classes "terminal")) -}}
+{{- if and .Type (ne .Type "sh") (not $terminal) -}}
   {{- $code = (transform.HighlightCodeBlock .).Inner -}}
 {{- end -}}
-<pre{{ with $classes }} class="{{ delimit . " " }}"{{ end }} role="region" tabindex="0" aria-label="{{ $label }}"><code>{{ $code }}</code></pre>
+<pre{{ if $terminal }} class="terminal"{{ end }} role="region" tabindex="0" aria-label="{{ $label }}"><code>{{ $code }}</code></pre>
