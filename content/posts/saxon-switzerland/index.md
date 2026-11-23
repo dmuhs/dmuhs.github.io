@@ -1,7 +1,6 @@
 ---
 title: "Saxon Switzerland in Autumn"
 date: 2015-11-01
-categories: ["Personal"]
 url: "/2015/11/01/saxon-switzerland-in-autumn/"
 aliases: ["/2015/11/01/saxon-switzerland-in-autumn.html"]
 ---

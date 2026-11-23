@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Bashed"
 date: 2018-02-27
-categories: ["Challenges"]
 url: "/2018/02/27/hackthebox-bashed/"
 aliases: ["/2018/02/27/hackthebox-bashed.html"]
 ---

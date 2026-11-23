@@ -1,7 +1,6 @@
 ---
 title: "Honest Attempts to Secure an Ecosystem"
 date: 2022-06-29
-categories: ["Security"]
 url: "/2022/06/29/honest-attempts-to-secure-an-ecosystem/"
 aliases: ["/2022/06/29/honest-attempts-to-secure-an-ecosystem.html"]
 ---

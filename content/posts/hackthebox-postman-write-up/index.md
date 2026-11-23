@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Postman"
 date: 2020-03-21
-categories: ["Challenges"]
 url: "/2020/03/21/hackthebox-postman/"
 aliases: ["/2020/03/21/hackthebox-postman.html"]
 ---

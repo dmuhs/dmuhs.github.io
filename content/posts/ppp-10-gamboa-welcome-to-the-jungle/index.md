@@ -1,7 +1,6 @@
 ---
 title: "PPP #10 Gamboa: Welcome to the Jungle"
 date: 2016-07-09
-categories: ["Personal"]
 url: "/2016/07/09/ppp-10-gamboa-welcome-to-the-jungle/"
 aliases: ["/2016/07/09/ppp-10-gamboa-welcome-to-the-jungle.html"]
 ---

@@ -1,22 +1,21 @@
 ---
 title: "The DEFCON 27 Packet Hacking Village Honeypot Challenge"
 date: 2019-08-15
-categories: ["Challenges"]
 url: "/2019/08/15/the-defcon-27-packet-hacking-village-honeypot-challenge/"
 aliases: ["/2019/08/15/the-defcon-27-packet-hacking-village-honeypot-challenge.html"]
 ---
 
 This year marks the first time I got to attend DEFCON Las Vegas — one of the largest hacker conferences in the world. There are a plethora of things to discover and try out. The talks can be streamed later, but the workshops and spontaneous gatherings? A challenge that caught my eye was the honeypot challenge in the packet hacking village. The setting is simple: You gain access to an SSH honeypot. In there you find challenges to solve and gather the credentials to the next one. The goal was to escalate through five machines and gain the secret passphrase.
 
-### What makes this CTF so special?
+## What makes this CTF so special?
 
 I have dealt quite a bit with application and network security. A lot of Capture the Flag (CTF) competitions are aimed at professionals to confront them with corner cases or brainteasers in their area of expertise. DEFCON is a very inclusive conference, however. This particular challenge was aimed at people who only brought along basic knowledge of the Linux command line.So without further ado, let’s check out the challenges of this year and how to solve them!
 
-### Challenge 0: Getting Attention
+## Challenge 0: Getting Attention
 
 The first challenge was to find out about the CTF. There were some funny notes left on the toilets of that floor. It just had an IP address and the word "challenge" written on it. Hell yeah, I’m in!
 
-### Challenge 1: Warmup
+## Challenge 1: Warmup
 
 SSH’ing into the box is easy — any password is accepted. Inside we find a readme file:
 
@@ -40,7 +39,7 @@ password: lullaby
 
 Alright, that only took some seconds. Just getting warmed up, though.
 
-### Challenge 2: Refreshing on Encodings
+## Challenge 2: Refreshing on Encodings
 
 On to the next challenge:
 
@@ -98,7 +97,7 @@ Note the weird spaces in e.g. the last sentence (i.e. the first *r* in *referenc
 
 When combining the characters, we get the word "**star**". Trying this as the password for the next IP, `172.20.87.10`, we get in.
 
-### Challenge 3: Image Encoding with a Twist
+## Challenge 3: Image Encoding with a Twist
 
 Logging into the next machine, we find only an image in the root directory. The tools we need are not on the honeypot, so we have to analyze the image locally. Due to a minor issue experienced by the CTF organizers, it turned out that the image could not be downloaded with standard tools like `scp` or `rsync`. No problem! We can exfiltrate the image as text. Just base64-encode it, copy the text to the local machine:
 
@@ -154,7 +153,7 @@ Password: LemonDrops
 
 On to the next one!
 
-### Challenge 4: A Morse Brainteaser
+## Challenge 4: A Morse Brainteaser
 
 In server #4 we find two kinds of directories, `_sheep`, `.sheep` (easily to be overseen), and a `readme.txt`:
 
@@ -204,7 +203,7 @@ $ cat ~/.sheep/.sheep/.sheep/.sheep/.sheep/.sheep/_sheep/.sheep/_sheep/.sheep/.s
 Password: ChimneyTops
 ```
 
-### Challenge 5: Weird Custom Encryption
+## Challenge 5: Weird Custom Encryption
 
 In the fifth and last server, we find a single text file again:
 
@@ -294,6 +293,6 @@ Now go to the Walkthrough Workshops staff table in the packet hacking village (i
 The song we’re searching for here is of course the timeless classic "Over the Rainbow" by Judy Garland. Now it becomes
 apparent that the previous passwords all were related to that song as well. Nice work!
 
-### In a Nutshell
+## In a Nutshell
 
 People who have already done some simpler CTFs wouldn’t be stunned by these challenges. However, the breadth of the possible audience is what makes these challenges so nice. Anyone could crack these challenges by using their brain and Google for the basic cryptographic challenges. Personally, each server gave me a nice brainteaser to keep my mind busy with while I was exploring DEFCON, meeting awesome people, and hacking with colleagues.A lot of thanks goes to [Ryan Mitchell](https://medium.com/u/bebb98d5c168) for coming up with the cool challenges and exchanging new ideas after the contest. Keep up the great work!

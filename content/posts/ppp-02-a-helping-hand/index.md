@@ -1,7 +1,6 @@
 ---
 title: "PPP #02 A Helping Hand"
 date: 2016-04-30
-categories: ["Personal"]
 url: "/2016/04/30/ppp-02-a-helping-hand/"
 aliases: ["/2016/04/30/ppp-02-a-helping-hand.html"]
 ---

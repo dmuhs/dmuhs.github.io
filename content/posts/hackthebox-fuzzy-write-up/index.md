@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Fuzzy"
 date: 2020-09-23
-categories: ["Challenges"]
 url: "/2020/09/23/hackthebox-fuzzy/"
 aliases: ["/2020/09/23/hackthebox-fuzzy.html"]
 ---

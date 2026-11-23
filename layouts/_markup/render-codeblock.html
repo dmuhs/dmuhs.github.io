@@ -1,0 +1,21 @@
+{{- $names := dict
+  "sh" "shell" "bash" "shell" "shell" "shell"
+  "python" "Python" "java" "Java" "js" "JavaScript" "php" "PHP"
+  "html" "HTML" "xml" "XML" "json" "JSON" "yaml" "YAML" "latex" "LaTeX" -}}
+{{- $label := printf "Code example %d" (add .Ordinal 1) -}}
+{{- with .Type }}{{ $label = printf "%s, %s" $label (index $names . | default .) }}{{ end -}}
+{{- with .Attributes.label }}{{ $label = . }}{{ end -}}
+{{- $classes := slice -}}
+{{- with .Attributes.class -}}
+  {{- range split . " " }}{{ if in (slice "terminal" "wide") . }}{{ $classes = $classes | append . }}{{ end }}{{ end -}}
+{{- end -}}
+{{- if not $classes -}}
+  {{- $longest := 0 -}}
+  {{- range split (replace .Inner "\t" "    ") "\n" }}{{ $longest = math.Max $longest (strings.RuneCount .) }}{{ end -}}
+  {{- if gt $longest 71 }}{{ $classes = slice "wide" }}{{ end -}}
+{{- end -}}
+{{- $code := .Inner -}}
+{{- if and .Type (ne .Type "sh") (not (in $classes "terminal")) -}}
+  {{- $code = (transform.HighlightCodeBlock .).Inner -}}
+{{- end -}}
+<pre{{ with $classes }} class="{{ delimit . " " }}"{{ end }} role="region" tabindex="0" aria-label="{{ $label }}"><code>{{ $code }}</code></pre>

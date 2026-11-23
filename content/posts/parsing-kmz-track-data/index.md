@@ -1,7 +1,6 @@
 ---
 title: "Parsing KMZ Track Data in Python"
 date: 2018-09-14
-categories: ["Software"]
 url: "/2018/09/14/parsing-kmz-track-data-in-python/"
 aliases: ["/2018/09/14/parsing-kmz-track-data-in-python.html"]
 ---

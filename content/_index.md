@@ -1,0 +1,15 @@
+---
+aliases:
+  - /posts.html
+  - /posts/
+  - /categories.html
+  - /categories/
+  - /category/challenges.html
+  - /category/challenges/
+  - /category/personal.html
+  - /category/personal/
+  - /category/security.html
+  - /category/security/
+  - /category/software.html
+  - /category/software/
+---

@@ -1,7 +1,6 @@
 ---
 title: "PPP #01 Come Fly With Me"
 date: 2016-04-28
-categories: ["Personal"]
 url: "/2016/04/28/ppp-01-come-fly-with-me/"
 aliases: ["/2016/04/28/ppp-01-come-fly-with-me.html"]
 ---

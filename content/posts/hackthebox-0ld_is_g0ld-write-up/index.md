@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox 0ld_is_g0ld"
 date: 2018-10-13
-categories: ["Challenges"]
 url: "/2018/10/13/hackthebox-0ld_is_g0ld/"
 aliases: ["/2018/10/13/hackthebox-0ld_is_g0ld.html"]
 ---

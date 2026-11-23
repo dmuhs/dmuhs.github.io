@@ -1,12 +1,9 @@
 ---
 title: "Construct Truffle Artifact Source Lists"
 date: 2020-05-12
-categories: ["Software"]
 url: "/2020/05/12/construct-truffle-artifact-source-lists/"
 aliases: ["/2020/05/12/construct-truffle-artifact-source-lists.html"]
 ---
-
-![Image](photo-of-truffles-on-the-plate-783153.jpg)
 
 This is a quick and dirty workaround for an issue that has been bugging me a lot. [Truffle](https://github.com/trufflesuite/truffle/) is one of the central, if not the most central development tool for building smart contracts on Ethereum to date. When compiling a Truffle project, the output is stored in `build/contracts` by default. An artifact simply a JSON object containing a plethora of data. A short sample from the [SKALE](https://github.com/skalenetwork/skale-manager) project:
 

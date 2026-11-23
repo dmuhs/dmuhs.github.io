@@ -1,7 +1,6 @@
 ---
 title: "PPP #11 Strolling through the Park"
 date: 2016-08-06
-categories: ["Personal"]
 url: "/2016/08/06/ppp-11-strolling-through-the-park/"
 aliases: ["/2016/08/06/ppp-11-strolling-through-the-park.html"]
 ---

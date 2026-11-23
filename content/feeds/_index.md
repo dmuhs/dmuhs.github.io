@@ -1,5 +1,7 @@
 ---
 title: "RSS"
 url: "/feeds/"
-outputs: ["legacyrss"]
+outputs: ["rss"]
+sitemap:
+  disable: true
 ---

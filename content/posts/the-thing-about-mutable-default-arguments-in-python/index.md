@@ -1,7 +1,6 @@
 ---
 title: "The Thing about Mutable Default Arguments in Python"
 date: 2018-10-10
-categories: ["Software"]
 url: "/2018/10/10/the-thing-about-mutable-default-arguments-in-python/"
 aliases: ["/2018/10/10/the-thing-about-mutable-default-arguments-in-python.html"]
 ---
@@ -62,7 +61,7 @@ Out[9]: [42, 1337]
 
 This fact can introduce some subtle bugs where lists contain elements that don’t belong in them as global usage of functions or objects work on the same data structure.
 
-#### Reasons for that Behaviour
+## Reasons for that Behaviour
 
 Think about it from the standpoint of a Python core developer. You could of course save a chunk of code for evaluating the default parameters. However, that code would be run with every function call if no argument is passed to it. Furthermore, someone has to manage the memory. If you evaluate your default arguments once, you can already allocate the necessary RAM they will use. Otherwise, you would also have to manage that with every default call.
 
@@ -70,7 +69,7 @@ You can even decide when your parameter variable is bound. An early binding (eva
 
 The only trade-off is that users have to be conscious about this kind of power the language gives them. For sure some programmers who are used to other languages may find it unintuitive when seeing it for the first time.
 
-#### Valid Uses
+## Valid Uses
 
 Ages ago Fredrik Lundh [wrote a decent article on this](http://effbot.org/zone/default-values.htm) where some valid uses are explained — still using some old Python syntax. Personally I find those uses lacking in readability and hard to maintain. If you need a cache, just explicitly write one and don’t use the implicit evaluation behaviour of Python. Still, it’s good knowledge! And it also mentions a pattern that is still valid today and the fix for our above-mentioned code snippet...
 

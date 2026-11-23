@@ -1,7 +1,6 @@
 ---
 title: "PPP #13 Goodbye Trip: Campana & Punta Chame"
 date: 2016-09-04
-categories: ["Personal"]
 url: "/2016/09/04/ppp-13-goodbye-trip-campana-punta-chame/"
 aliases: ["/2016/09/04/ppp-13-goodbye-trip-campana-punta-chame.html"]
 ---

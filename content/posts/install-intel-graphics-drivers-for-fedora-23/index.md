@@ -1,7 +1,6 @@
 ---
 title: "Install Intel Graphics Drivers for Fedora 23"
 date: 2016-06-29
-categories: ["Software"]
 url: "/2016/06/29/install-intel-graphics-drivers-for-fedora-23/"
 aliases: ["/2016/06/29/install-intel-graphics-drivers-for-fedora-23.html"]
 ---
@@ -24,6 +23,6 @@ sudo intel-linux-graphics-installer
 
 The installer takes a while to do its work. Just ignore all notifications of GNOME that the program is not responding. In the shell where you did the last call you can see the true progress. After the installation/ update progress a system reboot is required.
 
-![Image](intel-linux-graphics-installer.png)</a>
+![Image](intel-linux-graphics-installer.png)
 
-Note that the release names may vary and if you get a 404 in the installer RPM, just look [here](https://download.01.org/gfx/repos/repos/repos/fedora/23/x86_64/) for the latest version and replace the link above.
+Note that the release names may vary and if you get a 404 in the installer RPM, just look in [Intel's Fedora 23 package repository](https://download.01.org/gfx/repos/repos/repos/fedora/23/x86_64/) for the latest version and replace the link above.

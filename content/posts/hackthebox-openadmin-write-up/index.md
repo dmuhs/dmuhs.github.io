@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox OpenAdmin"
 date: 2020-01-09
-categories: ["Challenges"]
 url: "/2020/01/09/hackthebox-openadmin/"
 aliases: ["/2020/01/09/hackthebox-openadmin.html"]
 ---

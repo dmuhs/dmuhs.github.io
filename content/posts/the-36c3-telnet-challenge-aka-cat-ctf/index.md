@@ -1,7 +1,6 @@
 ---
 title: "36C3 Telnet Challenge (Cat CTF)"
 date: 2020-01-18
-categories: ["Challenges"]
 url: "/2020/01/18/36c3-telnet-challenge-cat-ctf/"
 aliases: ["/2020/01/18/36c3-telnet-challenge-cat-ctf.html"]
 ---

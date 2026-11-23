@@ -1,7 +1,6 @@
 ---
 title: "Java RMI and RCE"
 date: 2026-11-15
-categories: ["Security"]
 url: "/2026/11/15/java-rmi"
 ---
 

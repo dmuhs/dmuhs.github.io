@@ -1,7 +1,6 @@
 ---
 title: "Low-level Debugging of Stubborn Docker Containers"
 date: 2018-09-16
-categories: ["Software"]
 url: "/2018/09/16/low-level-debugging-of-stubborn-docker-containers/"
 aliases: ["/2018/09/16/low-level-debugging-of-stubborn-docker-containers.html"]
 ---

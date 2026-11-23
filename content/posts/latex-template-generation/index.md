@@ -1,7 +1,6 @@
 ---
 title: "Quick Hack: Generating PDFs with Python and XeTeX"
 date: 2018-01-10
-categories: ["Software"]
 url: "/2018/01/10/quick-hack-generating-pdfs-with-python-and-xetex/"
 aliases: ["/2018/01/10/quick-hack-generating-pdfs-with-python-and-xetex.html"]
 ---

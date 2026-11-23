@@ -1,7 +1,6 @@
 ---
 title: "PPP #03 New Lands"
 date: 2016-05-01
-categories: ["Personal"]
 url: "/2016/05/01/ppp-03-new-lands/"
 aliases: ["/2016/05/01/ppp-03-new-lands.html"]
 ---

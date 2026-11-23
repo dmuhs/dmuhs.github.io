@@ -1,7 +1,6 @@
 ---
 title: "Remembering my Dad"
 date: 2022-03-16
-categories: ["Personal"]
 url: "/2022/03/16/remembering-my-dad/"
 aliases: ["/2022/03/16/remembering-my-dad.html"]
 ---

@@ -1,7 +1,6 @@
 ---
 title: "PPP #05 Taboga - The Island of Flowers"
 date: 2016-05-15
-categories: ["Personal"]
 url: "/2016/05/15/ppp-05-taboga-the-island-of-flowers/"
 aliases: ["/2016/05/15/ppp-05-taboga-the-island-of-flowers.html"]
 ---
@@ -23,4 +22,4 @@ All in all Taboga is a really beautiful place to visit and worth every cent. Whi
 
 Baruc, an amazing friend from the trip put together this neat compilation. Thanks for that!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UlRwNBLgqxo" frameborder="0" allowfullscreen></iframe>
+[Baruc's compilation of the trip to Taboga (video on YouTube)](https://www.youtube.com/watch?v=UlRwNBLgqxo)

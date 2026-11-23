@@ -1,7 +1,6 @@
 ---
 title: "A Universal .zshrc File"
 date: 2026-02-15
-categories: ["Software"]
 url: "/2026/02/15/a-universal-zshrc-file/"
 aliases: ["/2026/02/15/a-universal-zshrc-file.html"]
 ---

@@ -1,7 +1,6 @@
 ---
 title: "PPP #12 Getting my Greens in Valle de Antón"
 date: 2016-08-13
-categories: ["Personal"]
 url: "/2016/08/13/ppp-12-getting-my-greens-in-valle-de-anton/"
 aliases: ["/2016/08/13/ppp-12-getting-my-greens-in-valle-de-anton.html"]
 ---

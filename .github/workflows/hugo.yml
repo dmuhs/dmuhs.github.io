@@ -7,17 +7,17 @@ permissions:
   contents: read
   pages: write
   id-token: write
-# Allow one concurrent deployment, cancelling in-progress runs.
+# Allow one concurrent deployment, and let an in-progress one finish.
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
       # >= 0.158.0 required: `locale` (hugo.toml) and `.Site.Language.Locale`
       # (legacyrss template) don't exist in earlier versions and fail the build.
-      HUGO_VERSION: 0.164.0
+      HUGO_VERSION: 0.169.0
     steps:
       - name: Install Hugo CLI (extended, for image processing)
         run: |
@@ -28,8 +28,24 @@ jobs:
         uses: actions/checkout@v7
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
+      - name: Restore processed images
+        id: restore
+        uses: actions/cache/restore@v6
+        with:
+          path: resources/_gen
+          key: hugo-${{ env.HUGO_VERSION }}-latest
+          restore-keys: hugo-${{ env.HUGO_VERSION }}-
       - name: Build Hugo site
         run: hugo --gc --minify
+      - name: Name the processed images
+        id: images
+        run: echo "key=hugo-${HUGO_VERSION}-$(find resources/_gen -type f | LC_ALL=C sort | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
+      - name: Save processed images
+        if: steps.images.outputs.key != steps.restore.outputs.cache-matched-key
+        uses: actions/cache/save@v6
+        with:
+          path: resources/_gen
+          key: ${{ steps.images.outputs.key }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

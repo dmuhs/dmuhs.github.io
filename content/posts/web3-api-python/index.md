@@ -1,7 +1,6 @@
 ---
 title: "The Web3 API has come to Python!"
 date: 2020-03-15
-categories: ["Software"]
 url: "/2020/03/15/the-web3-api-has-come-to-python/"
 aliases: ["/2020/03/15/the-web3-api-has-come-to-python.html"]
 ---
@@ -25,7 +24,9 @@ Hackathon projects, which especially the Ethereum system has lots of, typically 
 
 My goal for this hackathon was different. What if instead of building a ton of hacky with features I cannot maintain, I would instead focus on building maintainable software that people can actually use as a daily driver?
 
-![Image](https://i.imgflip.com/3soerm.jpg)
+![Image](what-if-i-told-you.jpg)
+
+Meme from [imgflip](https://imgflip.com/i/3soerm).
 
 So I sat down, read through the JS library and came up with a small roadmap that I would focus on for the coming three days. After all, the caffeine-fuelled coding rage part of the standard hackathon approach is something we don't have to drop necessarily.
 

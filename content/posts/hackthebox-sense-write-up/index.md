@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Sense"
 date: 2018-03-01
-categories: ["Challenges"]
 url: "/2018/03/01/hackthebox-sense/"
 aliases: ["/2018/03/01/hackthebox-sense.html"]
 ---

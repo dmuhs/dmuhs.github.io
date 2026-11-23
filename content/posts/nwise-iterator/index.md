@@ -1,7 +1,6 @@
 ---
 title: "N-wise Iteration in Python"
 date: 2017-04-17
-categories: ["Software"]
 url: "/2017/04/17/n-wise-iteration-in-python/"
 aliases: ["/2017/04/17/n-wise-iteration-in-python.html"]
 ---

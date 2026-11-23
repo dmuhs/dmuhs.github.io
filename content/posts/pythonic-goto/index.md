@@ -1,7 +1,6 @@
 ---
 title: "The \"Pythonic\" GOTO"
 date: 2015-06-15
-categories: ["Software"]
 url: "/2015/06/15/the-pythonic-goto/"
 aliases: ["/2015/06/15/the-pythonic-goto.html"]
 ---

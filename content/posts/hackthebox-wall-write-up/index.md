@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Wall"
 date: 2019-12-07
-categories: ["Challenges"]
 url: "/2019/12/07/hackthebox-wall/"
 aliases: ["/2019/12/07/hackthebox-wall.html"]
 ---

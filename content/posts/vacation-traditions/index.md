@@ -1,7 +1,6 @@
 ---
 title: "Vacation Traditions"
 date: 2023-01-13
-categories: ["Personal"]
 url: "/2023/01/13/vacation-traditions/"
 aliases: ["/2023/01/13/vacation-traditions.html"]
 ---

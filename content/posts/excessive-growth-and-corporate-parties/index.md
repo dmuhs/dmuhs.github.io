@@ -1,7 +1,6 @@
 ---
 title: "Excessive Growth and Corporate Parties"
 date: 2023-07-20
-categories: ["Personal"]
 url: "/2023/07/20/excessive-growth-and-corporate-parties/"
 aliases: ["/2023/07/20/excessive-growth-and-corporate-parties.html"]
 ---

@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{- $pages := cond .IsHome (where site.RegularPages "Section" "posts") .Pages -}}
+  <hgroup>
+    <h1>{{ cond .IsHome "Posts" .Title }}</h1>
+    {{- with $pages }}
+    <p>{{ len . }} {{ cond (eq (len .) 1) "post" "posts" }} since {{ (index .ByDate 0).Date.Format "January 2006" }}, newest first.</p>
+    {{- end }}
+  </hgroup>
+  <ul class="post-list">
+    {{- range $pages.ByDate.Reverse }}
+    <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time> <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+{{ end }}

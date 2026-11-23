@@ -1,7 +1,6 @@
 ---
 title: "PPP #08 Conquering Volcán Barú"
 date: 2016-06-13
-categories: ["Personal"]
 url: "/2016/06/13/ppp-08-conquering-volcan-baru/"
 aliases: ["/2016/06/13/ppp-08-conquering-volcan-baru.html"]
 ---
@@ -35,4 +34,4 @@ The six hours of hiking down again, were an absolute torture. Arriving in the ho
 
 Here's another small video with some impressions. Enjoy!
 
-<iframe width="580" height="326" src="https://www.youtube.com/embed/wvFwTp0Jerc?t=70" frameborder="0" allowfullscreen></iframe>
+[Impressions from Volcán Barú (video on YouTube, from 1:10)](https://www.youtube.com/watch?v=wvFwTp0Jerc&t=70s)

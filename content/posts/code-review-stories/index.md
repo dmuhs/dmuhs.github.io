@@ -1,7 +1,6 @@
 ---
 title: "A Code Review Story"
 date: 2019-07-28
-categories: ["Software"]
 url: "/2019/07/28/a-code-review-story/"
 aliases: ["/2019/07/28/a-code-review-story.html"]
 ---
@@ -43,11 +42,11 @@ class MyLogHandler:
         return logs
 ```
 
-### A few good things first
+## A few good things first
 
 The encapsulation for log message sanitization was nice in the overall program's context. The methods were separated nicely, code from external resources was marked and things worked all in all. Let's not forget to tailor some nice things into the review text. That keeps up morale and maintains a constructive atmosphere where good engineering is not taken for granted and possibly overlooked!
 
-### Nested function definitions
+## Nested function definitions
 
 The functions `is_valid` and `remove_duplicates` exist inside the `groom_logs` method. It is clear that the developer noticed, that these definitions are only needed inside the method, so it was a natural decision to include them in exactly that scope. The advantage is, that this avoids cluttering the overall namespace. This decision sacrifices two other properties however: Readability and testability.
 
@@ -63,7 +62,10 @@ def is_valid_log_entry(log_entry):
         return False
     if "message" not in log_entry.keys():
         return False
-    return Truedef remove_duplicate_logs(log_list: List[Dict[Any, Any]]):
+    return True
+
+
+def remove_duplicate_logs(log_list: List[Dict[Any, Any]]):
     # taken from https://stackoverflow.com/questions/9427163/remove-duplicate-dict-in-list-in-python
     seen = set()
     new_l = []
@@ -73,7 +75,10 @@ def is_valid_log_entry(log_entry):
             seen.add(t)
             new_l.append(d)
 
-    return new_lclass MyLogHandler:
+    return new_l
+
+
+class MyLogHandler:
     @staticmethod
     def groom_logs(my_artifact):
         log_list = my_artifact.get("logs")
@@ -85,7 +90,7 @@ def is_valid_log_entry(log_entry):
         return logs
 ```
 
-### The minor things
+## The minor things
 
 Now for the nitpicking. It’s the timeless classics that never get old in code reviews (and regularly are committed by myself as well):
 

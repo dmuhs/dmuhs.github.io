@@ -1,7 +1,6 @@
 ---
 title: "Geth and Prysm in Docker Compose"
 date: 2024-10-06
-categories: ["Software"]
 url: "/2024/10/06/geth-and-prysm-in-docker-compose/"
 aliases: ["/2024/10/06/geth-and-prysm-in-docker-compose.html"]
 ---

@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Traverxec"
 date: 2020-01-04
-categories: ["Challenges"]
 url: "/2020/01/04/hackthebox-traverxec/"
 aliases: ["/2020/01/04/hackthebox-traverxec.html"]
 ---

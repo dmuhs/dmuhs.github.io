@@ -1,7 +1,6 @@
 ---
 title: "Brace Expansion Is Hard"
 date: 2026-07-17
-categories: ["Security"]
 url: "/2026/07/17/brace-expansion-is-hard"
 ---
 

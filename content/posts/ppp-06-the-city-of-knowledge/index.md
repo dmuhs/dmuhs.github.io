@@ -1,7 +1,6 @@
 ---
 title: "PPP #06 The City of Knowledge"
 date: 2016-05-19
-categories: ["Personal"]
 url: "/2016/05/19/ppp-06-the-city-of-knowledge/"
 aliases: ["/2016/05/19/ppp-06-the-city-of-knowledge.html"]
 ---

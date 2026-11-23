@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Registry"
 date: 2021-02-13
-categories: ["Challenges"]
 url: "/2021/02/13/hackthebox-registry/"
 aliases: ["/2021/02/13/hackthebox-registry.html"]
 ---

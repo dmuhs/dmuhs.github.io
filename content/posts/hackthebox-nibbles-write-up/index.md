@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Nibbles"
 date: 2018-02-26
-categories: ["Challenges"]
 url: "/2018/02/26/hackthebox-nibbles/"
 aliases: ["/2018/02/26/hackthebox-nibbles.html"]
 ---

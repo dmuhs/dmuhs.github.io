@@ -1,0 +1,51 @@
+{{- $alt := .PlainText -}}
+{{- $caption := "" -}}
+{{- if and $alt (ne (lower $alt) "image") -}}{{- $caption = $alt -}}{{- end -}}
+{{- with .Page.Resources.GetMatch .Destination -}}
+  {{- $orig := . -}}
+  {{- $format := upper .MediaType.SubType -}}
+  {{- $bytes := len .Content -}}
+  {{- $weight := cond (ge $bytes 1048576) (printf "%.1f MB" (div (float $bytes) 1048576)) (printf "%d KB" (math.Max 1 (div $bytes 1024) | int)) -}}
+  {{- $animated := and (eq .MediaType.SubType "gif") (gt (strings.Count "\x21\xf9\x04" .Content) 1) -}}
+  {{- $photo := eq .MediaType.SubType "jpeg" -}}
+  {{- $fit := div (mul .Width 720) .Height -}}
+  {{- $wide := and (not $photo) (not $animated) (gt .Width 720) (gt $fit 720) -}}
+  {{- $shown := math.Min (cond $wide 1024 720) $fit .Width | int -}}
+  {{- $spec := printf "webp q85 %s" (cond $photo "photo" "drawing") -}}
+  {{- $steps := cond $wide (slice 720 $shown 1440 (mul $shown 2)) (slice $shown (mul $shown 2)) -}}
+  {{- $set := slice -}}
+  {{- range $steps -}}
+    {{- if lt . $orig.Width }}{{ $set = $set | append ($orig.Resize (printf "%dx %s" . $spec)) }}{{ end -}}
+  {{- end -}}
+  {{- if le $orig.Width (index $steps (sub (len $steps) 1)) }}{{ $set = $set | append ($orig.Process $spec) }}{{ end -}}
+  {{- $src := index $set 0 -}}
+  {{- range $set }}{{ if le .Width $shown }}{{ $src = . }}{{ end }}{{ end -}}
+  {{- $srcset := slice -}}
+  {{- range $set }}{{ $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) }}{{ end -}}
+  {{- $sizes := printf "(min-width: %dpx) %dpx, (min-width: 48em) calc(100vw - 4rem), calc(100vw - 2rem)" (add $shown 64) $shown -}}
+  {{- $link := "" -}}
+  {{- if $animated -}}
+    {{- $link = printf "Animation (%s, %s)" $format $weight -}}
+  {{- else if gt .Width $shown -}}
+    {{- $link = printf "Full-size image (%s, %d by %d pixels, %s)" $format .Width .Height $weight -}}
+  {{- end -}}
+  <figure{{ if $wide }} class="wide"{{ end }}>
+    <img src="{{ $src.RelPermalink }}"{{ if gt (len $set) 1 }} srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}"{{ end }} alt="{{ $alt }}" width="{{ $src.Width }}" height="{{ $src.Height }}"{{ if $.Ordinal }} loading="lazy"{{ end }} />
+    {{- if or $caption $link }}
+    <figcaption>
+      {{- with $caption }}{{ . }}{{ if and $link (not (findRE `[.!?…]$` .)) }}.{{ end }}{{ end -}}
+      {{- with $link }}{{ if $caption }} {{ end }}<a href="{{ $orig.RelPermalink }}">{{ . }}</a>{{ end -}}
+    </figcaption>
+    {{- end }}
+  </figure>
+{{- else -}}
+  {{- $u := urls.Parse .Destination -}}
+  {{- if $u.Host -}}
+    {{- $ext := path.Ext $u.Path | strings.TrimPrefix "." | upper -}}
+    {{- $text := printf "%s (%simage on %s)" ($caption | default "Image") (cond (ne $ext "") (printf "%s " $ext) "") $u.Host -}}
+    {{- if .IsBlock }}<p><a href="{{ .Destination }}">{{ $text }}</a></p>{{ else }}<a href="{{ .Destination }}">{{ $text }}</a>{{ end -}}
+  {{- else -}}
+    {{- warnf "%s: image %q is not a page resource, so it has no width and height" .Page.File.Path .Destination -}}
+    <img src="{{ .Destination | safeURL }}" alt="{{ $alt }}" />
+  {{- end -}}
+{{- end -}}

@@ -1,7 +1,6 @@
 ---
 title: "PPP #04 Turning the Tides"
 date: 2016-05-02
-categories: ["Personal"]
 url: "/2016/05/02/ppp-04-turning-the-tides/"
 aliases: ["/2016/05/02/ppp-04-turning-the-tides.html"]
 ---

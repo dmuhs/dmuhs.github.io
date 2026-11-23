@@ -1,0 +1,1079 @@
+/*! brutalist.css 3.2.13, 2026-11-23
+   MIT License. Copyright (c) 2026 Dominik Muhs. https://brutalist.spoons.fyi/license.txt */
+
+@layer reset, tokens, base, layout, components, utilities;
+
+@layer reset {
+	*,
+	::before,
+	::after {
+		box-sizing: border-box;
+	}
+	html {
+		-webkit-text-size-adjust: 100%;
+		text-size-adjust: 100%;
+	}
+	body {
+		margin: 0;
+	}
+	:is(img, svg, video, canvas, audio, iframe, embed, object) {
+		max-inline-size: 100%;
+	}
+	:is(img, svg, video, canvas):not([height]:not([width])) {
+		block-size: auto;
+	}
+	iframe {
+		border: 0;
+	}
+	[hidden]:not([hidden="until-found" i]) {
+		display: none !important;
+	}
+	button,
+	input,
+	select,
+	textarea,
+	::file-selector-button {
+		font: inherit;
+	}
+}
+
+@layer tokens {
+	:root {
+		color-scheme: light dark;
+
+		/* system-ui is in the Latin stack only. On Windows it resolves Japanese to Yu Gothic UI. */
+		--font-latin: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		--font-ja: "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", Meiryo, sans-serif;
+		--font-zh-hant: "Helvetica Neue", Arial, "PingFang TC", "Noto Sans TC", "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+		--font-mono:
+			ui-monospace, "SF Mono", Menlo, "Cascadia Mono", Consolas, "Noto Sans Mono", "BIZ UDGothic", "Noto Sans Mono CJK JP", "Osaka-Mono", "MS Gothic", monospace;
+		--font-body: var(--font-latin);
+
+		--fs-small: 0.875rem;
+		--fs-0: 1rem;
+		--fs-1: 1.2rem;
+		--fs-2: 1.44rem;
+		--fs-3: 1.728rem;
+		--fs-4: 2.074rem;
+		--fs-5: 2.488rem;
+		--fs-reading: 1.125rem;
+		--fs-table: 0.9375rem;
+		--fs-smaller: 0.875em;
+
+		--lh-tight: 1.2;
+		--lh-compact: 1.4;
+		--lh-body: 1.5;
+		--lh-body-cjk: 1.75;
+		--lh-tight-cjk: 1.4;
+		--lh-compact-cjk: 1.5;
+
+		--line-length: 66ch;
+		--line-length-cjk: 40ic;
+
+		--s-1: 0.25rem;
+		--s-2: 0.5rem;
+		--s-3: 0.75rem;
+		--s-4: 1rem;
+		--s-5: 1.25rem;
+		--s-6: 1.5rem;
+		--s-8: 2rem;
+		--s-10: 2.5rem;
+		--s-12: 3rem;
+		--s-16: 4rem;
+		--s-24: 6rem;
+
+		--page-width: 68rem;
+		--gutter: 2rem;
+		--margin-column: 17rem;
+		--control: 2.75rem;
+		--control-dense: 2rem;
+		--text-column: 45rem;
+		--target-height: 2.75rem;
+		--underline-hover: 0.1875rem;
+
+		--border-thin: 1px;
+		--border-normal: 2px;
+		--border-thick: 4px;
+		--radius-0: 0;
+		--radius-field: 2px;
+
+		--text: #111111;
+		--text-2: #4a4a4a;
+		--background: #ffffff;
+		--background-2: #f4f4f1;
+		--border: #767676;
+		--link: #1a0dab;
+		--link-visited: #681da8;
+		--accent: #c8102e;
+		--focus: #ffdd00;
+		--focus-text: #0b0c0c;
+		--backdrop: rgb(0 0 0 / 0.6);
+		--error: var(--accent);
+
+		--motion: 0ms;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--text: #e8e6e1;
+			--text-2: #b5b2ab;
+			--background: #121212;
+			--background-2: #1c1c1c;
+			--border: #8a8a8a;
+			--link: #8ab4f8;
+			--link-visited: #c58af9;
+			--accent: #ff6b5e;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		:root {
+			--motion: 150ms;
+		}
+	}
+
+	@media print {
+		:root {
+			color-scheme: light;
+			--text: #000000;
+			--text-2: #000000;
+			--background: #ffffff;
+			--background-2: #ffffff;
+			--border: #000000;
+			--link: #000000;
+			--link-visited: #000000;
+			--accent: #000000;
+		}
+	}
+}
+
+@layer base {
+	/* On the root, so that 1rlh is one line of body text at its base size. */
+	html {
+		line-height: var(--lh-body);
+		accent-color: var(--text);
+	}
+	body {
+		background: var(--background);
+		color: var(--text);
+		font-family: var(--font-body);
+		overflow-wrap: break-word;
+	}
+
+	:is(p, ul, ol, menu, dl, blockquote, aside, address, pre, table, figure, details, fieldset, hr) {
+		margin-block: 0 1rlh;
+		margin-inline: 0;
+	}
+	.row {
+		margin-block: 0 1rlh;
+	}
+	:is(p, ul, ol, menu, dl, blockquote, details, figcaption, math, h3, h4, h5, h6) {
+		max-inline-size: var(--line-length);
+	}
+	:is(pre, figure, table) {
+		max-inline-size: var(--text-column);
+	}
+	:is(li, dd, blockquote, td, th, details, aside, figure, dialog, [popover], [role="status"], [role="alert"]) > :last-child {
+		margin-block-end: 0;
+	}
+	:is(dialog, [popover], [role="status"], [role="alert"]) > :first-child {
+		margin-block-start: 0;
+	}
+	:is(blockquote, aside, details) {
+		padding-inline-start: var(--s-4);
+		border-inline-start: var(--border-thick) solid var(--text);
+	}
+	aside {
+		border-color: var(--accent);
+	}
+	:is(main ~ aside, aside:has(~ main)) {
+		padding-inline-start: 0;
+		border-inline-start: 0;
+	}
+	details {
+		border-color: var(--border);
+	}
+	:is(aside, pre, fieldset, label) {
+		font-size: var(--fs-0);
+	}
+	:is(small, sub, sup, rt, figcaption) {
+		font-size: var(--fs-small);
+	}
+	:is(h1, h2, h3, h4, h5, h6) :is(small, sub, sup) {
+		font-size: var(--fs-smaller);
+	}
+	blockquote footer,
+	blockquote > cite,
+	figcaption,
+	label > small,
+	::placeholder {
+		color: var(--text-2);
+	}
+	:is(b, strong, dt, caption, summary, legend, label) {
+		font-weight: 700;
+	}
+
+	:is(h1, h2, h3, h4, h5, h6) {
+		margin-block: 0 var(--s-4);
+		line-height: var(--lh-tight);
+		text-wrap: balance;
+	}
+	h1 {
+		font-size: var(--fs-4);
+	}
+	h2 {
+		margin-block-start: var(--section-gap, var(--s-16));
+		font-size: var(--fs-3);
+	}
+	h3 {
+		margin-block-start: var(--s-8);
+		font-size: var(--fs-1);
+	}
+	:is(h4, h5, h6) {
+		margin-block-start: var(--s-6);
+		font-size: var(--fs-0);
+	}
+	@media (min-width: 48em) {
+		h1 {
+			font-size: var(--fs-5);
+		}
+	}
+
+	:is(p, li, dd, figcaption, label > small) {
+		text-wrap: pretty;
+	}
+	a[href] {
+		color: var(--link);
+		text-decoration-thickness: from-font;
+		text-underline-offset: 0.15em;
+		&:visited {
+			color: var(--link-visited);
+		}
+		&:hover {
+			text-decoration-thickness: var(--underline-hover);
+		}
+		&:active {
+			color: inherit;
+		}
+	}
+	:is(ul, ol, menu) {
+		padding-inline-start: var(--s-6);
+	}
+	ol:is([start], :has(> :nth-child(100))) {
+		padding-inline-start: var(--s-10);
+	}
+	li {
+		margin-block: var(--s-1);
+	}
+	:is(ul, ol, menu):has(> li > p) > li + li {
+		margin-block-start: var(--s-4);
+	}
+	dd {
+		margin-inline-start: 0;
+		margin-block-end: var(--s-3);
+	}
+	li > p:not(:last-child),
+	blockquote > :has(+ :is(footer, cite)) {
+		margin-block-end: var(--s-2);
+	}
+	blockquote > cite {
+		display: block;
+		font-style: normal;
+	}
+	figcaption {
+		margin-block-start: var(--s-2);
+	}
+	hr {
+		border: 0;
+		border-block-start: var(--border-thin) solid var(--border);
+		margin-block-start: var(--s-8);
+	}
+	aside > b:first-child,
+	aside > :first-child > b:first-child {
+		color: var(--accent);
+	}
+	address {
+		font-style: normal;
+	}
+	:is(a, button, summary, label) > svg:not([width], [height]) {
+		block-size: 1em;
+		vertical-align: -0.125em;
+	}
+	:is(sub, sup) {
+		line-height: 0;
+	}
+	:is(ins, u) {
+		text-decoration-style: double;
+	}
+	mark {
+		padding-inline: 0.2em;
+	}
+	:is(code, kbd, samp, pre) {
+		font-family: var(--font-mono);
+		hyphens: manual;
+	}
+	:not(pre) > code {
+		padding-inline: 0.2em;
+		background: var(--background-2);
+	}
+	kbd {
+		padding-inline: 0.3em;
+		border: var(--border-thin) solid var(--text);
+		border-block-end-width: var(--border-normal);
+	}
+	pre {
+		padding: var(--s-4);
+		border: var(--border-thin) solid var(--border);
+		background: var(--background-2);
+		line-height: var(--lh-compact);
+		overflow: auto;
+	}
+
+	/* The value is drawn with a border, which survives forced colors and print. */
+	:is(meter, progress) {
+		inline-size: 10rem;
+		max-inline-size: 100%;
+		block-size: var(--s-3);
+		border: var(--border-thin) solid var(--text);
+		background: var(--background);
+		vertical-align: baseline;
+	}
+	progress {
+		appearance: none;
+	}
+	@supports selector(::-moz-meter-bar) {
+		meter {
+			appearance: none;
+		}
+	}
+	/* Chromium draws the bar of a meter at half its height. */
+	::-webkit-meter-bar {
+		grid-row: 1 / -1;
+	}
+	::-webkit-meter-bar,
+	::-webkit-progress-bar {
+		border: 0;
+		border-radius: var(--radius-0);
+		background: var(--background);
+	}
+	::-webkit-meter-optimum-value,
+	::-webkit-meter-suboptimum-value,
+	::-webkit-meter-even-less-good-value,
+	::-webkit-progress-value {
+		border-block-start: var(--s-3) solid var(--text);
+		background: none;
+	}
+	/* Chromium draws the value of a progress bar past its frame. */
+	::-webkit-progress-value {
+		border-block-start-width: calc(var(--s-3) - 2 * var(--border-thin));
+	}
+	::-moz-meter-bar,
+	::-moz-progress-bar {
+		border-block-start: var(--s-3) solid var(--text);
+		background: none;
+	}
+	progress:indeterminate {
+		border-style: dashed;
+	}
+	progress:indeterminate::-moz-progress-bar {
+		border: 0;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-block: var(--border-normal) solid var(--text);
+		font-size: var(--fs-table);
+		font-variant-numeric: tabular-nums;
+		line-height: var(--lh-compact);
+	}
+	caption {
+		padding-block-end: var(--s-2);
+	}
+	caption,
+	th:not([align]) {
+		text-align: start;
+	}
+	:is(th, td) {
+		padding-block: var(--s-2);
+		padding-inline: 0 var(--s-4);
+		vertical-align: top;
+		&:last-child {
+			padding-inline-end: 0;
+		}
+	}
+	:is(tbody, tfoot) tr:has(> * > button) > * {
+		vertical-align: baseline;
+	}
+	thead th,
+	tr:not(:has(td)) > th {
+		border-block-end: var(--border-thin) solid var(--text);
+		vertical-align: bottom;
+	}
+	tfoot :is(th, td) {
+		border-block-start: var(--border-thin) solid var(--text);
+	}
+	:is(th, td) button {
+		font-size: inherit;
+	}
+	th > button {
+		min-block-size: var(--s-6);
+		padding: 0;
+		border: 0;
+		font-weight: 700;
+		text-align: inherit;
+		white-space: nowrap;
+	}
+	/* From the monospace stack, so that a browser never mixes fallback fonts. */
+	th > button::after {
+		margin-inline-start: 0.25em;
+		font-family: var(--font-mono);
+		font-weight: 400;
+	}
+	th:is(:not([aria-sort]), [aria-sort="none"]) > button::after {
+		content: "\2195";
+		content: "\2195" / "";
+	}
+	th[aria-sort="ascending"] > button::after {
+		content: "\2191";
+		content: "\2191" / "";
+	}
+	th[aria-sort="descending"] > button::after {
+		content: "\2193";
+		content: "\2193" / "";
+	}
+	/* Padded and pulled back by as much, so that it cannot clip a focus ring. */
+	div[role="region"][tabindex] {
+		margin-block: calc(-1 * var(--s-2)) calc(1rlh - var(--s-2));
+		margin-inline: calc(-1 * var(--s-2));
+		padding: var(--s-2);
+		max-inline-size: calc(var(--text-column) + 2 * var(--s-2));
+		overflow: auto;
+		position: relative;
+		& > table {
+			inline-size: 100%;
+			max-inline-size: none;
+			margin-block-end: 0;
+			&:has(:is(th, td):nth-child(4)) {
+				min-inline-size: 38rem;
+			}
+			& > caption {
+				max-inline-size: calc(100vi - 2 * var(--s-4));
+			}
+		}
+	}
+
+	fieldset {
+		min-inline-size: 0;
+		padding: 0;
+		border: 0;
+	}
+	legend {
+		padding: 0;
+		margin-block-end: var(--s-2);
+		font-size: var(--fs-1);
+	}
+	label {
+		display: block;
+		max-inline-size: 40ch;
+		margin-block: var(--s-4) var(--s-1);
+		& > small {
+			display: block;
+			font-size: inherit;
+			font-weight: 400;
+		}
+		&:has(> input:is([type="checkbox"], [type="radio"])) {
+			min-block-size: var(--control);
+			margin-block: 0;
+			padding-block: calc((var(--control) - 1lh) / 2);
+			padding-inline-start: calc(var(--s-6) + var(--s-3));
+			font-weight: 400;
+			& > input:is([type="checkbox"], [type="radio"]) {
+				float: inline-start;
+				margin-block-start: calc((1lh - var(--s-6)) / 2);
+				margin-inline-start: calc(-1 * (var(--s-6) + var(--s-3)));
+			}
+		}
+	}
+	:where(button, select, textarea, input:not([type="checkbox"], [type="radio"], [type="image"])),
+	::file-selector-button {
+		min-block-size: var(--control);
+		border: var(--border-normal) solid var(--text);
+		background: var(--background);
+		color: var(--text);
+		font-size: var(--fs-0);
+		line-height: var(--lh-compact);
+	}
+	:where(input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="reset"], [type="image"]), select, textarea) {
+		display: block;
+		inline-size: min(100%, 40ch);
+		padding: var(--s-2) var(--s-3);
+		border-radius: var(--radius-field);
+		font-weight: 400;
+	}
+	:is(input[size], textarea[cols]) {
+		inline-size: auto;
+		max-inline-size: 100%;
+	}
+	input[type="number"] {
+		inline-size: min(100%, 16ch);
+	}
+	/* A break after a label that follows its radio button has to stay. */
+	:is(label + br, label > br):has(+ :is(.error, select, textarea, input:not([type="checkbox"], [type="radio"]))),
+	:is(select, textarea, input:not([type="checkbox"], [type="radio"]), label:has(> :is([type="checkbox"], [type="radio"]))) + br {
+		display: none;
+	}
+	[readonly] {
+		background: var(--background-2);
+	}
+	:is(input, select, textarea):is(:user-invalid, [aria-invalid="true"]) {
+		border-color: var(--error);
+		border-inline-start-width: var(--border-thick);
+	}
+	textarea {
+		resize: vertical;
+		&:not([rows]) {
+			min-block-size: var(--s-24);
+		}
+		&:not([rows], [cols]) {
+			field-sizing: content;
+		}
+	}
+	input[type="color"] {
+		padding: var(--s-1);
+	}
+	input:is([type="range"], [type="file"]) {
+		padding: 0;
+		border: 0;
+		background: none;
+	}
+	input[type="range"] {
+		margin-inline: 0;
+	}
+	input:is([type="checkbox"], [type="radio"]) {
+		flex: none;
+		inline-size: var(--s-6);
+		block-size: var(--s-6);
+		margin: 0;
+		vertical-align: middle;
+		& + label {
+			display: inline-block;
+			margin: 0;
+			padding: var(--s-2);
+			font-weight: 400;
+		}
+	}
+
+	:where(button, [type="submit"], [type="button"], [type="reset"]),
+	::file-selector-button {
+		padding: var(--s-2) var(--s-4);
+		border-radius: var(--radius-0);
+		font-weight: 700;
+		text-underline-offset: 0.15em;
+		cursor: pointer;
+		transition:
+			background-color var(--motion),
+			color var(--motion);
+	}
+	::file-selector-button {
+		margin-inline-end: var(--s-3);
+	}
+	:where(button, [type="submit"], [type="button"], [type="reset"]) {
+		&:hover {
+			background: var(--background-2);
+			text-decoration: underline;
+		}
+		@media (prefers-reduced-motion: no-preference) {
+			&:active {
+				translate: 0 1px;
+			}
+		}
+		&:has(+ :where(button, [type="submit"], [type="button"], [type="reset"])) {
+			margin-block-end: var(--s-2);
+			margin-inline-end: var(--s-2);
+		}
+	}
+	:where([type="submit"], form button:not([type]), button.filled),
+	mark,
+	.terminal {
+		--link: currentColor;
+		--link-visited: currentColor;
+		background: var(--text);
+		color: var(--background);
+		& :is(code, kbd) {
+			border-color: currentColor;
+			background: none;
+		}
+	}
+	@media screen and (forced-colors: none) {
+		/* The color stays the link's, visited or not, for the background to take. */
+		a[href]:not(:focus-visible) mark {
+			background: currentColor;
+			color: inherit;
+			-webkit-text-fill-color: var(--background);
+			text-decoration: underline var(--background);
+			text-decoration-thickness: inherit;
+		}
+	}
+	:where([type="submit"], form button:not([type]), button.filled):hover {
+		border-color: var(--text-2);
+		background: var(--text-2);
+	}
+	:where(button.text) {
+		border-width: var(--border-thin);
+		border-color: var(--border);
+		background: none;
+		color: var(--text);
+		font-weight: 400;
+		&:hover {
+			border-color: var(--border);
+			background: var(--background-2);
+		}
+	}
+	/* After the hover states, or a disabled button answers to hover. */
+	:where(button, select, textarea, input:not([type="checkbox"], [type="radio"], [type="range"], [type="file"], [type="image"])):disabled {
+		border: var(--border-normal) dashed var(--border);
+		background: var(--background-2);
+		color: var(--text-2);
+		text-decoration: none;
+		cursor: not-allowed;
+	}
+	:where(label:has(> input:disabled)) {
+		color: var(--text-2);
+		cursor: not-allowed;
+	}
+	:is(label, input, select, textarea, br) + fieldset,
+	:is(select, textarea, input:not([type="checkbox"], [type="radio"])) + label:has(> :is([type="checkbox"], [type="radio"])),
+	:is(select, textarea, input:not([type="checkbox"], [type="radio"])) + br + label:has(> :is([type="checkbox"], [type="radio"])),
+	:is(form, fieldset)
+		> :not(button, [type="submit"], [type="button"], [type="reset"], [type="hidden"], legend)
+		+ :where(button, [type="submit"], [type="button"], [type="reset"], .row, p:not(.error)),
+	:is(form, fieldset)
+		> :where(button, [type="submit"], [type="button"], [type="reset"])
+		+ :not(button, [type="submit"], [type="button"], [type="reset"], [type="hidden"]) {
+		margin-block-start: var(--s-4);
+	}
+	:is(.dense, th) button {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			inset-inline: 0;
+			inset-block: calc((100% - var(--target-height)) / 2);
+		}
+	}
+
+	summary {
+		padding-block: var(--s-2);
+		cursor: pointer;
+		& > :is(h1, h2, h3, h4, h5, h6) {
+			display: inline;
+			margin: 0;
+		}
+	}
+	dialog,
+	[popover] {
+		max-inline-size: min(34rem, calc(100vi - 2rem));
+		padding: var(--s-6);
+		border: var(--border-normal) solid var(--text);
+		background: var(--background);
+		color: var(--text);
+	}
+	dialog::backdrop {
+		background: var(--backdrop);
+	}
+	/* An empty live region is not hidden, so that a message put into it is still announced. */
+	:is([role="status"], [role="alert"]):empty {
+		margin-block: 0;
+	}
+	:where([role="status"], [role="alert"]):not(:empty) {
+		margin-block: 0 1rlh;
+		padding: var(--s-2) var(--s-4);
+		border-inline-start: var(--border-thick) solid var(--text);
+	}
+	[role="alert"] {
+		border-color: var(--error);
+	}
+	:is([role="status"], [role="alert"]):not([popover], dialog) {
+		display: block;
+	}
+
+	/* !important in the base layer, so no later layer and no ordinary rule can remove the ring. */
+	:focus-visible,
+	a:focus-visible > :is(img, video, svg:is([width], [height])) {
+		outline: 4px solid var(--focus-text) !important;
+		outline-offset: 2px !important;
+		box-shadow: 0 0 0 2px var(--focus) !important;
+	}
+	/* Transparent and never removed, because forced colors drop a shadow but repaint an outline. */
+	a:focus-visible {
+		outline-color: transparent !important;
+		background: var(--focus) !important;
+		box-shadow:
+			0 -2px var(--focus),
+			0 4px var(--focus-text) !important;
+		color: var(--focus-text) !important;
+		text-decoration: none !important;
+		& * {
+			background: none !important;
+			color: inherit !important;
+		}
+	}
+	@media (forced-colors: active) {
+		:focus-visible,
+		a:focus-visible {
+			outline: 4px solid Highlight !important;
+			box-shadow: none !important;
+		}
+	}
+
+	[lang|="ja"] {
+		--font-body: var(--font-ja);
+		line-break: strict;
+		quotes: "\300C" "\300D" "\300E" "\300F";
+	}
+	:is([lang|="zh-Hant"], [lang|="zh-TW"], [lang|="zh-HK"], [lang|="zh-MO"]) {
+		--font-body: var(--font-zh-hant);
+		quotes: "\300C" "\300D" "\300E" "\300F";
+	}
+	:where([lang|="ja"], [lang|="zh"]) {
+		font-family: var(--font-body);
+		font-synthesis: none;
+		text-autospace: normal;
+	}
+	/* On blocks only, so that a few Japanese words in a Latin sentence do not push that line apart. */
+	:where(
+		:is([lang|="ja"], [lang|="zh"]):not(
+			a,
+			abbr,
+			b,
+			bdi,
+			bdo,
+			cite,
+			code,
+			data,
+			del,
+			dfn,
+			em,
+			i,
+			ins,
+			kbd,
+			mark,
+			q,
+			ruby,
+			s,
+			samp,
+			small,
+			span,
+			strong,
+			sub,
+			sup,
+			time,
+			u,
+			var
+		)
+	) {
+		--lh-body: var(--lh-body-cjk);
+		--lh-tight: var(--lh-tight-cjk);
+		--lh-compact: var(--lh-compact-cjk);
+		--line-length: var(--line-length-cjk);
+		line-height: var(--lh-body);
+	}
+	:is(em, cite, dfn, i):is(:lang(ja), :lang(zh)) {
+		font-style: normal;
+		font-weight: 700;
+	}
+	:is(h1, h2, h3, nav, label):lang(ja) {
+		font-feature-settings: "palt";
+	}
+	aside:lang(ja):not(main ~ *, :has(~ main)) {
+		padding-inline-start: 2em;
+	}
+	:is(h1, h2, h3, button):lang(ja) {
+		word-break: auto-phrase;
+	}
+	/* After auto-phrase, so that a heading with wbr breaks only there. */
+	:is(h1, h2, h3):where(:has(wbr)):is(:lang(ja), :lang(zh)) {
+		word-break: keep-all;
+	}
+	[lang|="de"] {
+		hyphens: auto;
+		hyphenate-limit-chars: 8 3 3;
+	}
+}
+
+@layer layout {
+	body {
+		max-inline-size: var(--page-width);
+		margin-inline: auto;
+		padding-block: var(--s-4) var(--s-12);
+		padding-inline: var(--s-4);
+	}
+	@media (min-width: 48em) {
+		body {
+			padding-inline: var(--gutter);
+		}
+	}
+	:is(body, body > div:has(main)) {
+		& > header {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+			justify-content: space-between;
+			column-gap: var(--gutter);
+			padding-block-end: var(--s-2);
+			border-block-end: var(--border-thick) solid var(--text);
+		}
+		& > footer {
+			padding-block-start: var(--s-6);
+			border-block-start: var(--border-thin) solid var(--text);
+		}
+	}
+	main {
+		padding-block: var(--s-6) var(--s-16);
+	}
+	:target {
+		scroll-margin-block-start: var(--s-4);
+	}
+
+	nav {
+		&:not(aside *) {
+			&:not(:has(ul, ol)),
+			& :is(ul, ol):not(li *) {
+				text-wrap: balance;
+			}
+			&:not(:has(ul, ol)) > a:not(:last-child),
+			& :is(ul, ol):not(li *) > li:not(:last-child) {
+				margin-inline-end: var(--s-4);
+			}
+			& :is(ul, ol):not(li *) > li {
+				display: inline-block;
+			}
+		}
+		& :is(ul, ol):not(li *) {
+			max-inline-size: none;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		& li {
+			margin: 0;
+		}
+		& a {
+			display: inline-block;
+			padding-block: var(--s-2);
+			overflow-wrap: anywhere;
+			&:is([aria-current="page"], [aria-current="true"]) {
+				color: var(--text);
+				font-weight: 700;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.cols {
+		columns: 19rem 3;
+		column-gap: var(--gutter);
+		& > * {
+			max-inline-size: var(--line-length);
+			break-inside: avoid;
+		}
+		/* Safari balances the columns differently on each layout when a margin lies between items that avoid breaks, but not when the margin is inside them. */
+		& > :not(li) {
+			display: flow-root;
+		}
+		& > :first-child,
+		& > * > :first-child {
+			margin-block-start: 0;
+		}
+		&:is(ul, ol, menu) {
+			padding-inline-start: 0;
+			& > li {
+				margin-inline-start: var(--s-6);
+			}
+			&:is([start], :has(> :nth-child(100))) > li {
+				margin-inline-start: var(--s-10);
+			}
+		}
+	}
+
+	.reading {
+		display: flow-root;
+		font-size: var(--fs-reading);
+	}
+	@media screen and (min-width: 64em) {
+		.reading {
+			--note-space: calc(var(--margin-column) + var(--gutter));
+			padding-inline-end: var(--note-space);
+		}
+		:is(.reading, :is(.reading, .reading > :is(section, article)) > :is(section, article)) {
+			& > :is(h1, h2, hgroup, .wide) {
+				margin-inline-end: calc(-1 * var(--note-space));
+				clear: both;
+			}
+			& > div.wide[role="region"] {
+				margin-inline-end: calc(-1 * (var(--note-space) + var(--s-2)));
+			}
+			& > aside {
+				float: inline-end;
+				clear: inline-end;
+				inline-size: var(--margin-column);
+				margin-inline: var(--gutter) calc(-1 * var(--note-space));
+				margin-block: var(--s-1) 1rlh;
+				padding-block: var(--s-2) 0;
+				padding-inline: 0;
+				border-inline-start: 0;
+				border-block-start: var(--border-normal) solid var(--accent);
+			}
+		}
+	}
+
+	.dense {
+		--lh-body: var(--lh-compact);
+		--control: var(--control-dense);
+		--line-length: 75ch;
+		--section-gap: var(--s-12);
+		line-height: var(--lh-body);
+		&:is(:lang(ja), :lang(zh)) {
+			--line-length: var(--line-length-cjk);
+		}
+		& :where(button, input, select) {
+			padding-block: 0;
+		}
+	}
+
+	.terminal {
+		max-inline-size: calc(80ch + 2 * var(--s-4) + 2 * var(--border-thin));
+		border-color: var(--text);
+	}
+}
+
+@layer components {
+	:is(body, body > div:has(main)) > a[href^="#"]:not([href="#"]):first-child,
+	.skip {
+		position: absolute;
+		inset-block-start: 0;
+		inset-inline-start: 0;
+		padding: var(--s-2) var(--s-4);
+	}
+
+	:is(body, body > div:has(main)) > header > :first-child:not(nav, :has(nav)) {
+		margin: 0;
+		padding-block: var(--s-2);
+		font-size: var(--fs-1);
+		font-weight: 700;
+	}
+	hgroup > h1 ~ p,
+	.lead {
+		font-size: var(--fs-2);
+		line-height: var(--lh-compact);
+	}
+
+	.sec {
+		margin-inline-end: 0.3em;
+		color: var(--accent);
+		font-weight: 400;
+	}
+
+	.error {
+		max-inline-size: 40ch;
+		margin-block: 0 var(--s-1);
+		color: var(--error);
+		font-size: var(--fs-0);
+		font-weight: 700;
+	}
+}
+
+@layer utilities {
+	/* Important, so that a theme's colors cannot undo it, in a layer or outside one. */
+	@media (prefers-contrast: more) {
+		:root {
+			--text-2: var(--text) !important;
+			--border: var(--text) !important;
+		}
+	}
+	.visually-hidden,
+	:is(:is(body, body > div:has(main)) > a[href^="#"]:not([href="#"]):first-child, .skip):not(:focus, :active) {
+		position: absolute;
+		inline-size: 1px;
+		block-size: 1px;
+		padding: 0;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+	:is(.wide, .cols, .row) {
+		max-inline-size: none;
+	}
+	.num {
+		text-align: end;
+	}
+	.nowrap {
+		white-space: nowrap;
+	}
+	.stat {
+		font-size: var(--fs-2);
+		font-weight: 700;
+		line-height: var(--lh-tight);
+	}
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: last baseline;
+		gap: var(--s-3);
+		& > * {
+			margin: 0;
+		}
+		& > label {
+			align-self: end;
+		}
+	}
+
+	@media print {
+		body {
+			max-inline-size: none;
+			padding: 0;
+		}
+		nav,
+		aside:has(~ main),
+		dialog,
+		[popover] {
+			display: none;
+		}
+		.reading {
+			font-size: var(--fs-0);
+		}
+		pre {
+			white-space: pre-wrap;
+			overflow: visible;
+		}
+		div[role="region"][tabindex] {
+			overflow: visible;
+		}
+		tfoot {
+			display: table-row-group;
+		}
+		:is(h2, h3, tr, figure, blockquote, tbody:has(> tr > [scope="rowgroup"])) {
+			break-inside: avoid;
+		}
+		:is(h2, h3) {
+			break-after: avoid;
+		}
+		a[href^="http"]::after {
+			content: " <" attr(href) ">";
+			overflow-wrap: anywhere;
+			font-weight: 400;
+		}
+		/* An inverted surface would print white on white. */
+		mark,
+		.terminal,
+		button,
+		[type="submit"] {
+			background: none;
+			color: var(--text);
+		}
+		mark,
+		.terminal {
+			border: var(--border-thin) solid var(--text);
+		}
+	}
+}

@@ -1,7 +1,6 @@
 ---
 title: "VPN with openconnect in Ubuntu 14.10"
 date: 2015-05-12
-categories: ["Software"]
 url: "/2015/05/12/vpn-with-openconnect-in-ubuntu-1410/"
 aliases: ["/2015/05/12/vpn-with-openconnect-in-ubuntu-1410.html"]
 ---
@@ -23,7 +22,7 @@ After entering your sudo password you'll be rewarded with a dialog listing all y
 If you're from the TU Dresden, use the following data:
 
 **Gateway:** vpn2.zih.tu-dresden.de
-**CA Certificate:** Download [here](https://pki.pca.dfn.de/tu-dresden-ca/pub/cacert/chain.txt) (*Right click - Save link as<* tud-cacert.pem)
+**CA Certificate:** Download the [TU Dresden CA certificate chain](https://pki.pca.dfn.de/tu-dresden-ca/pub/cacert/chain.txt) (*Right click - Save link as<* tud-cacert.pem)
 
 Leave the rest as it is and connect through your network manager as usual. Enter your ZIH login and password and you're in! Speaking of, the ZIH also has [a page on openconnect](https://tu-dresden.de/die_tu_dresden/zentrale_einrichtungen/zih/dienste/datennetz_dienste/vpn/). But it's only available in German and doesn't consider the above problem with network-manager in Ubuntu 14.10.
 

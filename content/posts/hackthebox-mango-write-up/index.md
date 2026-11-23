@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Mango"
 date: 2020-08-08
-categories: ["Challenges"]
 url: "/2020/08/08/hackthebox-mango/"
 aliases: ["/2020/08/08/hackthebox-mango.html"]
 ---

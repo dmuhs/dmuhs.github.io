@@ -1,7 +1,6 @@
 ---
 title: "Converting MySQL Table Data to a Graphml File"
 date: 2017-06-03
-categories: ["Software"]
 url: "/2017/06/03/converting-mysql-table-data-to-a-graphml-file/"
 aliases: ["/2017/06/03/converting-mysql-table-data-to-a-graphml-file.html"]
 ---

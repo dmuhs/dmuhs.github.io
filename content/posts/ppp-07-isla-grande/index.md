@@ -1,7 +1,6 @@
 ---
 title: "PPP #07 Isla Grande"
 date: 2016-06-05
-categories: ["Personal"]
 url: "/2016/06/05/ppp-07-isla-grande/"
 aliases: ["/2016/06/05/ppp-07-isla-grande.html"]
 ---

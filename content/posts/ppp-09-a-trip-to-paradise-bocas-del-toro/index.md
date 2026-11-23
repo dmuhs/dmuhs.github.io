@@ -1,7 +1,6 @@
 ---
 title: "PPP #09 A Trip to Paradise - Bocas del Toro"
 date: 2016-06-19
-categories: ["Personal"]
 url: "/2016/06/19/ppp-09-a-trip-to-paradise-bocas-del-toro/"
 aliases: ["/2016/06/19/ppp-09-a-trip-to-paradise-bocas-del-toro.html"]
 ---

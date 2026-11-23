@@ -1,7 +1,6 @@
 ---
 title: "HackTheBox Obscurity"
 date: 2020-01-12
-categories: ["Challenges"]
 url: "/2020/01/12/hackthebox-obscurity/"
 aliases: ["/2020/01/12/hackthebox-obscurity.html"]
 ---

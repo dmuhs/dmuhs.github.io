@@ -1,7 +1,6 @@
 ---
 title: "My New (old) Blog on Github Pages"
 date: 2017-03-25
-categories: ["Software"]
 url: "/2017/03/25/my-new-old-blog-on-github-pages/"
 aliases: ["/2017/03/25/my-new-old-blog-on-github-pages.html"]
 ---
@@ -12,7 +11,7 @@ After the exams, I had some free hours so I decided to show my blog some more lo
 
 I had a thorough look at [Flex](https://github.com/alexandrevicenzi/Flex), [Elegant](https://github.com/talha131/pelican-elegant), and many other popular themes but none of them struck me as *really minimalist*. So even though I'm more of a backend-dev I decided to dust off my questionable CSS skills and give it a shot. Turns out a lot has changed since I last developed websites. Animations without JS? Magic! The whole thing turned out pretty neat and I even [published the code on Github](https://github.com/dmuhs/hebe). Feel free to leave feedback!In this post I'll explain some of my ideas about *Hebe*, a "truly" minimalist [Pelican](https://getpelican.com) blog theme.
 
-#### Cleaning Up
+## Cleaning Up
 
 First I started playing around with the old theme. I removed all things I thought were unnecessary and too distracting:
 
@@ -23,7 +22,7 @@ First I started playing around with the old theme. I removed all things I though
 
 If I had a search field, I also would have removed it. Whenever I look at a blog I easily get distracted by these elements. I usually stumble across interesting articles through [Hackernews](http://news.ycombinator.com/) or simple Google searches. I look at articles because of their content. I don't care for other related posts, I would never ever do a tag search, I usually don't comment and why would I browse a category as generic as *programming*? Although if they're too specific they lose their purpose of grouping content. So their relevance is secondary at most. That's why I removed them from the article view.Another point that is worth mentioning is the menu length. I decided to go for a maximum of three links. I never visited a blog where I thought *"Wow, I should immediately follow them on LinkedIn, Twitter, Facebook, check out their Tumblr blog, like all their YT videos, and donate them some Bitcoin"*. I think I'm not alone in this. However when I read an interesting article on a certain programming problem or similar I regularly find myself looking people up on Github to find out whether they have other interesting projects I could learn something from. That's why I also included mine in the menu above.
 
-#### Typography
+## Typography
 
 So in my minimalist rage, I needed another way to structure and separate my content than horizontal and vertical rules. My first idea was to use different versions of at most three fonts. On this blog you will find:
 
@@ -43,18 +42,18 @@ For possible followers there are links to Atom and RSS feeds at the bottom. If t
 
 ![Image](hebe-footer.png)
 
-#### Minimalist Colouring
+## Minimalist Colouring
 
 This is a simple one. I presented the first black/ white draft to some of my friends and their main point of critique was that it lacked colour. I quickly went for an orange tone because I liked the contrast that still kept the theme happy and bright. To keep the clean style I just added some accents here and there, though - most importantly highlighting the *About Me* link in the menu. To still keep the attention on the content in the main view I tried to just add colour at the top and bottom, wrapping the content section in the middle.When a reader clicks on an article I wanted to allow for more colour. This is mainly because I often share code and syntax highlighting is a must for readability. To [KISS](https://en.wikipedia.org/wiki/KISS_principle) I went for a monochromatic scheme. Because I couldn't find a fitting [Pygments style](http://pygments.org/docs/styles/) I simply invented my own. Here's the palette:
 
 ![Image](hebe-colours.png)
 
-If you want to have a look at the complete Pygments style just check out the complete CSS file [here](https://github.com/dmuhs/hebe/blob/master/static/css/pygment.css).
+If you want to have a look at the complete Pygments style just check out [the complete CSS file on GitHub](https://github.com/dmuhs/hebe/blob/master/static/css/pygment.css).
 
-#### Few Effects
+## Few Effects
 
 I admit that most effects weren't necessary. But I never used animations in CSS3 and this was a good chance to tinker around with them. It all boils down to a limited set of animated elements. The most obvious ones are the slight rotation of the blog title and the colour transitions of the links when hovered. I later found [this interesting article](http://tobiasahlin.com/blog/css-trick-animating-link-underlines/) by Tobias Ahlin and used the code on my menu bar.For the content area, I thought that syntax highlighting and font styles were more than enough "noise". The images looked a little out of place, though. That's why I added some round corners and slight shadow drops to give them a clean and tidy look - like high-quality photos lying on a polished table.
 
-#### Further Development
+## Further Development
 
 For sure I'll tweak things here and there. Maybe I'll also add support for more features to keep up with the more popular and professional themes. For now, it's getting the job done very well for me. **Pull Requests are welcome, of course!**.

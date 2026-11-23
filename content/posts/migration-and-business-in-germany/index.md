@@ -1,7 +1,6 @@
 ---
 title: "Migration and Business in Germany"
 date: 2024-09-14
-categories: ["Personal"]
 url: "/2024/09/14/migration-and-business-in-germany/"
 aliases: ["/2024/09/14/migration-and-business-in-germany.html"]
 ---

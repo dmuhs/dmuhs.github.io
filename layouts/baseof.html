@@ -1,0 +1,57 @@
+{{- $title := site.Title -}}
+{{- if not .IsHome -}}
+  {{- $page := cond (eq .Kind "404") "Page Not Found" (.Title | plainify | htmlUnescape) -}}
+  {{- $stop := cond (gt (len (findRE `[.!?,:;]$` $page)) 0) "" "." -}}
+  {{- $title = printf "%s%s %s" $page $stop site.Title -}}
+{{- end -}}
+{{- $description := .Description -}}
+{{- if and (not $description) .IsPage (eq .Section "posts") -}}
+  {{- $description = .Summary | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace -}}
+{{- end -}}
+{{- $type := "" -}}
+{{- if .IsPage -}}
+  {{- $type = "reading" -}}
+{{- else if in (slice "home" "section") .Kind -}}
+  {{- $type = "dense" -}}
+{{- end -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ $title }}</title>
+    {{- with $description }}
+    <meta name="description" content="{{ . }}" />
+    {{- end }}
+    <meta property="og:title" content="{{ $title }}" />
+    {{- with $description }}
+    <meta property="og:description" content="{{ . }}" />
+    {{- end }}
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="{{ if and .IsPage (eq .Section "posts") }}article{{ else }}website{{ end }}" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="/css/brutalist.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+    <link rel="icon" type="image/png" href="https://favicons.spoons.fyi/icons/light/sans/S.png" />
+    <link rel="icon" type="image/png" href="https://favicons.spoons.fyi/icons/light/sans/S.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="https://favicons.spoons.fyi/icons/dark/sans/S.png" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="https://favicons.spoons.fyi/icons/light/sans/S.png" />
+    <link rel="alternate" type="application/rss+xml" href="/feeds/all.rss.xml" title="{{ site.Title }}, all posts" />
+  </head>
+  <body>
+    <a href="#main">Skip to main content</a>
+    <header>
+      <a href="/">{{ site.Title }}</a>
+      <nav aria-label="Primary">
+        {{ with site.GetPage "/about" }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}
+      </nav>
+    </header>
+    <main id="main"{{ with $type }} class="{{ . }}"{{ end }}>
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer>
+      <p>Written by {{ site.Params.author }}. No cookies, no trackers, no scripts.</p>
+      <p>You can also subscribe to the <a href="/feeds/all.rss.xml" rel="alternate" type="application/rss+xml">RSS feed</a>.</p>
+    </footer>
+  </body>
+</html>

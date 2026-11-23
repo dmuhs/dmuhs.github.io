@@ -1,7 +1,6 @@
 ---
 title: "Visualizing IP Connections in Python"
 date: 2016-06-27
-categories: ["Software"]
 url: "/2016/06/27/visualizing-ip-connections-in-python/"
 aliases: ["/2016/06/27/visualizing-ip-connections-in-python.html"]
 ---
@@ -55,6 +54,6 @@ nx.draw(G, pos, node_color='c',edge_color='k', with_labels=True)
 
 The above code results in the following image (here scaled to 1920px):
 
-![Image](networkx-network.png)</a>
+![Image](networkx-network.png)
 
-You can also find the full-size image (7250×5793px) [here](networkx-network.png).
+You can also find the [full-size image (7250×5793px)](networkx-network.png).

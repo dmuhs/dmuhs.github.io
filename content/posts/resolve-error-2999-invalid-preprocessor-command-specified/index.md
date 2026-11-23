@@ -1,7 +1,6 @@
 ---
 title: "ERROR 2999: Invalid preprocessor command specified"
 date: 2016-06-03
-categories: ["Software"]
 url: "/2016/06/03/error-2999-invalid-preprocessor-command-specified/"
 aliases: ["/2016/06/03/error-2999-invalid-preprocessor-command-specified.html"]
 ---
