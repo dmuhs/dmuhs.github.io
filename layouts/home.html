@@ -1,6 +1,7 @@
 {{ define "main" }}
   {{- $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
   <h1 class="visually-hidden">{{ site.Title }}</h1>
+  {{ .Content }}
   {{- with site.GetPage "/tools" }}
   <h2>{{ .Title }}</h2>
   <dl>
