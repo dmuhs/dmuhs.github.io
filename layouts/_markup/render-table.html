@@ -1,0 +1,28 @@
+{{- $number := add .Ordinal 1 -}}
+{{- $caption := .Attributes.caption -}}
+{{- $id := printf "table-%d" $number -}}
+<div{{ with .Attributes.class }} class="{{ . }}"{{ end }} role="region" tabindex="0"{{ if $caption }} aria-labelledby="{{ $id }}"{{ else }} aria-label="Table {{ $number }}"{{ end }}>
+  <table>
+    {{- with $caption }}
+    <caption id="{{ $id }}">{{ . }}</caption>
+    {{- end }}
+    <thead>
+      {{- range .THead }}
+      <tr>
+        {{- range . }}
+        <th scope="col"{{ if eq .Alignment "right" }} class="num"{{ end }}>{{ .Text }}</th>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </thead>
+    <tbody>
+      {{- range .TBody }}
+      <tr>
+        {{- range . }}
+        <td{{ if eq .Alignment "right" }} class="num"{{ end }}>{{ .Text }}</td>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</div>

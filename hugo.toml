@@ -22,6 +22,8 @@ disableAliases = true
     # Don't wrap a standalone image in <p>, so the render hook's block-level
     # <figure> is valid HTML (no empty paragraphs around each image).
     wrapStandAloneImageWithinParagraph = false
+    [markup.goldmark.parser.attribute]
+      block = true
   [markup.highlight]
     noClasses = false
 
