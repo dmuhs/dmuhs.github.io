@@ -1,3 +1,5 @@
+{{- "/404 /404/missing 200\n" -}}
+{{- "/404.html /404/missing 200\n" -}}
 {{- range $page := site.Pages -}}
   {{- range .Aliases -}}
     {{- printf "%s %s 301\n" . $page.RelPermalink -}}
