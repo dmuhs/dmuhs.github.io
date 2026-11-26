@@ -1,7 +1,7 @@
 ---
 title: "soot.css"
 host: "soot.spoons.fyi"
-description: "Styles small websites with a lightweight, classless stylesheet."
+description: "My first classless stylesheet, and where Brutalist started."
 weight: 5
 ---
 
