@@ -1,0 +1,20 @@
+{{ define "main" }}
+  {{- $posts := (where site.RegularPages "Section" "posts").ByDate.Reverse -}}
+  <h1 class="visually-hidden">{{ site.Title }}</h1>
+  {{- with site.GetPage "/tools" }}
+  <h2>{{ .Title }}</h2>
+  <dl>
+    {{- range .Pages }}
+    <dt><a href="https://{{ .Params.host }}/">{{ .Params.host }}</a></dt>
+    <dd>{{ .Description }}</dd>
+    {{- end }}
+  </dl>
+  {{- end }}
+  <h2>Posts</h2>
+  {{ partial "post-list.html" (first 10 $posts) }}
+  {{- if gt (len $posts) 10 }}
+  {{- with site.GetPage "/posts" }}
+  <p><a href="{{ .RelPermalink }}">All {{ len $posts }} posts</a></p>
+  {{- end }}
+  {{- end }}
+{{ end }}

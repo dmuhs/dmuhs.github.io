@@ -1,5 +1,5 @@
 ---
 title: "Posts"
-build:
-  render: never
+aliases:
+  - /posts.html
 ---

@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "About"
 date: 2019-11-11
 url: "/pages/about-me/"
 aliases: ["/pages/about-me.html"]

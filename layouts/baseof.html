@@ -43,6 +43,8 @@
     <header>
       <a href="/">{{ site.Title }}</a>
       <nav aria-label="Primary">
+        {{ with site.GetPage "/tools" }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}
+        {{ with site.GetPage "/posts" }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}
         {{ with site.GetPage "/about" }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}
       </nav>
     </header>
@@ -50,8 +52,7 @@
       {{ block "main" . }}{{ end }}
     </main>
     <footer>
-      <p>Written by {{ site.Params.author }}. No cookies, no trackers, no scripts.</p>
-      <p>You can also subscribe to the <a href="/feeds/all.rss.xml" rel="alternate" type="application/rss+xml">RSS feed</a>.</p>
+      <p>Written by {{ site.Params.author }}. <a href="/feeds/all.rss.xml" rel="alternate" type="application/rss+xml">RSS feed</a>. <a href="mailto:{{ site.Params.email }}">Reply by email</a>.</p>
     </footer>
   </body>
 </html>

@@ -1,7 +1,5 @@
 ---
 aliases:
-  - /posts.html
-  - /posts/
   - /categories.html
   - /categories/
   - /category/challenges.html

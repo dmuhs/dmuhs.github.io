@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{- range .Pages }}
+  <h2 id="{{ .File.ContentBaseName }}">{{ .Title }}</h2>
+  {{ .Content }}
+  <p><a href="https://{{ .Params.host }}/">{{ .Params.host }}</a></p>
+  {{- end }}
+{{ end }}

@@ -6,6 +6,7 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   author = "Dominik Muhs"
+  email = "spoons.fyi@pm.me"
 
 # Each post/page pins its exact path via the `url` front-matter key, because the
 # slug rarely matches the bundle directory name (a Pelican-migration artifact).
