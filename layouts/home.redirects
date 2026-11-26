@@ -1,0 +1,8 @@
+{{- range $page := site.Pages -}}
+  {{- range .Aliases -}}
+    {{- printf "%s %s 301\n" . $page.RelPermalink -}}
+    {{- if not (strings.HasSuffix . ".html") -}}
+      {{- printf "%s/ %s 301\n" . $page.RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

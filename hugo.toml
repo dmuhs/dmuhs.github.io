@@ -3,6 +3,7 @@ locale = "en-us"
 title = "spoons.fyi"
 timeZone = "Europe/Berlin"       # match the old Pelican TIMEZONE (dates in feeds / <time>)
 disableKinds = ["taxonomy", "term"]
+disableAliases = true
 
 [params]
   author = "Dominik Muhs"
@@ -10,9 +11,8 @@ disableKinds = ["taxonomy", "term"]
 
 # Each post/page pins its exact path via the `url` front-matter key, because the
 # slug rarely matches the bundle directory name (a Pelican-migration artifact).
-# The old Pelican ".html" paths are preserved as `aliases`, which Hugo renders as
-# redirect stubs -- GitHub Pages serves no server-side redirects, so the stub file
-# at the old path is what keeps those URLs alive.
+# The old Pelican ".html" paths are preserved as `aliases`, which the `redirects`
+# output format writes to `_redirects`, so Cloudflare answers them with a 301.
 
 [permalinks]
   posts = "/:year/:month/:day/:slug/"
@@ -29,6 +29,15 @@ disableKinds = ["taxonomy", "term"]
 [outputFormats.rss]
   baseName = "all.rss"
 
+[mediaTypes."text/redirects"]
+  delimiter = ""
+
+[outputFormats.redirects]
+  mediaType = "text/redirects"
+  baseName = "_redirects"
+  isPlainText = true
+  notAlternative = true
+
 [outputs]
-  home = ["html"]
+  home = ["html", "redirects"]
   section = ["html"]
