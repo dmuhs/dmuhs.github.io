@@ -43,9 +43,11 @@
     <header>
       <a href="/">{{ site.Title }}</a>
       <nav aria-label="Primary">
-        {{ with site.GetPage "/tools" }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}
-        {{ with site.GetPage "/posts" }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}
-        {{ with site.GetPage "/about" }}<a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}
+        {{- range slice "/tools" "/posts" "/about" }}
+        {{- with site.GetPage . }}
+        <a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ else if .IsAncestor $ }} aria-current="true"{{ end }}>{{ .Title }}</a>
+        {{- end }}
+        {{- end }}
       </nav>
     </header>
     <main id="main"{{ with $type }} class="{{ . }}"{{ end }}>
